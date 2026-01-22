@@ -39,7 +39,7 @@ public class Eventnote implements Serializable {
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="USERID", nullable=false)
-	private Useraccount useraccount;
+	private UserAccount useraccount;
 
 	public Eventnote() {
 	}
@@ -98,11 +98,11 @@ public class Eventnote implements Serializable {
 		return eventeventnotexref;
 	}
 
-	public Useraccount getUseraccount() {
+	public UserAccount getUseraccount() {
 		return this.useraccount;
 	}
 
-	public void setUseraccount(Useraccount useraccount) {
+	public void setUseraccount(UserAccount useraccount) {
 		this.useraccount = useraccount;
 	}
 

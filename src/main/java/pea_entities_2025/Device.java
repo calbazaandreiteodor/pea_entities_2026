@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.Event;
+
 import java.util.List;
 
 
@@ -130,7 +132,7 @@ public class Device implements Serializable {
 	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ORGANISATIONALUNITID")
-	private Organisationalunit organisationalunit;
+	private OrganisationalUnit organisationalunit;
 
 	//bi-directional many-to-one association to Site
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -472,11 +474,11 @@ public class Device implements Serializable {
 		this.modeltype = modeltype;
 	}
 
-	public Organisationalunit getOrganisationalunit() {
+	public OrganisationalUnit getOrganisationalunit() {
 		return this.organisationalunit;
 	}
 
-	public void setOrganisationalunit(Organisationalunit organisationalunit) {
+	public void setOrganisationalunit(OrganisationalUnit organisationalunit) {
 		this.organisationalunit = organisationalunit;
 	}
 

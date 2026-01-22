@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.AffectedPremise;
+
 import java.util.List;
 
 
@@ -36,7 +38,7 @@ public class Locationofflooding implements Serializable {
 
 	//bi-directional many-to-one association to Affectedpremise
 	@OneToMany(mappedBy="locationofflooding")
-	private List<Affectedpremise> affectedpremises;
+	private List<AffectedPremise> affectedpremises;
 
 	public Locationofflooding() {
 	}
@@ -81,22 +83,22 @@ public class Locationofflooding implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Affectedpremise> getAffectedpremises() {
+	public List<AffectedPremise> getAffectedpremises() {
 		return this.affectedpremises;
 	}
 
-	public void setAffectedpremises(List<Affectedpremise> affectedpremises) {
+	public void setAffectedpremises(List<AffectedPremise> affectedpremises) {
 		this.affectedpremises = affectedpremises;
 	}
 
-	public Affectedpremise addAffectedpremis(Affectedpremise affectedpremis) {
+	public AffectedPremise addAffectedpremis(AffectedPremise affectedpremis) {
 		getAffectedpremises().add(affectedpremis);
 		affectedpremis.setLocationofflooding(this);
 
 		return affectedpremis;
 	}
 
-	public Affectedpremise removeAffectedpremis(Affectedpremise affectedpremis) {
+	public AffectedPremise removeAffectedpremis(AffectedPremise affectedpremis) {
 		getAffectedpremises().remove(affectedpremis);
 		affectedpremis.setLocationofflooding(null);
 

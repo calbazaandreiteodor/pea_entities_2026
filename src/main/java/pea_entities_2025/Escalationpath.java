@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.resourcemanagement.Crew;
+
 import java.util.List;
 
 
@@ -52,7 +54,7 @@ public class Escalationpath implements Serializable {
 
 	//bi-directional many-to-many association to Organisationalunit
 	@ManyToMany(mappedBy="escalationpaths")
-	private List<Organisationalunit> organisationalunits;
+	private List<OrganisationalUnit> organisationalunits;
 
 	public Escalationpath() {
 	}
@@ -135,11 +137,11 @@ public class Escalationpath implements Serializable {
 		this.standardband = standardband;
 	}
 
-	public List<Organisationalunit> getOrganisationalunits() {
+	public List<OrganisationalUnit> getOrganisationalunits() {
 		return this.organisationalunits;
 	}
 
-	public void setOrganisationalunits(List<Organisationalunit> organisationalunits) {
+	public void setOrganisationalunits(List<OrganisationalUnit> organisationalunits) {
 		this.organisationalunits = organisationalunits;
 	}
 

@@ -49,17 +49,17 @@ public class Locktoken implements Serializable {
 	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ORGANISATIONALUNITID", nullable=false)
-	private Organisationalunit organisationalunit;
+	private OrganisationalUnit organisationalunit;
 
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="PROPOSEDUSERACCOUNTID")
-	private Useraccount useraccount1;
+	private UserAccount useraccount1;
 
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="USERACCOUNTID", nullable=false)
-	private Useraccount useraccount2;
+	private UserAccount useraccount2;
 
 	public Locktoken() {
 	}
@@ -104,27 +104,27 @@ public class Locktoken implements Serializable {
 		this.locktokenstatus = locktokenstatus;
 	}
 
-	public Organisationalunit getOrganisationalunit() {
+	public OrganisationalUnit getOrganisationalunit() {
 		return this.organisationalunit;
 	}
 
-	public void setOrganisationalunit(Organisationalunit organisationalunit) {
+	public void setOrganisationalunit(OrganisationalUnit organisationalunit) {
 		this.organisationalunit = organisationalunit;
 	}
 
-	public Useraccount getUseraccount1() {
+	public UserAccount getUseraccount1() {
 		return this.useraccount1;
 	}
 
-	public void setUseraccount1(Useraccount useraccount1) {
+	public void setUseraccount1(UserAccount useraccount1) {
 		this.useraccount1 = useraccount1;
 	}
 
-	public Useraccount getUseraccount2() {
+	public UserAccount getUseraccount2() {
 		return this.useraccount2;
 	}
 
-	public void setUseraccount2(Useraccount useraccount2) {
+	public void setUseraccount2(UserAccount useraccount2) {
 		this.useraccount2 = useraccount2;
 	}
 

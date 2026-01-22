@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="pea_entity">
-		<class>pea_entities_2025.AbBox1</class>
-		<class>pea_entities_2025.AbBox10</class>
-		<class>pea_entities_2025.AbBox11</class>
-		<class>pea_entities_2025.AbBox12</class>
-		<class>pea_entities_2025.AbBox2</class>
-		<class>pea_entities_2025.AbBox3</class>
-		<class>pea_entities_2025.AbBox4</class>
-		<class>pea_entities_2025.AbBox5</class>
-		<class>pea_entities_2025.AbBox6</class>
-		<class>pea_entities_2025.AbBox7</class>
-		<class>pea_entities_2025.AbBox8</class>
-		<class>pea_entities_2025.AbBox9</class>
-		<class>pea_entities_2025.Accesscontrollist</class>
-		<class>pea_entities_2025.AccesscontrollistPK</class>
-		<class>pea_entities_2025.Accountstatus</class>
-		<class>pea_entities_2025.Activity</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox1</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox10</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox11</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox12</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox2</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox3</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox4</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox5</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox6</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox7</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox8</class>
+		<class>pea_entities_2025.event.outagereporting.AbBox9</class>
+		<class>pea_entities_2025.AccountStatus</class>
+		<class>pea_entities_2025.event.Activity</class>
 		<class>pea_entities_2025.Address</class>
 		<class>pea_entities_2025.AddressType</class>
 		
-		<class>pea_entities_2025.Affectedpremise</class>
-		<class>pea_entities_2025.Affectedpremiseactivityxref</class>
-		<class>pea_entities_2025.AffectedpremiseactivityxrefPK</class>
+		<class>pea_entities_2025.event.AffectedPremise</class>
 		<class>pea_entities_2025.Alternativesupply</class>
 		<class>pea_entities_2025.Appointment</class>
 		<class>pea_entities_2025.Appservicetext</class>
-		<class>pea_entities_2025.AreaCode</class>
+		<class>pea_entities_2025.common.AreaCode</class>
 		<class>pea_entities_2025.Areacodesitexref</class>
 		<class>pea_entities_2025.AreacodesitexrefPK</class>
 		<class>pea_entities_2025.Areadensity</class>
@@ -41,14 +37,14 @@
 		<class>pea_entities_2025.BusinessStream</class>
 		<class>pea_entities_2025.Call</class>
 		<class>pea_entities_2025.Callback</class>
-		<class>pea_entities_2025.Callbackoutcome</class>
-		<class>pea_entities_2025.Callbackoutcomestatus</class>
-		<class>pea_entities_2025.Callbacktype</class>
+		<class>pea_entities_2025.CallbackOutcome</class>
+		<class>pea_entities_2025.CallbackOutcomeStatus</class>
+		<class>pea_entities_2025.CallbackType</class>
 		<class>pea_entities_2025.Capitalimprovementscheme</class>
 		<class>pea_entities_2025.Catalog</class>
-		<class>pea_entities_2025.Catalogactivity</class>
-		<class>pea_entities_2025.Catalogdamagecause</class>
-		<class>pea_entities_2025.Cellarusage</class>
+		<class>pea_entities_2025.CatalogActivity</class>
+		<class>pea_entities_2025.CatalogDamageCause</class>
+		<class>pea_entities_2025.CellarUsage</class>
 		<class>pea_entities_2025.Circuit</class>
 		<class>pea_entities_2025.Circuittype</class>
 		<class>pea_entities_2025.Columntype</class>
@@ -66,24 +62,12 @@
 		<class>pea_entities_2025.Connectivityjumper</class>
 		<class>pea_entities_2025.Contact</class>
 		<class>pea_entities_2025.Contactmedium</class>
-		<class>pea_entities_2025.Contactstatus</class>
+		<class>pea_entities_2025.ContactStatus</class>
 		<class>pea_entities_2025.Contractor</class>
-		<class>pea_entities_2025.Crew</class>
-		<class>pea_entities_2025.Crewconfirmedxref</class>
-		<class>pea_entities_2025.CrewconfirmedxrefPK</class>
-		<class>pea_entities_2025.Crewcontactxref</class>
-		<class>pea_entities_2025.CrewcontactxrefPK</class>
-		<class>pea_entities_2025.Crewcrewxref</class>
-		<class>pea_entities_2025.CrewcrewxrefPK</class>
-		<class>pea_entities_2025.Crewholiday</class>
-		<class>pea_entities_2025.Creworganisationalunitxref</class>
-		<class>pea_entities_2025.CreworganisationalunitxrefPK</class>
-		<class>pea_entities_2025.Crewproposedxref</class>
-		<class>pea_entities_2025.CrewproposedxrefPK</class>
-		<class>pea_entities_2025.Crewskillxref</class>
-		<class>pea_entities_2025.CrewskillxrefPK</class>
-		<class>pea_entities_2025.Crewtasktotal</class>
-		<class>pea_entities_2025.CrewType</class>
+		<class>pea_entities_2025.resourcemanagement.Crew</class>
+		<class>pea_entities_2025.resourcemanagement.CrewHoliday</class>
+		<class>pea_entities_2025.resourcemanagement.CrewTaskTotal</class>
+		<class>pea_entities_2025.resourcemanagement.CrewType</class>
 		<class>pea_entities_2025.Customer</class>
 		<class>pea_entities_2025.Customercontactxref</class>
 		<class>pea_entities_2025.CustomercontactxrefPK</class>
@@ -122,12 +106,10 @@
 		<class>pea_entities_2025.Equipmenttype</class>
 		<class>pea_entities_2025.Escalationmessage</class>
 		<class>pea_entities_2025.Escalationpath</class>
-		<class>pea_entities_2025.Event</class>
-		<class>pea_entities_2025.Eventaffected</class>
-		<class>pea_entities_2025.EventCause</class>
-		<class>pea_entities_2025.Eventcausedg5statusxref</class>
-		<class>pea_entities_2025.Eventcausetype</class>
-		<class>pea_entities_2025.Eventcertainty</class>
+		<class>pea_entities_2025.event.Event</class>
+		<class>pea_entities_2025.event.EventCause</class>
+		<class>pea_entities_2025.event.EventCauseType</class>
+		<class>pea_entities_2025.event.EventCertainty</class>
 		<class>pea_entities_2025.EventCloseReason</class>
 		<class>pea_entities_2025.Eventcondition</class>
 		<class>pea_entities_2025.Eventconditionxref</class>
@@ -199,7 +181,7 @@
 		<class>pea_entities_2025.Notification</class>
 		<class>pea_entities_2025.Objecttype</class>
 		<class>pea_entities_2025.Operationmode</class>
-		<class>pea_entities_2025.Organisationalunit</class>
+		<class>pea_entities_2025.OrganisationalUnit</class>
 		<class>pea_entities_2025.Organisationalunitgroup</class>
 		<class>pea_entities_2025.Organisationalunitparameter</class>
 		<class>pea_entities_2025.Organisationalunittype</class>
@@ -287,8 +269,7 @@
 		<class>pea_entities_2025.Shortinterruptiontype</class>
 		<class>pea_entities_2025.Site</class>
 		<class>pea_entities_2025.Sitetype</class>
-		<class>pea_entities_2025.SiteDelete</class>
-		<class>pea_entities_2025.Skill</class>
+		<class>pea_entities_2025.resourcemanagement.Skill</class>
 		<class>pea_entities_2025.Smsdestination</class>
 		<class>pea_entities_2025.Spatialimage</class>
 		<class>pea_entities_2025.Spatiallayer</class>
@@ -328,7 +309,7 @@
 		<class>pea_entities_2025.TroubleTicket</class>
 		<class>pea_entities_2025.Troubleticketcallback</class>
 		<class>pea_entities_2025.Typeofwork</class>
-		<class>pea_entities_2025.Useraccount</class>
+		<class>pea_entities_2025.UserAccount</class>
 		<class>pea_entities_2025.Useraccountstatus</class>
 		<class>pea_entities_2025.Userreportdefinitionxref</class>
 		<class>pea_entities_2025.UserreportdefinitionxrefPK</class>
@@ -345,7 +326,7 @@
 		<class>pea_entities_2025.Workordertask</class>
 		<class>pea_entities_2025.Workordertaskfilter</class>
 		<class>pea_entities_2025.Workordertaskstatusprogress</class>
-		<class>pea_entities_2025.Workordertype</class>
+		<class>pea_entities_2025.WorkOrderType</class>
 		<class>pea_entities_2025.Workordertypetasktype</class>
 	</persistence-unit>
 </persistence>

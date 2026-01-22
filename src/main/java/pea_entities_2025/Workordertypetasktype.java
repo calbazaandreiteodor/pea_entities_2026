@@ -38,7 +38,7 @@ public class Workordertypetasktype implements Serializable {
 	//bi-directional many-to-one association to Workordertype
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="WORKORDERTYPEID")
-	private Workordertype workordertype;
+	private WorkOrderType workordertype;
 
 	public Workordertypetasktype() {
 	}
@@ -83,11 +83,11 @@ public class Workordertypetasktype implements Serializable {
 		this.tasktype = tasktype;
 	}
 
-	public Workordertype getWorkordertype() {
+	public WorkOrderType getWorkordertype() {
 		return this.workordertype;
 	}
 
-	public void setWorkordertype(Workordertype workordertype) {
+	public void setWorkordertype(WorkOrderType workordertype) {
 		this.workordertype = workordertype;
 	}
 

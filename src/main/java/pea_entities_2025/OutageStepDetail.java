@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.Event;
+
 import java.time.LocalDateTime;
 
 
@@ -108,7 +110,7 @@ public class OutageStepDetail implements Serializable {
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="USERACCOUNTID")
-	private Useraccount useraccount;
+	private UserAccount useraccount;
 
 	public OutageStepDetail() {
 	}
@@ -313,11 +315,11 @@ public class OutageStepDetail implements Serializable {
 		this.outagestep = outagestep;
 	}
 
-	public Useraccount getUseraccount() {
+	public UserAccount getUseraccount() {
 		return this.useraccount;
 	}
 
-	public void setUseraccount(Useraccount useraccount) {
+	public void setUseraccount(UserAccount useraccount) {
 		this.useraccount = useraccount;
 	}
 

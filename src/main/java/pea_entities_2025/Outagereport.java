@@ -3,6 +3,20 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.AreaCode;
+import pea_entities_2025.event.Activity;
+import pea_entities_2025.event.Event;
+import pea_entities_2025.event.outagereporting.AbBox1;
+import pea_entities_2025.event.outagereporting.AbBox10;
+import pea_entities_2025.event.outagereporting.AbBox11;
+import pea_entities_2025.event.outagereporting.AbBox12;
+import pea_entities_2025.event.outagereporting.AbBox2;
+import pea_entities_2025.event.outagereporting.AbBox4;
+import pea_entities_2025.event.outagereporting.AbBox5;
+import pea_entities_2025.event.outagereporting.AbBox6;
+import pea_entities_2025.event.outagereporting.AbBox7;
+import pea_entities_2025.event.outagereporting.AbBox8;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -371,12 +385,12 @@ public class Outagereport implements Serializable {
 	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ASSOCIATEDORGANISATIONALUNITID")
-	private Organisationalunit organisationalunit1;
+	private OrganisationalUnit organisationalunit1;
 
 	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ORGANISATIONALUNITID", nullable=false)
-	private Organisationalunit organisationalunit2;
+	private OrganisationalUnit organisationalunit2;
 
 	//bi-directional many-to-one association to Outagecause
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -498,7 +512,7 @@ public class Outagereport implements Serializable {
 @JoinColumn(name="CATALOGACTIVITYID", nullable=false)
 			}
 		)
-	private List<Catalogactivity> catalogactivities;
+	private List<CatalogActivity> catalogactivities;
 
 	//bi-directional many-to-many association to Catalogdamagecause
 	@ManyToMany
@@ -511,7 +525,7 @@ public class Outagereport implements Serializable {
 @JoinColumn(name="CATALOGDAMAGECAUSEID", nullable=false)
 			}
 		)
-	private List<Catalogdamagecause> catalogdamagecauses;
+	private List<CatalogDamageCause> catalogdamagecauses;
 
 	//bi-directional many-to-one association to Outagestep
 	@OneToMany(mappedBy="outagereport")
@@ -1230,19 +1244,19 @@ public class Outagereport implements Serializable {
 		this.mei = mei;
 	}
 
-	public Organisationalunit getOrganisationalunit1() {
+	public OrganisationalUnit getOrganisationalunit1() {
 		return this.organisationalunit1;
 	}
 
-	public void setOrganisationalunit1(Organisationalunit organisationalunit1) {
+	public void setOrganisationalunit1(OrganisationalUnit organisationalunit1) {
 		this.organisationalunit1 = organisationalunit1;
 	}
 
-	public Organisationalunit getOrganisationalunit2() {
+	public OrganisationalUnit getOrganisationalunit2() {
 		return this.organisationalunit2;
 	}
 
-	public void setOrganisationalunit2(Organisationalunit organisationalunit2) {
+	public void setOrganisationalunit2(OrganisationalUnit organisationalunit2) {
 		this.organisationalunit2 = organisationalunit2;
 	}
 
@@ -1436,19 +1450,19 @@ public class Outagereport implements Serializable {
 		this.workcarriedoutresult = workcarriedoutresult;
 	}
 
-	public List<Catalogactivity> getCatalogactivities() {
+	public List<CatalogActivity> getCatalogactivities() {
 		return this.catalogactivities;
 	}
 
-	public void setCatalogactivities(List<Catalogactivity> catalogactivities) {
+	public void setCatalogactivities(List<CatalogActivity> catalogactivities) {
 		this.catalogactivities = catalogactivities;
 	}
 
-	public List<Catalogdamagecause> getCatalogdamagecauses() {
+	public List<CatalogDamageCause> getCatalogdamagecauses() {
 		return this.catalogdamagecauses;
 	}
 
-	public void setCatalogdamagecauses(List<Catalogdamagecause> catalogdamagecauses) {
+	public void setCatalogdamagecauses(List<CatalogDamageCause> catalogdamagecauses) {
 		this.catalogdamagecauses = catalogdamagecauses;
 	}
 

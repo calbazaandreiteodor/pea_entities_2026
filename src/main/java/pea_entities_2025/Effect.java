@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.AffectedPremise;
+
 import java.util.List;
 
 
@@ -39,19 +41,19 @@ public class Effect implements Serializable {
 
 	//bi-directional many-to-one association to Affectedpremise
 	@OneToMany(mappedBy="effect1")
-	private List<Affectedpremise> affectedpremises1;
+	private List<AffectedPremise> affectedpremises1;
 
 	//bi-directional many-to-one association to Affectedpremise
 	@OneToMany(mappedBy="effect2")
-	private List<Affectedpremise> affectedpremises2;
+	private List<AffectedPremise> affectedpremises2;
 
 	//bi-directional many-to-one association to Affectedpremise
 	@OneToMany(mappedBy="effect3")
-	private List<Affectedpremise> affectedpremises3;
+	private List<AffectedPremise> affectedpremises3;
 
 	//bi-directional many-to-one association to Affectedpremise
 	@OneToMany(mappedBy="effect4")
-	private List<Affectedpremise> affectedpremises4;
+	private List<AffectedPremise> affectedpremises4;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="effect1")
@@ -120,88 +122,88 @@ public class Effect implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Affectedpremise> getAffectedpremises1() {
+	public List<AffectedPremise> getAffectedpremises1() {
 		return this.affectedpremises1;
 	}
 
-	public void setAffectedpremises1(List<Affectedpremise> affectedpremises1) {
+	public void setAffectedpremises1(List<AffectedPremise> affectedpremises1) {
 		this.affectedpremises1 = affectedpremises1;
 	}
 
-	public Affectedpremise addAffectedpremises1(Affectedpremise affectedpremises1) {
+	public AffectedPremise addAffectedpremises1(AffectedPremise affectedpremises1) {
 		getAffectedpremises1().add(affectedpremises1);
 		affectedpremises1.setEffect1(this);
 
 		return affectedpremises1;
 	}
 
-	public Affectedpremise removeAffectedpremises1(Affectedpremise affectedpremises1) {
+	public AffectedPremise removeAffectedpremises1(AffectedPremise affectedpremises1) {
 		getAffectedpremises1().remove(affectedpremises1);
 		affectedpremises1.setEffect1(null);
 
 		return affectedpremises1;
 	}
 
-	public List<Affectedpremise> getAffectedpremises2() {
+	public List<AffectedPremise> getAffectedpremises2() {
 		return this.affectedpremises2;
 	}
 
-	public void setAffectedpremises2(List<Affectedpremise> affectedpremises2) {
+	public void setAffectedpremises2(List<AffectedPremise> affectedpremises2) {
 		this.affectedpremises2 = affectedpremises2;
 	}
 
-	public Affectedpremise addAffectedpremises2(Affectedpremise affectedpremises2) {
+	public AffectedPremise addAffectedpremises2(AffectedPremise affectedpremises2) {
 		getAffectedpremises2().add(affectedpremises2);
 		affectedpremises2.setEffect2(this);
 
 		return affectedpremises2;
 	}
 
-	public Affectedpremise removeAffectedpremises2(Affectedpremise affectedpremises2) {
+	public AffectedPremise removeAffectedpremises2(AffectedPremise affectedpremises2) {
 		getAffectedpremises2().remove(affectedpremises2);
 		affectedpremises2.setEffect2(null);
 
 		return affectedpremises2;
 	}
 
-	public List<Affectedpremise> getAffectedpremises3() {
+	public List<AffectedPremise> getAffectedpremises3() {
 		return this.affectedpremises3;
 	}
 
-	public void setAffectedpremises3(List<Affectedpremise> affectedpremises3) {
+	public void setAffectedpremises3(List<AffectedPremise> affectedpremises3) {
 		this.affectedpremises3 = affectedpremises3;
 	}
 
-	public Affectedpremise addAffectedpremises3(Affectedpremise affectedpremises3) {
+	public AffectedPremise addAffectedpremises3(AffectedPremise affectedpremises3) {
 		getAffectedpremises3().add(affectedpremises3);
 		affectedpremises3.setEffect3(this);
 
 		return affectedpremises3;
 	}
 
-	public Affectedpremise removeAffectedpremises3(Affectedpremise affectedpremises3) {
+	public AffectedPremise removeAffectedpremises3(AffectedPremise affectedpremises3) {
 		getAffectedpremises3().remove(affectedpremises3);
 		affectedpremises3.setEffect3(null);
 
 		return affectedpremises3;
 	}
 
-	public List<Affectedpremise> getAffectedpremises4() {
+	public List<AffectedPremise> getAffectedpremises4() {
 		return this.affectedpremises4;
 	}
 
-	public void setAffectedpremises4(List<Affectedpremise> affectedpremises4) {
+	public void setAffectedpremises4(List<AffectedPremise> affectedpremises4) {
 		this.affectedpremises4 = affectedpremises4;
 	}
 
-	public Affectedpremise addAffectedpremises4(Affectedpremise affectedpremises4) {
+	public AffectedPremise addAffectedpremises4(AffectedPremise affectedpremises4) {
 		getAffectedpremises4().add(affectedpremises4);
 		affectedpremises4.setEffect4(this);
 
 		return affectedpremises4;
 	}
 
-	public Affectedpremise removeAffectedpremises4(Affectedpremise affectedpremises4) {
+	public AffectedPremise removeAffectedpremises4(AffectedPremise affectedpremises4) {
 		getAffectedpremises4().remove(affectedpremises4);
 		affectedpremises4.setEffect4(null);
 

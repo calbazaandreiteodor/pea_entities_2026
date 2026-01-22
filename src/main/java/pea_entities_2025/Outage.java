@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.Event;
+
 
 /**
  * The persistent class for the OUTAGE database table.

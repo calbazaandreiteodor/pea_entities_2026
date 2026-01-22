@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.Event;
+
 import java.util.List;
 
 
@@ -19,7 +21,7 @@ public class Notification extends Event implements Serializable {
 	@Column
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ACKNOWLEDGEDBY")
-	private Useraccount useraccount;
+	private UserAccount useraccount;
 
 	@Column(length=256)
 	private String alarmedObjectId;

@@ -36,7 +36,7 @@ public class Useraccountstatus implements Serializable {
 
 	//bi-directional many-to-one association to Useraccount
 	@OneToMany(mappedBy="useraccountstatus")
-	private List<Useraccount> useraccounts;
+	private List<UserAccount> useraccounts;
 
 	public Useraccountstatus() {
 	}
@@ -81,22 +81,22 @@ public class Useraccountstatus implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Useraccount> getUseraccounts() {
+	public List<UserAccount> getUseraccounts() {
 		return this.useraccounts;
 	}
 
-	public void setUseraccounts(List<Useraccount> useraccounts) {
+	public void setUseraccounts(List<UserAccount> useraccounts) {
 		this.useraccounts = useraccounts;
 	}
 
-	public Useraccount addUseraccount(Useraccount useraccount) {
+	public UserAccount addUseraccount(UserAccount useraccount) {
 		getUseraccounts().add(useraccount);
 		useraccount.setUseraccountstatus(this);
 
 		return useraccount;
 	}
 
-	public Useraccount removeUseraccount(Useraccount useraccount) {
+	public UserAccount removeUseraccount(UserAccount useraccount) {
 		getUseraccounts().remove(useraccount);
 		useraccount.setUseraccountstatus(null);
 

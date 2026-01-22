@@ -1,0 +1,59 @@
+package pea_entities_2025.event.outagereporting;
+
+import java.io.Serializable;
+import javax.persistence.*;
+
+
+/**
+ * The persistent class for the ABBOX2 database table.
+ * 
+ */
+@Entity
+@Table(name="ABBOX3")
+@NamedQuery(name="AbBox3.findAll", query="SELECT a FROM AbBox3 a")
+public class AbBox3 implements Serializable {
+	private static final long serialVersionUID = 13L;
+
+	@Id
+	private long id;
+
+	@Column(nullable=false)
+	private boolean active;
+
+	@Column(nullable=false, length=80)
+	private String description;
+
+	@Version
+	@Column(name="revision")
+	private short revision;
+
+	@Column(nullable=false, length=16)
+	private String shortcode;
+
+	public AbBox3() {
+	}
+	public long getId() {
+		return this.id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public boolean getActive() {
+		return this.active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public String getDescription() {
+		return this.description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getShortcode() {
+		return this.shortcode;
+	}
+	public void setShortcode(String shortcode) {
+		this.shortcode = shortcode;
+	}
+}

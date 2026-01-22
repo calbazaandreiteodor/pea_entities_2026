@@ -48,7 +48,7 @@ public class Role implements Serializable {
 
 	//bi-directional many-to-many association to Useraccount
 	@ManyToMany(mappedBy="roles")
-	private List<Useraccount> useraccounts;
+	private List<UserAccount> useraccounts;
 
 	public Role() {
 	}
@@ -145,11 +145,11 @@ public class Role implements Serializable {
 		return rolemap;
 	}
 
-	public List<Useraccount> getUseraccounts() {
+	public List<UserAccount> getUseraccounts() {
 		return this.useraccounts;
 	}
 
-	public void setUseraccounts(List<Useraccount> useraccounts) {
+	public void setUseraccounts(List<UserAccount> useraccounts) {
 		this.useraccounts = useraccounts;
 	}
 

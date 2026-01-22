@@ -37,7 +37,7 @@ public class Milestonecallbacktrigger implements Serializable {
 	//bi-directional many-to-one association to Callbacktype
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="CALLBACKTYPEID", nullable=false)
-	private Callbacktype callbacktype;
+	private CallbackType callbacktype;
 
 	//bi-directional many-to-one association to Milestonetype
 	@OneToMany(mappedBy="milestonecallbacktrigger1")
@@ -90,11 +90,11 @@ public class Milestonecallbacktrigger implements Serializable {
 		this.revision = revision;
 	}
 
-	public Callbacktype getCallbacktype() {
+	public CallbackType getCallbacktype() {
 		return this.callbacktype;
 	}
 
-	public void setCallbacktype(Callbacktype callbacktype) {
+	public void setCallbacktype(CallbackType callbacktype) {
 		this.callbacktype = callbacktype;
 	}
 

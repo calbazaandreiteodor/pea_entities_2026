@@ -27,7 +27,7 @@ public class Troubleticketcallback implements Serializable {
 	//bi-directional many-to-one association to Callbacktype
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="CALLBACKTYPEID", nullable=false)
-	private Callbacktype callbacktype;
+	private CallbackType callbacktype;
 
 	//bi-directional one-to-one association to Troubleticket
 	@OneToOne(fetch=FetchType.LAZY)
@@ -53,11 +53,11 @@ public class Troubleticketcallback implements Serializable {
 		this.outcome = outcome;
 	}
 
-	public Callbacktype getCallbacktype() {
+	public CallbackType getCallbacktype() {
 		return this.callbacktype;
 	}
 
-	public void setCallbacktype(Callbacktype callbacktype) {
+	public void setCallbacktype(CallbackType callbacktype) {
 		this.callbacktype = callbacktype;
 	}
 

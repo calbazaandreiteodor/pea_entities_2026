@@ -46,7 +46,7 @@ public class Customer implements Serializable {
 	//bi-directional many-to-one association to Accountstatus
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ACCOUNTSTATUSID", nullable=false)
-	private Accountstatus accountstatus;
+	private AccountStatus accountstatus;
 
 	//bi-directional many-to-one association to Address
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -134,11 +134,11 @@ public class Customer implements Serializable {
 		this.zProcessed = zProcessed;
 	}
 
-	public Accountstatus getAccountstatus() {
+	public AccountStatus getAccountstatus() {
 		return this.accountstatus;
 	}
 
-	public void setAccountstatus(Accountstatus accountstatus) {
+	public void setAccountstatus(AccountStatus accountstatus) {
 		this.accountstatus = accountstatus;
 	}
 

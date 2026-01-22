@@ -39,12 +39,12 @@ public class Generateschematic implements Serializable {
 	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ORGANISATIONALUNITID", nullable=false)
-	private Organisationalunit organisationalunit;
+	private OrganisationalUnit organisationalunit;
 
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="USERACCOUNTID", nullable=false)
-	private Useraccount useraccount;
+	private UserAccount useraccount;
 
 	//bi-directional many-to-one association to Generateschematicitem
 	@OneToMany(mappedBy="generateschematic")
@@ -101,19 +101,19 @@ public class Generateschematic implements Serializable {
 		this.status = status;
 	}
 
-	public Organisationalunit getOrganisationalunit() {
+	public OrganisationalUnit getOrganisationalunit() {
 		return this.organisationalunit;
 	}
 
-	public void setOrganisationalunit(Organisationalunit organisationalunit) {
+	public void setOrganisationalunit(OrganisationalUnit organisationalunit) {
 		this.organisationalunit = organisationalunit;
 	}
 
-	public Useraccount getUseraccount() {
+	public UserAccount getUseraccount() {
 		return this.useraccount;
 	}
 
-	public void setUseraccount(Useraccount useraccount) {
+	public void setUseraccount(UserAccount useraccount) {
 		this.useraccount = useraccount;
 	}
 

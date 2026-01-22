@@ -54,7 +54,7 @@ public class Call implements Serializable {
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="SERVICEREPRESENTATIVEID")
-	private Useraccount userAccount;
+	private UserAccount userAccount;
 
 	public Call() {
 	}
@@ -124,11 +124,11 @@ public class Call implements Serializable {
 		this.noContactReason = noContactReason;
 	}
 
-	public Useraccount getUseraccount() {
+	public UserAccount getUseraccount() {
 		return this.userAccount;
 	}
 
-	public void setUseraccount(Useraccount useraccount) {
+	public void setUseraccount(UserAccount useraccount) {
 		this.userAccount = useraccount;
 	}
 

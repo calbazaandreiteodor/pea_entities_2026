@@ -20,39 +20,37 @@ public class Callback implements Serializable {
 	@Id
 	@SequenceGenerator(name="CALLBACK_ID_GENERATOR", sequenceName="SEQ_GLOBAL")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CALLBACK_ID_GENERATOR")
-	@Column(unique=true, nullable=false, precision=10)
 	private long id;
 
-	@Column(nullable=false, precision=1)
-	private long active;
+	@Column(nullable=false)
+	private boolean active;
 
 	@Column(length=200)
-	private String externalid;
+	private String externalId;
 
-	private LocalDateTime newdate;
+	
+	private LocalDateTime newDate;
 
 	@Column(precision=2)
-	private long retryattempts;
+	private short retryAttempts;
 
-	@Column(nullable=false, precision=10)
-	private long revision;
+	@Version
+	private short revision;
 
 	@Column(nullable=false)
-	private LocalDateTime triggerdate;
+	private LocalDateTime triggerDate;
 
-	//bi-directional many-to-one association to Callbacktype
 	@ManyToOne(fetch=FetchType.LAZY)
-@JoinColumn(name="CALLBACKTYPEID", nullable=false)
-	private Callbacktype callbacktype;
+	@JoinColumn(name="CALLBACKTYPEID", nullable=false)
+	private CallbackType callbackType;
 
-	//bi-directional many-to-one association to Troubleticket
 	@ManyToOne(fetch=FetchType.LAZY)
-@JoinColumn(name="TROUBLETICKETID", nullable=false)
-	private TroubleTicket troubleticket;
+	@JoinColumn(name="TROUBLETICKETID", nullable=false)
+	private TroubleTicket troubleTicket;
 
 	//bi-directional many-to-one association to Callbackoutcome
 	@OneToMany(mappedBy="callback")
-	private List<Callbackoutcome> callbackoutcomes;
+	private List<CallbackOutcome> callbackOutcomes;
 
 	public Callback() {
 	}
@@ -64,91 +62,69 @@ public class Callback implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public long getActive() {
-		return this.active;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setActive(long active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 
-	public String getExternalid() {
-		return this.externalid;
+	public String getExternalId() {
+		return externalId;
 	}
 
-	public void setExternalid(String externalid) {
-		this.externalid = externalid;
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
 	}
 
-	public LocalDateTime getNewdate() {
-		return this.newdate;
+	public LocalDateTime getNewDate() {
+		return newDate;
 	}
 
-	public void setNewdate(LocalDateTime newdate) {
-		this.newdate = newdate;
+	public void setNewDate(LocalDateTime newDate) {
+		this.newDate = newDate;
 	}
 
-	public long getRetryattempts() {
-		return this.retryattempts;
+	public short getRetryAttempts() {
+		return retryAttempts;
 	}
 
-	public void setRetryattempts(long retryattempts) {
-		this.retryattempts = retryattempts;
+	public void setRetryAttempts(short retryAttempts) {
+		this.retryAttempts = retryAttempts;
 	}
 
-	public long getRevision() {
-		return this.revision;
+	public LocalDateTime getTriggerDate() {
+		return triggerDate;
 	}
 
-	public void setRevision(long revision) {
-		this.revision = revision;
+	public void setTriggerDate(LocalDateTime triggerDate) {
+		this.triggerDate = triggerDate;
 	}
 
-	public LocalDateTime getTriggerdate() {
-		return this.triggerdate;
+	public CallbackType getCallbackType() {
+		return callbackType;
 	}
 
-	public void setTriggerdate(LocalDateTime triggerdate) {
-		this.triggerdate = triggerdate;
+	public void setCallbackType(CallbackType callbackType) {
+		this.callbackType = callbackType;
 	}
 
-	public Callbacktype getCallbacktype() {
-		return this.callbacktype;
+	public TroubleTicket getTroubleTicket() {
+		return troubleTicket;
 	}
 
-	public void setCallbacktype(Callbacktype callbacktype) {
-		this.callbacktype = callbacktype;
+	public void setTroubleTicket(TroubleTicket troubleTicket) {
+		this.troubleTicket = troubleTicket;
 	}
 
-	public TroubleTicket getTroubleticket() {
-		return this.troubleticket;
+	public List<CallbackOutcome> getCallbackOutcomes() {
+		return callbackOutcomes;
 	}
 
-	public void setTroubleticket(TroubleTicket troubleticket) {
-		this.troubleticket = troubleticket;
+	public void setCallbackOutcomes(List<CallbackOutcome> callbackOutcomes) {
+		this.callbackOutcomes = callbackOutcomes;
 	}
 
-	public List<Callbackoutcome> getCallbackoutcomes() {
-		return this.callbackoutcomes;
-	}
-
-	public void setCallbackoutcomes(List<Callbackoutcome> callbackoutcomes) {
-		this.callbackoutcomes = callbackoutcomes;
-	}
-
-	public Callbackoutcome addCallbackoutcome(Callbackoutcome callbackoutcome) {
-		getCallbackoutcomes().add(callbackoutcome);
-		callbackoutcome.setCallback(this);
-
-		return callbackoutcome;
-	}
-
-	public Callbackoutcome removeCallbackoutcome(Callbackoutcome callbackoutcome) {
-		getCallbackoutcomes().remove(callbackoutcome);
-		callbackoutcome.setCallback(null);
-
-		return callbackoutcome;
-	}
 
 }

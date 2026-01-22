@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.resourcemanagement.CrewType;
+
 import java.util.HashSet;
 
 
@@ -52,7 +54,7 @@ public class TaskType implements Serializable {
 	//bi-directional many-to-one association to Workordertype
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="WORKORDERTYPEID", nullable=false)
-	private Workordertype workOrderType;
+	private WorkOrderType workOrderType;
 
     @ManyToMany
     @OrderBy("sequence ASC")

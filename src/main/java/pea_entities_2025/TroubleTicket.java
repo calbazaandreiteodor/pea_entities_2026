@@ -3,6 +3,8 @@ package pea_entities_2025;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import pea_entities_2025.event.Event;
+
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -55,7 +57,7 @@ public class TroubleTicket extends Event implements Serializable {
 				@JoinColumn(name="CALLBACKTYPEID", nullable=false)
 			}
 		)
-	private List<Callbacktype> callbackTypes;
+	private List<CallbackType> callbackTypes;
 
 	public TroubleTicket() {
 	}
@@ -102,11 +104,11 @@ public class TroubleTicket extends Event implements Serializable {
 	public void setContact(Contact contact) {
 		this.contact = contact;
 	}
-	public List<Callbacktype> getCallbackTypes() {
+	public List<CallbackType> getCallbackTypes() {
 		return this.callbackTypes;
 	}
 
-	public void setCallbackTypes(List<Callbacktype> callbacktypes) {
+	public void setCallbackTypes(List<CallbackType> callbacktypes) {
 		this.callbackTypes = callbacktypes;
 	}
 	public List<Call> getCalls() {

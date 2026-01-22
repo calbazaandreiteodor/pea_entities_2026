@@ -45,7 +45,7 @@ public class Organisationalunitgroup implements Serializable {
 @JoinColumn(name="ORGANISATIONALUNITID", nullable=false)
 			}
 		)
-	private List<Organisationalunit> organisationalunits;
+	private List<OrganisationalUnit> organisationalunits;
 
 	//bi-directional many-to-one association to Reportschedule
 	@OneToMany(mappedBy="organisationalunitgroup")
@@ -94,11 +94,11 @@ public class Organisationalunitgroup implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Organisationalunit> getOrganisationalunits() {
+	public List<OrganisationalUnit> getOrganisationalunits() {
 		return this.organisationalunits;
 	}
 
-	public void setOrganisationalunits(List<Organisationalunit> organisationalunits) {
+	public void setOrganisationalunits(List<OrganisationalUnit> organisationalunits) {
 		this.organisationalunits = organisationalunits;
 	}
 

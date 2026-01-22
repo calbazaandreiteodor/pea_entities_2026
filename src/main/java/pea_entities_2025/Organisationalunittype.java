@@ -36,7 +36,7 @@ public class Organisationalunittype implements Serializable {
 
 	//bi-directional many-to-one association to Organisationalunit
 	@OneToMany(mappedBy="organisationalunittype")
-	private List<Organisationalunit> organisationalunits;
+	private List<OrganisationalUnit> organisationalunits;
 
 	public Organisationalunittype() {
 	}
@@ -81,22 +81,22 @@ public class Organisationalunittype implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Organisationalunit> getOrganisationalunits() {
+	public List<OrganisationalUnit> getOrganisationalunits() {
 		return this.organisationalunits;
 	}
 
-	public void setOrganisationalunits(List<Organisationalunit> organisationalunits) {
+	public void setOrganisationalunits(List<OrganisationalUnit> organisationalunits) {
 		this.organisationalunits = organisationalunits;
 	}
 
-	public Organisationalunit addOrganisationalunit(Organisationalunit organisationalunit) {
+	public OrganisationalUnit addOrganisationalunit(OrganisationalUnit organisationalunit) {
 		getOrganisationalunits().add(organisationalunit);
 		organisationalunit.setOrganisationalunittype(this);
 
 		return organisationalunit;
 	}
 
-	public Organisationalunit removeOrganisationalunit(Organisationalunit organisationalunit) {
+	public OrganisationalUnit removeOrganisationalunit(OrganisationalUnit organisationalunit) {
 		getOrganisationalunits().remove(organisationalunit);
 		organisationalunit.setOrganisationalunittype(null);
 

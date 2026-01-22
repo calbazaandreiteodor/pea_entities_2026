@@ -2,6 +2,9 @@ package pea_entities_2025;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import pea_entities_2025.event.Event;
+
 import java.time.LocalDateTime;
 
 

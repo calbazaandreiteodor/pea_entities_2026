@@ -50,7 +50,7 @@ public class Contact implements Serializable {
 
 	//bi-directional many-to-one association to Callbackoutcome
 	@OneToMany(mappedBy="contact")
-	private List<Callbackoutcome> callbackoutcomes;
+	private List<CallbackOutcome> callbackoutcomes;
 
 	//bi-directional many-to-one association to Companycontactxref
 	@OneToMany(mappedBy="contact")
@@ -164,22 +164,22 @@ public class Contact implements Serializable {
 		this.starttime = starttime;
 	}
 
-	public List<Callbackoutcome> getCallbackoutcomes() {
+	public List<CallbackOutcome> getCallbackoutcomes() {
 		return this.callbackoutcomes;
 	}
 
-	public void setCallbackoutcomes(List<Callbackoutcome> callbackoutcomes) {
+	public void setCallbackoutcomes(List<CallbackOutcome> callbackoutcomes) {
 		this.callbackoutcomes = callbackoutcomes;
 	}
 
-	public Callbackoutcome addCallbackoutcome(Callbackoutcome callbackoutcome) {
+	public CallbackOutcome addCallbackoutcome(CallbackOutcome callbackoutcome) {
 		getCallbackoutcomes().add(callbackoutcome);
 		callbackoutcome.setContact(this);
 
 		return callbackoutcome;
 	}
 
-	public Callbackoutcome removeCallbackoutcome(Callbackoutcome callbackoutcome) {
+	public CallbackOutcome removeCallbackoutcome(CallbackOutcome callbackoutcome) {
 		getCallbackoutcomes().remove(callbackoutcome);
 		callbackoutcome.setContact(null);
 

@@ -42,7 +42,7 @@ public class Usersession implements Serializable {
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="USERACCOUNTID")
-	private Useraccount useraccount;
+	private UserAccount useraccount;
 
 	public Usersession() {
 	}
@@ -103,11 +103,11 @@ public class Usersession implements Serializable {
 		this.username = username;
 	}
 
-	public Useraccount getUseraccount() {
+	public UserAccount getUseraccount() {
 		return this.useraccount;
 	}
 
-	public void setUseraccount(Useraccount useraccount) {
+	public void setUseraccount(UserAccount useraccount) {
 		this.useraccount = useraccount;
 	}
 

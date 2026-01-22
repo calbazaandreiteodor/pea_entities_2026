@@ -3,6 +3,9 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.AreaCode;
+import pea_entities_2025.event.Event;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -91,7 +94,7 @@ public class WorkOrder implements Serializable {
 	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ORGANISATIONALUNITID", nullable=false)
-	private Organisationalunit organisationalunit;
+	private OrganisationalUnit organisationalunit;
 
 	//bi-directional many-to-one association to Priority
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -130,7 +133,7 @@ public class WorkOrder implements Serializable {
 	//bi-directional many-to-one association to Workordertype
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="WORKORDERTYPEID", nullable=false)
-	private Workordertype workordertype;
+	private WorkOrderType workordertype;
 
 	//bi-directional many-to-one association to Workordertask
 	@OneToMany(mappedBy="workorder")
@@ -313,11 +316,11 @@ public class WorkOrder implements Serializable {
 		this.event = event;
 	}
 
-	public Organisationalunit getOrganisationalunit() {
+	public OrganisationalUnit getOrganisationalunit() {
 		return this.organisationalunit;
 	}
 
-	public void setOrganisationalunit(Organisationalunit organisationalunit) {
+	public void setOrganisationalunit(OrganisationalUnit organisationalunit) {
 		this.organisationalunit = organisationalunit;
 	}
 
@@ -391,11 +394,11 @@ public class WorkOrder implements Serializable {
 		this.workorderstatus = workorderstatus;
 	}
 
-	public Workordertype getWorkordertype() {
+	public WorkOrderType getWorkordertype() {
 		return this.workordertype;
 	}
 
-	public void setWorkordertype(Workordertype workordertype) {
+	public void setWorkordertype(WorkOrderType workordertype) {
 		this.workordertype = workordertype;
 	}
 

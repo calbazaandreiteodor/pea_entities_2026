@@ -39,7 +39,7 @@ public class Externalcontact implements Serializable {
 	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ORGANISATIONALUNITID", nullable=false)
-	private Organisationalunit organisationalunit;
+	private OrganisationalUnit organisationalunit;
 
 	//bi-directional many-to-many association to Contact
 	@ManyToMany
@@ -97,11 +97,11 @@ public class Externalcontact implements Serializable {
 		this.authoritytype = authoritytype;
 	}
 
-	public Organisationalunit getOrganisationalunit() {
+	public OrganisationalUnit getOrganisationalunit() {
 		return this.organisationalunit;
 	}
 
-	public void setOrganisationalunit(Organisationalunit organisationalunit) {
+	public void setOrganisationalunit(OrganisationalUnit organisationalunit) {
 		this.organisationalunit = organisationalunit;
 	}
 

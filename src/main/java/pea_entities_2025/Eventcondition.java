@@ -125,7 +125,7 @@ public class Eventcondition implements Serializable {
 
 	//bi-directional many-to-many association to Useraccount
 	@ManyToMany(mappedBy="eventconditions")
-	private List<Useraccount> useraccounts;
+	private List<UserAccount> useraccounts;
 
 	public Eventcondition() {
 	}
@@ -354,11 +354,11 @@ public class Eventcondition implements Serializable {
 		this.eventtypes = eventtypes;
 	}
 
-	public List<Useraccount> getUseraccounts() {
+	public List<UserAccount> getUseraccounts() {
 		return this.useraccounts;
 	}
 
-	public void setUseraccounts(List<Useraccount> useraccounts) {
+	public void setUseraccounts(List<UserAccount> useraccounts) {
 		this.useraccounts = useraccounts;
 	}
 
