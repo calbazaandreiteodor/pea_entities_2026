@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.service.auth.UserAccount;
+
 import java.time.LocalDateTime;
 
 
@@ -13,7 +15,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name="HISTORICALPASSWORD")
 @NamedQuery(name="Historicalpassword.findAll", query="SELECT h FROM Historicalpassword h")
-public class Historicalpassword implements Serializable {
+public class HistoricalPassword implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -42,7 +44,7 @@ public class Historicalpassword implements Serializable {
 @JoinColumn(name="USERACCOUNTID", nullable=false)
 	private UserAccount useraccount;
 
-	public Historicalpassword() {
+	public HistoricalPassword() {
 	}
 
 	public long getId() {

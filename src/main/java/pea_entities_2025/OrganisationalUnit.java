@@ -4,6 +4,9 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.event.Event;
+import pea_entities_2025.service.auth.LockToken;
+import pea_entities_2025.service.auth.UserAccount;
+import pea_entities_2025.workmanagement.WorkOrder;
 
 import java.util.List;
 
@@ -92,7 +95,7 @@ public class OrganisationalUnit implements Serializable {
 
 	//bi-directional many-to-one association to Locktoken
 	@OneToMany(mappedBy="organisationalunit")
-	private List<Locktoken> locktokens;
+	private List<LockToken> locktokens;
 
 	//bi-directional many-to-one association to Modeltype
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -378,22 +381,22 @@ public class OrganisationalUnit implements Serializable {
 		return generateschematic;
 	}
 
-	public List<Locktoken> getLocktokens() {
+	public List<LockToken> getLocktokens() {
 		return this.locktokens;
 	}
 
-	public void setLocktokens(List<Locktoken> locktokens) {
+	public void setLocktokens(List<LockToken> locktokens) {
 		this.locktokens = locktokens;
 	}
 
-	public Locktoken addLocktoken(Locktoken locktoken) {
+	public LockToken addLocktoken(LockToken locktoken) {
 		getLocktokens().add(locktoken);
 		locktoken.setOrganisationalunit(this);
 
 		return locktoken;
 	}
 
-	public Locktoken removeLocktoken(Locktoken locktoken) {
+	public LockToken removeLocktoken(LockToken locktoken) {
 		getLocktokens().remove(locktoken);
 		locktoken.setOrganisationalunit(null);
 

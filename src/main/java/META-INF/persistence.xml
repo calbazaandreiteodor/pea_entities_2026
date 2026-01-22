@@ -111,7 +111,7 @@
 		<class>pea_entities_2025.event.EventCauseType</class>
 		<class>pea_entities_2025.event.EventCertainty</class>
 		<class>pea_entities_2025.EventCloseReason</class>
-		<class>pea_entities_2025.Eventcondition</class>
+		<class>pea_entities_2025.EventCondition</class>
 		<class>pea_entities_2025.Eventconditionxref</class>
 		<class>pea_entities_2025.EventconditionxrefPK</class>
 		<class>pea_entities_2025.Eventcontactxref</class>
@@ -136,7 +136,7 @@
 		<class>pea_entities_2025.Generateschematic</class>
 		<class>pea_entities_2025.Generateschematicitem</class>
 		<class>pea_entities_2025.GlobalParameter</class>
-		<class>pea_entities_2025.Historicalpassword</class>
+		<class>pea_entities_2025.HistoricalPassword</class>
 		<class>pea_entities_2025.Industrytype</class>
 		<class>pea_entities_2025.Interruptiontype</class>
 		<class>pea_entities_2025.Invalidschematicgraph</class>
@@ -146,8 +146,8 @@
 		<class>pea_entities_2025.Location</class>
 		<class>pea_entities_2025.Locationofflooding</class>
 		<class>pea_entities_2025.Locationtype</class>
-		<class>pea_entities_2025.Locktoken</class>
-		<class>pea_entities_2025.Locktokenstatus</class>
+		<class>pea_entities_2025.service.auth.LockToken</class>
+		<class>pea_entities_2025.LockTokenStatus</class>
 		<class>pea_entities_2025.Maloperationreason</class>
 		<class>pea_entities_2025.Manufacturer</class>
 		<class>pea_entities_2025.Maplayer</class>
@@ -217,7 +217,7 @@
 		<class>pea_entities_2025.Protectionoperated</class>
 		<class>pea_entities_2025.Publicholiday</class>
 		<class>pea_entities_2025.Reportcolumn</class>
-		<class>pea_entities_2025.Reportdefinition</class>
+		<class>pea_entities_2025.ReportDefinition</class>
 		<class>pea_entities_2025.Reportdefinitioncolumnxref</class>
 		<class>pea_entities_2025.Reportdefinitionfrequencyxref</class>
 		<class>pea_entities_2025.ReportdefinitionfrequencyxrefPK</class>
@@ -289,12 +289,12 @@
 		<class>pea_entities_2025.SwitchingStep</class>
 		<class>pea_entities_2025.Switchingstepstatus</class>
 		<class>pea_entities_2025.Tarifftype</class>
-		<class>pea_entities_2025.Taskassignment</class>
+		<class>pea_entities_2025.workmanagement.TaskAssignment</class>
 		<class>pea_entities_2025.Taskassignmentstatus</class>
 		<class>pea_entities_2025.Taskassignmentstatusprogress</class>
 		<class>pea_entities_2025.Taskassignmentstatusxref</class>
 		<class>pea_entities_2025.TaskassignmentstatusxrefPK</class>
-		<class>pea_entities_2025.Taskdelayreason</class>
+		<class>pea_entities_2025.TaskDelayReason</class>
 		<class>pea_entities_2025.Taskrejectreason</class>
 		<class>pea_entities_2025.Taskstatus</class>
 		<class>pea_entities_2025.TaskType</class>
@@ -306,27 +306,24 @@
 		<class>pea_entities_2025.Tpdreportedcode</class>
 		<class>pea_entities_2025.Transporthandlerconfig</class>
 		<class>pea_entities_2025.Triggertype</class>
-		<class>pea_entities_2025.TroubleTicket</class>
+		<class>pea_entities_2025.event.TroubleTicket</class>
 		<class>pea_entities_2025.Troubleticketcallback</class>
 		<class>pea_entities_2025.Typeofwork</class>
-		<class>pea_entities_2025.UserAccount</class>
+		<class>pea_entities_2025.service.auth.UserAccount</class>
 		<class>pea_entities_2025.Useraccountstatus</class>
 		<class>pea_entities_2025.Userreportdefinitionxref</class>
 		<class>pea_entities_2025.UserreportdefinitionxrefPK</class>
-		<class>pea_entities_2025.Usersession</class>
+		<class>pea_entities_2025.service.auth.UserSession</class>
 		<class>pea_entities_2025.Vehicle</class>
 		<class>pea_entities_2025.Vehicletype</class>
 		<class>pea_entities_2025.Viewrefreshschedule</class>
 		<class>pea_entities_2025.Voltage</class>
 		<class>pea_entities_2025.Workcarriedoutresult</class>
-		<class>pea_entities_2025.WorkOrder</class>
-		<class>pea_entities_2025.Workorderstatus</class>
-		<class>pea_entities_2025.Workorderstatusxref</class>
-		<class>pea_entities_2025.WorkorderstatusxrefPK</class>
-		<class>pea_entities_2025.Workordertask</class>
+		<class>pea_entities_2025.workmanagement.WorkOrder</class>
+		<class>pea_entities_2025.workmanagement.WorkOrderStatus</class>
+		<class>pea_entities_2025.workmanagement.WorkOrderTask</class>
 		<class>pea_entities_2025.Workordertaskfilter</class>
 		<class>pea_entities_2025.Workordertaskstatusprogress</class>
-		<class>pea_entities_2025.WorkOrderType</class>
-		<class>pea_entities_2025.Workordertypetasktype</class>
+		<class>pea_entities_2025.workmanagement.WorkOrderType</class>
 	</persistence-unit>
 </persistence>

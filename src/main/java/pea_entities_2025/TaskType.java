@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.resourcemanagement.CrewType;
+import pea_entities_2025.workmanagement.WorkOrderType;
 
 import java.util.HashSet;
 

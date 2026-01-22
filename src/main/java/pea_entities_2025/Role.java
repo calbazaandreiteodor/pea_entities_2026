@@ -2,6 +2,9 @@ package pea_entities_2025;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import pea_entities_2025.service.auth.UserAccount;
+
 import java.util.List;
 
 
@@ -40,7 +43,7 @@ public class Role implements Serializable {
 	@JoinTable(name="REPORTDEFINITIONROLEXREF" , joinColumns={@JoinColumn(name="ROLEID", nullable=false)}
 		, inverseJoinColumns={@JoinColumn(name="REPORTDEFINITIONID", nullable=false)}
 		)
-	private List<Reportdefinition> reportdefinitions;
+	private List<ReportDefinition> reportdefinitions;
 
 	//bi-directional many-to-one association to Rolemap
 	@OneToMany(mappedBy="role")
@@ -115,11 +118,11 @@ public class Role implements Serializable {
 		return accesscontrollist;
 	}
 
-	public List<Reportdefinition> getReportdefinitions() {
+	public List<ReportDefinition> getReportdefinitions() {
 		return this.reportdefinitions;
 	}
 
-	public void setReportdefinitions(List<Reportdefinition> reportdefinitions) {
+	public void setReportdefinitions(List<ReportDefinition> reportdefinitions) {
 		this.reportdefinitions = reportdefinitions;
 	}
 

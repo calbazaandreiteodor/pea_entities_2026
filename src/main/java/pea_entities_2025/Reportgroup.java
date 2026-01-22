@@ -36,7 +36,7 @@ public class Reportgroup implements Serializable {
 
 	//bi-directional many-to-one association to Reportdefinition
 	@OneToMany(mappedBy="reportgroup")
-	private List<Reportdefinition> reportdefinitions;
+	private List<ReportDefinition> reportdefinitions;
 
 	public Reportgroup() {
 	}
@@ -81,22 +81,22 @@ public class Reportgroup implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Reportdefinition> getReportdefinitions() {
+	public List<ReportDefinition> getReportdefinitions() {
 		return this.reportdefinitions;
 	}
 
-	public void setReportdefinitions(List<Reportdefinition> reportdefinitions) {
+	public void setReportdefinitions(List<ReportDefinition> reportdefinitions) {
 		this.reportdefinitions = reportdefinitions;
 	}
 
-	public Reportdefinition addReportdefinition(Reportdefinition reportdefinition) {
+	public ReportDefinition addReportdefinition(ReportDefinition reportdefinition) {
 		getReportdefinitions().add(reportdefinition);
 		reportdefinition.setReportgroup(this);
 
 		return reportdefinition;
 	}
 
-	public Reportdefinition removeReportdefinition(Reportdefinition reportdefinition) {
+	public ReportDefinition removeReportdefinition(ReportDefinition reportdefinition) {
 		getReportdefinitions().remove(reportdefinition);
 		reportdefinition.setReportgroup(null);
 

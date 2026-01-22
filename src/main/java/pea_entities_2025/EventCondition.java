@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.service.auth.UserAccount;
+
 import java.util.List;
 
 
@@ -13,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="EVENTCONDITION")
 @NamedQuery(name="Eventcondition.findAll", query="SELECT e FROM Eventcondition e")
-public class Eventcondition implements Serializable {
+public class EventCondition implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -105,11 +107,11 @@ public class Eventcondition implements Serializable {
 @JoinColumn(name="EVENTCONDITIONID", nullable=false)
 			}
 		)
-	private List<Eventcondition> eventconditions1;
+	private List<EventCondition> eventconditions1;
 
 	//bi-directional many-to-many association to Eventcondition
 	@ManyToMany(mappedBy="eventconditions1")
-	private List<Eventcondition> eventconditions2;
+	private List<EventCondition> eventconditions2;
 
 	//bi-directional many-to-many association to Modeltype
 	@ManyToMany(mappedBy="eventconditions")
@@ -127,7 +129,7 @@ public class Eventcondition implements Serializable {
 	@ManyToMany(mappedBy="eventconditions")
 	private List<UserAccount> useraccounts;
 
-	public Eventcondition() {
+	public EventCondition() {
 	}
 
 	public long getId() {
@@ -314,19 +316,19 @@ public class Eventcondition implements Serializable {
 		this.standard = standard;
 	}
 
-	public List<Eventcondition> getEventconditions1() {
+	public List<EventCondition> getEventconditions1() {
 		return this.eventconditions1;
 	}
 
-	public void setEventconditions1(List<Eventcondition> eventconditions1) {
+	public void setEventconditions1(List<EventCondition> eventconditions1) {
 		this.eventconditions1 = eventconditions1;
 	}
 
-	public List<Eventcondition> getEventconditions2() {
+	public List<EventCondition> getEventconditions2() {
 		return this.eventconditions2;
 	}
 
-	public void setEventconditions2(List<Eventcondition> eventconditions2) {
+	public void setEventconditions2(List<EventCondition> eventconditions2) {
 		this.eventconditions2 = eventconditions2;
 	}
 

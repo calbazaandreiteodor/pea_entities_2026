@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.event.Event;
+import pea_entities_2025.service.auth.UserAccount;
 
 import java.util.List;
 

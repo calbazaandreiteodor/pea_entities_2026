@@ -44,7 +44,7 @@ public class Reportschedule implements Serializable {
 	//bi-directional many-to-one association to Reportdefinition
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="REPORTDEFINITIONID", nullable=false)
-	private Reportdefinition reportdefinition;
+	private ReportDefinition reportdefinition;
 
 	//bi-directional many-to-one association to Reportfrequency
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -110,11 +110,11 @@ public class Reportschedule implements Serializable {
 		this.organisationalunitgroup = organisationalunitgroup;
 	}
 
-	public Reportdefinition getReportdefinition() {
+	public ReportDefinition getReportdefinition() {
 		return this.reportdefinition;
 	}
 
-	public void setReportdefinition(Reportdefinition reportdefinition) {
+	public void setReportdefinition(ReportDefinition reportdefinition) {
 		this.reportdefinition = reportdefinition;
 	}
 

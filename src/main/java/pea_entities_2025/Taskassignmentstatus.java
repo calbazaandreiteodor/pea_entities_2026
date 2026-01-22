@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.workmanagement.TaskAssignment;
+
 import java.util.List;
 
 
@@ -36,7 +38,7 @@ public class Taskassignmentstatus implements Serializable {
 
 	//bi-directional many-to-one association to Taskassignment
 	@OneToMany(mappedBy="taskassignmentstatus")
-	private List<Taskassignment> taskassignments;
+	private List<TaskAssignment> taskassignments;
 
 	public Taskassignmentstatus() {
 	}
@@ -81,22 +83,22 @@ public class Taskassignmentstatus implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Taskassignment> getTaskassignments() {
+	public List<TaskAssignment> getTaskassignments() {
 		return this.taskassignments;
 	}
 
-	public void setTaskassignments(List<Taskassignment> taskassignments) {
+	public void setTaskassignments(List<TaskAssignment> taskassignments) {
 		this.taskassignments = taskassignments;
 	}
 
-	public Taskassignment addTaskassignment(Taskassignment taskassignment) {
+	public TaskAssignment addTaskassignment(TaskAssignment taskassignment) {
 		getTaskassignments().add(taskassignment);
 		taskassignment.setTaskassignmentstatus(this);
 
 		return taskassignment;
 	}
 
-	public Taskassignment removeTaskassignment(Taskassignment taskassignment) {
+	public TaskAssignment removeTaskassignment(TaskAssignment taskassignment) {
 		getTaskassignments().remove(taskassignment);
 		taskassignment.setTaskassignmentstatus(null);
 

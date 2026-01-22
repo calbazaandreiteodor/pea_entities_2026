@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name="REPORTDEFINITION")
 @NamedQuery(name="Reportdefinition.findAll", query="SELECT r FROM Reportdefinition r")
-public class Reportdefinition implements Serializable {
+public class ReportDefinition implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -69,7 +69,7 @@ public class Reportdefinition implements Serializable {
 	@OneToMany(mappedBy="reportdefinition")
 	private List<Reportschedule> reportschedules;
 
-	public Reportdefinition() {
+	public ReportDefinition() {
 	}
 
 	public long getId() {

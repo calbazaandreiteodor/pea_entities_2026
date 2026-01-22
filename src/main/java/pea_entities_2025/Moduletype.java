@@ -53,7 +53,7 @@ public class Moduletype implements Serializable {
 @JoinColumn(name="EVENTCONDITIONID", nullable=false)
 			}
 		)
-	private List<Eventcondition> eventconditions;
+	private List<EventCondition> eventconditions;
 
 	public Moduletype() {
 	}
@@ -142,11 +142,11 @@ public class Moduletype implements Serializable {
 		return audittype;
 	}
 
-	public List<Eventcondition> getEventconditions() {
+	public List<EventCondition> getEventconditions() {
 		return this.eventconditions;
 	}
 
-	public void setEventconditions(List<Eventcondition> eventconditions) {
+	public void setEventconditions(List<EventCondition> eventconditions) {
 		this.eventconditions = eventconditions;
 	}
 

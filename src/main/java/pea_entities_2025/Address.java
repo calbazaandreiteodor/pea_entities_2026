@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import pea_entities_2025.event.Event;
 import pea_entities_2025.resourcemanagement.Crew;
+import pea_entities_2025.workmanagement.WorkOrder;
 
 import java.util.List;
 

@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.service.auth.LockToken;
+
 import java.util.List;
 
 
@@ -13,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="LOCKTOKENSTATUS")
 @NamedQuery(name="Locktokenstatus.findAll", query="SELECT l FROM Locktokenstatus l")
-public class Locktokenstatus implements Serializable {
+public class LockTokenStatus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -36,9 +38,9 @@ public class Locktokenstatus implements Serializable {
 
 	//bi-directional many-to-one association to Locktoken
 	@OneToMany(mappedBy="locktokenstatus")
-	private List<Locktoken> locktokens;
+	private List<LockToken> locktokens;
 
-	public Locktokenstatus() {
+	public LockTokenStatus() {
 	}
 
 	public long getId() {
@@ -81,22 +83,22 @@ public class Locktokenstatus implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Locktoken> getLocktokens() {
+	public List<LockToken> getLocktokens() {
 		return this.locktokens;
 	}
 
-	public void setLocktokens(List<Locktoken> locktokens) {
+	public void setLocktokens(List<LockToken> locktokens) {
 		this.locktokens = locktokens;
 	}
 
-	public Locktoken addLocktoken(Locktoken locktoken) {
+	public LockToken addLocktoken(LockToken locktoken) {
 		getLocktokens().add(locktoken);
 		locktoken.setLocktokenstatus(this);
 
 		return locktoken;
 	}
 
-	public Locktoken removeLocktoken(Locktoken locktoken) {
+	public LockToken removeLocktoken(LockToken locktoken) {
 		getLocktokens().remove(locktoken);
 		locktoken.setLocktokenstatus(null);
 

@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.workmanagement.WorkOrderTask;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,7 +16,7 @@ import java.util.List;
 @Entity
 @Table(name="TASKDELAYREASON")
 @NamedQuery(name="Taskdelayreason.findAll", query="SELECT t FROM Taskdelayreason t")
-public class Taskdelayreason implements Serializable {
+public class TaskDelayReason implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -43,9 +45,9 @@ public class Taskdelayreason implements Serializable {
 
 	//bi-directional many-to-many association to Workordertask
 	@ManyToMany(mappedBy="taskdelayreasons")
-	private List<Workordertask> workordertasks;
+	private List<WorkOrderTask> workordertasks;
 
-	public Taskdelayreason() {
+	public TaskDelayReason() {
 	}
 
 	public long getId() {
@@ -104,11 +106,11 @@ public class Taskdelayreason implements Serializable {
 		this.delayreason = delayreason;
 	}
 
-	public List<Workordertask> getWorkordertasks() {
+	public List<WorkOrderTask> getWorkordertasks() {
 		return this.workordertasks;
 	}
 
-	public void setWorkordertasks(List<Workordertask> workordertasks) {
+	public void setWorkordertasks(List<WorkOrderTask> workordertasks) {
 		this.workordertasks = workordertasks;
 	}
 

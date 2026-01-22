@@ -36,7 +36,7 @@ public class Delayreason implements Serializable {
 
 	//bi-directional many-to-one association to Taskdelayreason
 	@OneToMany(mappedBy="delayreason")
-	private List<Taskdelayreason> taskdelayreasons;
+	private List<TaskDelayReason> taskdelayreasons;
 
 	public Delayreason() {
 	}
@@ -81,22 +81,22 @@ public class Delayreason implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Taskdelayreason> getTaskdelayreasons() {
+	public List<TaskDelayReason> getTaskdelayreasons() {
 		return this.taskdelayreasons;
 	}
 
-	public void setTaskdelayreasons(List<Taskdelayreason> taskdelayreasons) {
+	public void setTaskdelayreasons(List<TaskDelayReason> taskdelayreasons) {
 		this.taskdelayreasons = taskdelayreasons;
 	}
 
-	public Taskdelayreason addTaskdelayreason(Taskdelayreason taskdelayreason) {
+	public TaskDelayReason addTaskdelayreason(TaskDelayReason taskdelayreason) {
 		getTaskdelayreasons().add(taskdelayreason);
 		taskdelayreason.setDelayreason(this);
 
 		return taskdelayreason;
 	}
 
-	public Taskdelayreason removeTaskdelayreason(Taskdelayreason taskdelayreason) {
+	public TaskDelayReason removeTaskdelayreason(TaskDelayReason taskdelayreason) {
 		getTaskdelayreasons().remove(taskdelayreason);
 		taskdelayreason.setDelayreason(null);
 

@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.workmanagement.WorkOrderTask;
+
 import java.util.List;
 
 
@@ -56,7 +58,7 @@ public class Taskstatus implements Serializable {
 
 	//bi-directional many-to-one association to Workordertask
 	@OneToMany(mappedBy="taskstatus")
-	private List<Workordertask> workordertasks;
+	private List<WorkOrderTask> workordertasks;
 
 	//bi-directional many-to-one association to Workordertaskstatusprogress
 	@OneToMany(mappedBy="taskstatus")
@@ -129,22 +131,22 @@ public class Taskstatus implements Serializable {
 		this.taskstatuses2 = taskstatuses2;
 	}
 
-	public List<Workordertask> getWorkordertasks() {
+	public List<WorkOrderTask> getWorkordertasks() {
 		return this.workordertasks;
 	}
 
-	public void setWorkordertasks(List<Workordertask> workordertasks) {
+	public void setWorkordertasks(List<WorkOrderTask> workordertasks) {
 		this.workordertasks = workordertasks;
 	}
 
-	public Workordertask addWorkordertask(Workordertask workordertask) {
+	public WorkOrderTask addWorkordertask(WorkOrderTask workordertask) {
 		getWorkordertasks().add(workordertask);
 		workordertask.setTaskstatus(this);
 
 		return workordertask;
 	}
 
-	public Workordertask removeWorkordertask(Workordertask workordertask) {
+	public WorkOrderTask removeWorkordertask(WorkOrderTask workordertask) {
 		getWorkordertasks().remove(workordertask);
 		workordertask.setTaskstatus(null);
 

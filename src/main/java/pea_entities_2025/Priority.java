@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.event.Event;
+import pea_entities_2025.workmanagement.WorkOrder;
 
 import java.util.List;
 
@@ -51,7 +52,7 @@ public class Priority implements Serializable {
 
 	//bi-directional many-to-one association to Eventcondition
 	@OneToMany(mappedBy="priority")
-	private List<Eventcondition> eventconditions;
+	private List<EventCondition> eventconditions;
 
 	//bi-directional many-to-one association to Workorder
 	@OneToMany(mappedBy="priority")
@@ -146,22 +147,22 @@ public class Priority implements Serializable {
 		return event;
 	}
 
-	public List<Eventcondition> getEventconditions() {
+	public List<EventCondition> getEventconditions() {
 		return this.eventconditions;
 	}
 
-	public void setEventconditions(List<Eventcondition> eventconditions) {
+	public void setEventconditions(List<EventCondition> eventconditions) {
 		this.eventconditions = eventconditions;
 	}
 
-	public Eventcondition addEventcondition(Eventcondition eventcondition) {
+	public EventCondition addEventcondition(EventCondition eventcondition) {
 		getEventconditions().add(eventcondition);
 		eventcondition.setPriority(this);
 
 		return eventcondition;
 	}
 
-	public Eventcondition removeEventcondition(Eventcondition eventcondition) {
+	public EventCondition removeEventcondition(EventCondition eventcondition) {
 		getEventconditions().remove(eventcondition);
 		eventcondition.setPriority(null);
 

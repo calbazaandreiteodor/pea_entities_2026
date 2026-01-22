@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.event.Event;
+import pea_entities_2025.service.auth.LockToken;
+import pea_entities_2025.workmanagement.WorkOrder;
 
 import java.util.List;
 
@@ -141,7 +143,7 @@ public class Device implements Serializable {
 
 	//bi-directional many-to-many association to Locktoken
 	@ManyToMany(mappedBy="devices")
-	private List<Locktoken> locktokens;
+	private List<LockToken> locktokens;
 
 	//bi-directional many-to-many association to Schematicgraph
 	@ManyToMany(mappedBy="devices")
@@ -490,11 +492,11 @@ public class Device implements Serializable {
 		this.site = site;
 	}
 
-	public List<Locktoken> getLocktokens() {
+	public List<LockToken> getLocktokens() {
 		return this.locktokens;
 	}
 
-	public void setLocktokens(List<Locktoken> locktokens) {
+	public void setLocktokens(List<LockToken> locktokens) {
 		this.locktokens = locktokens;
 	}
 

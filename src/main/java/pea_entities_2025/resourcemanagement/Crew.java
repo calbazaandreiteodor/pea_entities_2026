@@ -9,9 +9,9 @@ import pea_entities_2025.Address;
 import pea_entities_2025.Contact;
 import pea_entities_2025.Department;
 import pea_entities_2025.OrganisationalUnit;
-import pea_entities_2025.UserAccount;
 import pea_entities_2025.Vehicle;
-import pea_entities_2025.WorkOrderType;
+import pea_entities_2025.service.auth.UserAccount;
+import pea_entities_2025.workmanagement.WorkOrderType;
 
 import java.util.List;
 
@@ -154,7 +154,13 @@ public class Crew implements Serializable {
 	@OneToMany(mappedBy="crew", fetch=FetchType.LAZY)
 	private List<CrewTaskTotal> crewTaskTotals;
 
-	@ManyToMany(mappedBy="crews", fetch=FetchType.LAZY)
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(
+			name="CREWWORKORDERTYPEXREF", 
+			joinColumns=@JoinColumn(name="CREWID", referencedColumnName="ID"),
+			inverseJoinColumns=@JoinColumn(name="WORKORDERTYPEID", referencedColumnName="ID")
+			)
 	private List<WorkOrderType> workOrderTypes;
 
 
