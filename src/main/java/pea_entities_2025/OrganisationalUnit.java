@@ -3,7 +3,9 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.ModelType;
 import pea_entities_2025.event.Event;
+import pea_entities_2025.network.Device;
 import pea_entities_2025.service.auth.LockToken;
 import pea_entities_2025.service.auth.UserAccount;
 import pea_entities_2025.workmanagement.WorkOrder;
@@ -28,7 +30,7 @@ public class OrganisationalUnit implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, precision=10)
 	private long averagetimetosite;

@@ -25,7 +25,7 @@ public class Messagedefinition implements Serializable {
 	private String actionobjectfactory;
 
 	@Column(nullable=false)
-	private long active;
+	private boolean active;
 
 	@Column(length=512)
 	private String bindingpackage;

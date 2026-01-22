@@ -30,7 +30,7 @@ public class Devicesubtypeparameter implements Serializable {
 	//bi-directional many-to-one association to Devicesubtype
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="DEVICESUBTYPEID", nullable=false)
-	private Devicesubtype devicesubtype;
+	private DeviceSubType devicesubtype;
 
 	//bi-directional many-to-one association to Parametername
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -64,11 +64,11 @@ public class Devicesubtypeparameter implements Serializable {
 		this.value = value;
 	}
 
-	public Devicesubtype getDevicesubtype() {
+	public DeviceSubType getDevicesubtype() {
 		return this.devicesubtype;
 	}
 
-	public void setDevicesubtype(Devicesubtype devicesubtype) {
+	public void setDevicesubtype(DeviceSubType devicesubtype) {
 		this.devicesubtype = devicesubtype;
 	}
 

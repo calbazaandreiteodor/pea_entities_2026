@@ -26,7 +26,7 @@ public class TaskDelayReason implements Serializable {
 	private long id;
 
 	@Column(precision=1)
-	private long active;
+	private boolean active;
 
 	private LocalDateTime enddate;
 

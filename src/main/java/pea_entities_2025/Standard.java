@@ -3,6 +3,7 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.ModelType;
 import pea_entities_2025.event.Event;
 import pea_entities_2025.workmanagement.WorkOrder;
 
@@ -26,7 +27,7 @@ public class Standard implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=100)
 	private String description;

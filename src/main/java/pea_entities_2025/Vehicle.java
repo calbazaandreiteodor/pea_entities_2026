@@ -25,7 +25,7 @@ public class Vehicle implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(precision=10)
 	private long odometerreading;

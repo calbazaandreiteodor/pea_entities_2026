@@ -3,8 +3,11 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.Address;
+import pea_entities_2025.customer.Premise;
 import pea_entities_2025.event.AffectedPremise;
 import pea_entities_2025.event.Event;
+import pea_entities_2025.network.Device;
 import pea_entities_2025.workmanagement.WorkOrder;
 
 import java.util.List;
@@ -30,7 +33,7 @@ public class Site implements Serializable {
 	private String accessdetails;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, precision=1)
 	private long classidentifier;

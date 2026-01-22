@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.customer.Premise;
+
 import java.util.List;
 
 
@@ -23,7 +25,7 @@ public class Mpan implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=80)
 	private String description;

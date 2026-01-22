@@ -22,7 +22,7 @@ public class Rolemap implements Serializable {
 	private long id;
 
 	@Column(nullable=false)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=100)
 	private String ejbrole;

@@ -22,7 +22,7 @@ public class Suspendedmessage implements Serializable {
 	private long id;
 
 	@Column(nullable=false)
-	private long active;
+	private boolean active;
 
 	@Lob
 	@Column(nullable=false)

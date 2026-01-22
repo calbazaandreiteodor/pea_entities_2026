@@ -6,8 +6,6 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import pea_entities_2025.TaskDelayReason;
-import pea_entities_2025.TaskType;
-import pea_entities_2025.Taskstatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -59,7 +57,7 @@ public class WorkOrderTask implements Serializable {
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TASKSTATUSID", nullable=false)
-	private Taskstatus taskStatus;
+	private TaskStatus taskStatus;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TASKTYPEID", nullable=false)
@@ -136,11 +134,11 @@ public class WorkOrderTask implements Serializable {
 		this.taskDelayReasons = taskDelayReasons;
 	}
 
-	public Taskstatus getTaskStatus() {
+	public TaskStatus getTaskStatus() {
 		return taskStatus;
 	}
 
-	public void setTaskStatus(Taskstatus taskStatus) {
+	public void setTaskStatus(TaskStatus taskStatus) {
 		this.taskStatus = taskStatus;
 	}
 

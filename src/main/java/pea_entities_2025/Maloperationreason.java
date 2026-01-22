@@ -23,7 +23,7 @@ public class Maloperationreason implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=100)
 	private String description;

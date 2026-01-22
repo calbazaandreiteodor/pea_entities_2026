@@ -22,7 +22,7 @@ public class Spatiallayer implements Serializable {
 	private long id;
 
 	@Column(nullable=false)
-	private long active;
+	private boolean active;
 
 	@Column(length=36)
 	private String colour;

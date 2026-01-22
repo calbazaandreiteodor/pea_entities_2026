@@ -38,7 +38,7 @@ public class Outagereport implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=10)
-	private long active;
+	private boolean active;
 
 	@Column(precision=1)
 	private long anyoneinjured;

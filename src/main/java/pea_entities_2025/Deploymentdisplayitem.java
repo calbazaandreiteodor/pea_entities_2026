@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.ModelType;
+
 
 
 /**
@@ -22,7 +24,7 @@ public class Deploymentdisplayitem implements Serializable {
 	private long id;
 
 	@Column(precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(precision=10)
 	private long revision;

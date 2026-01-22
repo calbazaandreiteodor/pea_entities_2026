@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.event.Event;
+import pea_entities_2025.network.Device;
 
 import java.time.LocalDateTime;
 
@@ -25,7 +26,7 @@ public class SwitchingStep implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	private LocalDateTime completeddatetime;
 

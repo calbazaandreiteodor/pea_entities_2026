@@ -24,7 +24,7 @@ public class Documentation implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=4000)
 	private String location;

@@ -36,7 +36,7 @@ public class Electricaldevicetype implements Serializable {
 	//bi-directional one-to-one association to Devicesubtype
 	@OneToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ID", nullable=false, insertable=false, updatable=false)
-	private Devicesubtype devicesubtype;
+	private DeviceSubType devicesubtype;
 
 	//bi-directional many-to-one association to Mei
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -86,11 +86,11 @@ public class Electricaldevicetype implements Serializable {
 		this.reliable = reliable;
 	}
 
-	public Devicesubtype getDevicesubtype() {
+	public DeviceSubType getDevicesubtype() {
 		return this.devicesubtype;
 	}
 
-	public void setDevicesubtype(Devicesubtype devicesubtype) {
+	public void setDevicesubtype(DeviceSubType devicesubtype) {
 		this.devicesubtype = devicesubtype;
 	}
 

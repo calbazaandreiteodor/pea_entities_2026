@@ -3,7 +3,7 @@ package pea_entities_2025.resourcemanagement;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import pea_entities_2025.TaskType;
+import pea_entities_2025.workmanagement.TaskType;
 
 import java.time.LocalDateTime;
 

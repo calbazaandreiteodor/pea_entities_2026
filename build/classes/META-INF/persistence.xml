@@ -13,10 +13,10 @@
 		<class>pea_entities_2025.event.outagereporting.AbBox7</class>
 		<class>pea_entities_2025.event.outagereporting.AbBox8</class>
 		<class>pea_entities_2025.event.outagereporting.AbBox9</class>
-		<class>pea_entities_2025.AccountStatus</class>
+		<class>pea_entities_2025.customer.AccountStatus</class>
 		<class>pea_entities_2025.event.Activity</class>
-		<class>pea_entities_2025.Address</class>
-		<class>pea_entities_2025.AddressType</class>
+		<class>pea_entities_2025.common.Address</class>
+		<class>pea_entities_2025.common.AddressType</class>
 		
 		<class>pea_entities_2025.event.AffectedPremise</class>
 		<class>pea_entities_2025.Alternativesupply</class>
@@ -68,12 +68,8 @@
 		<class>pea_entities_2025.resourcemanagement.CrewHoliday</class>
 		<class>pea_entities_2025.resourcemanagement.CrewTaskTotal</class>
 		<class>pea_entities_2025.resourcemanagement.CrewType</class>
-		<class>pea_entities_2025.Customer</class>
-		<class>pea_entities_2025.Customercontactxref</class>
-		<class>pea_entities_2025.CustomercontactxrefPK</class>
-		<class>pea_entities_2025.Customertype</class>
-		<class>pea_entities_2025.CustomerAllChk</class>
-		<class>pea_entities_2025.CustomerBak</class>
+		<class>pea_entities_2025.customer.Customer</class>
+		<class>pea_entities_2025.CustomerType</class>
 		<class>pea_entities_2025.CustomerDelete</class>
 		<class>pea_entities_2025.Damagetype</class>
 		<class>pea_entities_2025.Datacachescheduledeviction</class>
@@ -83,13 +79,13 @@
 		<class>pea_entities_2025.Department</class>
 		<class>pea_entities_2025.Deployment</class>
 		<class>pea_entities_2025.Deploymentdisplayitem</class>
-		<class>pea_entities_2025.Device</class>
+		<class>pea_entities_2025.network.Device</class>
 		<class>pea_entities_2025.Devicedevicexref</class>
 		<class>pea_entities_2025.DevicedevicexrefPK</class>
-		<class>pea_entities_2025.Devicestatus</class>
-		<class>pea_entities_2025.Devicesubtype</class>
+		<class>pea_entities_2025.DeviceStatus</class>
+		<class>pea_entities_2025.DeviceSubType</class>
 		<class>pea_entities_2025.Devicesubtypeparameter</class>
-		<class>pea_entities_2025.Deviceterminal</class>
+		<class>pea_entities_2025.DeviceTerminal</class>
 		<class>pea_entities_2025.DeviceType</class>
 		<class>pea_entities_2025.Displayitem</class>
 		<class>pea_entities_2025.Document</class>
@@ -126,8 +122,8 @@
 		<class>pea_entities_2025.Eventpolygonxref</class>
 		<class>pea_entities_2025.Eventreason</class>
 		<class>pea_entities_2025.Eventresponsibility</class>
-		<class>pea_entities_2025.EventStatus</class>
-		<class>pea_entities_2025.EventType</class>
+		<class>pea_entities_2025.event.EventStatus</class>
+		<class>pea_entities_2025.event.EventType</class>
 		<class>pea_entities_2025.Eventtypeeventclosereasonxref</class>
 		<class>pea_entities_2025.Externalcontact</class>
 		<class>pea_entities_2025.Extraequipment</class>
@@ -168,7 +164,7 @@
 		<class>pea_entities_2025.Miscellaneoustype</class>
 		<class>pea_entities_2025.Mobiledevice</class>
 		<class>pea_entities_2025.Modeltable</class>
-		<class>pea_entities_2025.ModelType</class>
+		<class>pea_entities_2025.common.ModelType</class>
 		<class>pea_entities_2025.Moduletype</class>
 		<class>pea_entities_2025.Mostcommonfault</class>
 		<class>pea_entities_2025.Mpan</class>
@@ -185,7 +181,7 @@
 		<class>pea_entities_2025.Organisationalunitgroup</class>
 		<class>pea_entities_2025.Organisationalunitparameter</class>
 		<class>pea_entities_2025.Organisationalunittype</class>
-		<class>pea_entities_2025.Outage</class>
+		<class>pea_entities_2025.event.Outage</class>
 		<class>pea_entities_2025.Outagecause</class>
 		<class>pea_entities_2025.Outagecausecategory</class>
 		<class>pea_entities_2025.Outageivrmessage</class>
@@ -207,27 +203,20 @@
 		<class>pea_entities_2025.Partitionrange</class>
 		<class>pea_entities_2025.PlannedOutage</class>
 		<class>pea_entities_2025.Polygon</class>
-		<class>pea_entities_2025.Premise</class>
-		<class>pea_entities_2025.Premiseage</class>
-		<class>pea_entities_2025.Premisecontactxref</class>
-		<class>pea_entities_2025.PremisecontactxrefPK</class>
+		<class>pea_entities_2025.customer.Premise</class>
+		<class>pea_entities_2025.customer.PremiseAge</class>
 		<class>pea_entities_2025.Priority</class>
 		<class>pea_entities_2025.Processedmeterloadfile</class>
 		<class>pea_entities_2025.Progressfromfield</class>
 		<class>pea_entities_2025.Protectionoperated</class>
 		<class>pea_entities_2025.Publicholiday</class>
-		<class>pea_entities_2025.Reportcolumn</class>
-		<class>pea_entities_2025.ReportDefinition</class>
-		<class>pea_entities_2025.Reportdefinitioncolumnxref</class>
-		<class>pea_entities_2025.Reportdefinitionfrequencyxref</class>
-		<class>pea_entities_2025.ReportdefinitionfrequencyxrefPK</class>
-		<class>pea_entities_2025.Reportdefinitionoptionxref</class>
-		<class>pea_entities_2025.ReportdefinitionoptionxrefPK</class>
+		<class>pea_entities_2025.reporting.ReportColumn</class>
+		<class>pea_entities_2025.reporting.ReportDefinition</class>
 		<class>pea_entities_2025.Reportfrequency</class>
 		<class>pea_entities_2025.Reportgroup</class>
 		<class>pea_entities_2025.Reportingyear</class>
-		<class>pea_entities_2025.Reportoption</class>
-		<class>pea_entities_2025.Reportoptiontype</class>
+		<class>pea_entities_2025.reporting.ReportOption</class>
+		<class>pea_entities_2025.ReportOptionType</class>
 		<class>pea_entities_2025.Reportparameter</class>
 		<class>pea_entities_2025.Reportparametervalue</class>
 		<class>pea_entities_2025.Reportschedule</class>
@@ -244,10 +233,6 @@
 		<class>pea_entities_2025.Rule</class>
 		<class>pea_entities_2025.Ruleaction</class>
 		<class>pea_entities_2025.Ruleset</class>
-		<class>pea_entities_2025.Rulesetfaulure</class>
-		<class>pea_entities_2025.RulesetfaulurePK</class>
-		<class>pea_entities_2025.Rulesetsuccess</class>
-		<class>pea_entities_2025.RulesetsuccessPK</class>
 		<class>pea_entities_2025.Scadalock</class>
 		<class>pea_entities_2025.Scheduledtask</class>
 		<class>pea_entities_2025.Scheduledtaskstatus</class>
@@ -274,7 +259,7 @@
 		<class>pea_entities_2025.Spatialimage</class>
 		<class>pea_entities_2025.Spatiallayer</class>
 		<class>pea_entities_2025.Specialneed</class>
-		<class>pea_entities_2025.Specialneedmodeltype</class>
+		<class>pea_entities_2025.SpecialNeedModelType</class>
 		<class>pea_entities_2025.Standard</class>
 		<class>pea_entities_2025.Standardband</class>
 		<class>pea_entities_2025.Statistictype</class>
@@ -290,18 +275,16 @@
 		<class>pea_entities_2025.Switchingstepstatus</class>
 		<class>pea_entities_2025.Tarifftype</class>
 		<class>pea_entities_2025.workmanagement.TaskAssignment</class>
-		<class>pea_entities_2025.Taskassignmentstatus</class>
-		<class>pea_entities_2025.Taskassignmentstatusprogress</class>
-		<class>pea_entities_2025.Taskassignmentstatusxref</class>
-		<class>pea_entities_2025.TaskassignmentstatusxrefPK</class>
+		<class>pea_entities_2025.workmanagement.TaskAssignmentStatus</class>
+		<class>pea_entities_2025.workmanagement.TaskAssignmentStatusProgress</class>
 		<class>pea_entities_2025.TaskDelayReason</class>
 		<class>pea_entities_2025.Taskrejectreason</class>
-		<class>pea_entities_2025.Taskstatus</class>
-		<class>pea_entities_2025.TaskType</class>
-		<class>pea_entities_2025.TelemetryState</class>
+		<class>pea_entities_2025.workmanagement.TaskStatus</class>
+		<class>pea_entities_2025.workmanagement.TaskType</class>
+		<class>pea_entities_2025.event.TelemetryState</class>
 		<class>pea_entities_2025.Terraintype</class>
 		<class>pea_entities_2025.Timerange</class>
-		<class>pea_entities_2025.TopologyType</class>
+		<class>pea_entities_2025.common.TopologyType</class>
 		<class>pea_entities_2025.Tpddamagemethod</class>
 		<class>pea_entities_2025.Tpdreportedcode</class>
 		<class>pea_entities_2025.Transporthandlerconfig</class>
@@ -310,9 +293,7 @@
 		<class>pea_entities_2025.Troubleticketcallback</class>
 		<class>pea_entities_2025.Typeofwork</class>
 		<class>pea_entities_2025.service.auth.UserAccount</class>
-		<class>pea_entities_2025.Useraccountstatus</class>
-		<class>pea_entities_2025.Userreportdefinitionxref</class>
-		<class>pea_entities_2025.UserreportdefinitionxrefPK</class>
+		<class>pea_entities_2025.service.auth.UserAccountStatus</class>
 		<class>pea_entities_2025.service.auth.UserSession</class>
 		<class>pea_entities_2025.Vehicle</class>
 		<class>pea_entities_2025.Vehicletype</class>
@@ -323,7 +304,7 @@
 		<class>pea_entities_2025.workmanagement.WorkOrderStatus</class>
 		<class>pea_entities_2025.workmanagement.WorkOrderTask</class>
 		<class>pea_entities_2025.Workordertaskfilter</class>
-		<class>pea_entities_2025.Workordertaskstatusprogress</class>
+		<class>pea_entities_2025.workmanagement.WorkOrderTaskStatusProgress</class>
 		<class>pea_entities_2025.workmanagement.WorkOrderType</class>
 	</persistence-unit>
 </persistence>

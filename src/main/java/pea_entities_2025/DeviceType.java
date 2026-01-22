@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.ModelType;
+
 import java.util.List;
 
 
@@ -39,7 +41,7 @@ public class DeviceType implements Serializable {
 
 	//bi-directional many-to-one association to Devicesubtype
 	@OneToMany(mappedBy="devicetype")
-	private List<Devicesubtype> devicesubtypes;
+	private List<DeviceSubType> devicesubtypes;
 
 	//bi-directional many-to-many association to Modeltype
 	@ManyToMany(mappedBy="devicetypes")
@@ -97,22 +99,22 @@ public class DeviceType implements Serializable {
 	}
 
 
-	public List<Devicesubtype> getDevicesubtypes() {
+	public List<DeviceSubType> getDevicesubtypes() {
 		return this.devicesubtypes;
 	}
 
-	public void setDevicesubtypes(List<Devicesubtype> devicesubtypes) {
+	public void setDevicesubtypes(List<DeviceSubType> devicesubtypes) {
 		this.devicesubtypes = devicesubtypes;
 	}
 
-	public Devicesubtype addDevicesubtype(Devicesubtype devicesubtype) {
+	public DeviceSubType addDevicesubtype(DeviceSubType devicesubtype) {
 		getDevicesubtypes().add(devicesubtype);
 		devicesubtype.setDevicetype(this);
 
 		return devicesubtype;
 	}
 
-	public Devicesubtype removeDevicesubtype(Devicesubtype devicesubtype) {
+	public DeviceSubType removeDevicesubtype(DeviceSubType devicesubtype) {
 		getDevicesubtypes().remove(devicesubtype);
 		devicesubtype.setDevicetype(null);
 

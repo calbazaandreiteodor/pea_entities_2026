@@ -5,17 +5,17 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import pea_entities_2025.Address;
 import pea_entities_2025.Department;
-import pea_entities_2025.Device;
 import pea_entities_2025.Documentation;
 import pea_entities_2025.OrganisationalUnit;
 import pea_entities_2025.Priority;
 import pea_entities_2025.Progressfromfield;
 import pea_entities_2025.Site;
 import pea_entities_2025.Standard;
+import pea_entities_2025.common.Address;
 import pea_entities_2025.common.AreaCode;
 import pea_entities_2025.event.Event;
+import pea_entities_2025.network.Device;
 
 import java.time.LocalDateTime;
 import java.util.List;

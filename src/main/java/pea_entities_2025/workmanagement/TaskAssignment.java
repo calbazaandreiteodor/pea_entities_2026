@@ -3,7 +3,6 @@ package pea_entities_2025.workmanagement;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import pea_entities_2025.Taskassignmentstatus;
 import pea_entities_2025.Taskrejectreason;
 import pea_entities_2025.resourcemanagement.Crew;
 
@@ -42,7 +41,7 @@ public class TaskAssignment implements Serializable {
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TASKASSIGNMENTSTATUSID", nullable=false)
-	private Taskassignmentstatus taskAssignmentStatus;
+	private TaskAssignmentStatus taskAssignmentStatus;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="TASKREJECTREASONID")
@@ -91,11 +90,11 @@ public class TaskAssignment implements Serializable {
 		this.crew = crew;
 	}
 
-	public Taskassignmentstatus getTaskAssignmentStatus() {
+	public TaskAssignmentStatus getTaskAssignmentStatus() {
 		return taskAssignmentStatus;
 	}
 
-	public void setTaskAssignmentStatus(Taskassignmentstatus taskAssignmentStatus) {
+	public void setTaskAssignmentStatus(TaskAssignmentStatus taskAssignmentStatus) {
 		this.taskAssignmentStatus = taskAssignmentStatus;
 	}
 

@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.network.Device;
+
 import java.time.LocalDateTime;
 
 
@@ -23,7 +25,7 @@ public class Connectivityjumper implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, precision=10)
 	private long addswitchstepid;

@@ -22,7 +22,7 @@ public class Document implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=3)
-	private long active;
+	private boolean active;
 
 	@Lob
 	private byte[] filecontent;

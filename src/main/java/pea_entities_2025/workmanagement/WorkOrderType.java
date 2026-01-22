@@ -5,9 +5,8 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import pea_entities_2025.EventType;
-import pea_entities_2025.ModelType;
-import pea_entities_2025.TaskType;
+import pea_entities_2025.common.ModelType;
+import pea_entities_2025.event.EventType;
 import pea_entities_2025.resourcemanagement.Crew;
 
 import java.util.List;

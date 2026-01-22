@@ -23,7 +23,7 @@ public class Stream implements Serializable {
 	private long id;
 
 	@Column(nullable=false)
-	private long active;
+	private boolean active;
 
 	@Column(length=128)
 	private String description;

@@ -3,9 +3,9 @@ package pea_entities_2025.service.auth;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import pea_entities_2025.Device;
 import pea_entities_2025.LockTokenStatus;
 import pea_entities_2025.OrganisationalUnit;
+import pea_entities_2025.network.Device;
 
 import java.util.List;
 

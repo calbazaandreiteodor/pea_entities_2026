@@ -24,7 +24,7 @@ public class Reportingyear implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=10)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=256)
 	private String description;

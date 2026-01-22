@@ -3,7 +3,7 @@ package pea_entities_2025.event;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import pea_entities_2025.ModelType;
+import pea_entities_2025.common.ModelType;
 
 import java.util.List;
 

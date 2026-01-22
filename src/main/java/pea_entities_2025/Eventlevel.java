@@ -3,6 +3,7 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.ModelType;
 import pea_entities_2025.event.Event;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class Eventlevel implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=100)
 	private String description;
@@ -42,7 +43,7 @@ public class Eventlevel implements Serializable {
 
 	//bi-directional many-to-one association to Devicesubtype
 	@OneToMany(mappedBy="eventlevel")
-	private List<Devicesubtype> devicesubtypes;
+	private List<DeviceSubType> devicesubtypes;
 
 	//bi-directional many-to-one association to Event
 	@OneToMany(mappedBy="eventlevel")
@@ -130,22 +131,22 @@ public class Eventlevel implements Serializable {
 		return component;
 	}
 
-	public List<Devicesubtype> getDevicesubtypes() {
+	public List<DeviceSubType> getDevicesubtypes() {
 		return this.devicesubtypes;
 	}
 
-	public void setDevicesubtypes(List<Devicesubtype> devicesubtypes) {
+	public void setDevicesubtypes(List<DeviceSubType> devicesubtypes) {
 		this.devicesubtypes = devicesubtypes;
 	}
 
-	public Devicesubtype addDevicesubtype(Devicesubtype devicesubtype) {
+	public DeviceSubType addDevicesubtype(DeviceSubType devicesubtype) {
 		getDevicesubtypes().add(devicesubtype);
 		devicesubtype.setEventlevel(this);
 
 		return devicesubtype;
 	}
 
-	public Devicesubtype removeDevicesubtype(Devicesubtype devicesubtype) {
+	public DeviceSubType removeDevicesubtype(DeviceSubType devicesubtype) {
 		getDevicesubtypes().remove(devicesubtype);
 		devicesubtype.setEventlevel(null);
 

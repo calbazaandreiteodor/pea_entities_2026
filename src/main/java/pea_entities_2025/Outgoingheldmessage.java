@@ -23,7 +23,7 @@ public class Outgoingheldmessage implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Lob
 	@Column(name="\"MESSAGE\"", nullable=false)

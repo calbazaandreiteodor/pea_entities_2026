@@ -6,9 +6,8 @@ import javax.persistence.*;
 import pea_entities_2025.EventCondition;
 import pea_entities_2025.HistoricalPassword;
 import pea_entities_2025.OrganisationalUnit;
-import pea_entities_2025.ReportDefinition;
 import pea_entities_2025.Role;
-import pea_entities_2025.Useraccountstatus;
+import pea_entities_2025.reporting.ReportDefinition;
 import pea_entities_2025.resourcemanagement.Crew;
 
 import java.time.LocalDateTime;
@@ -69,7 +68,7 @@ public class UserAccount implements Serializable {
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="USERACCOUNTSTATUSID", nullable=false)
-	private Useraccountstatus userAccountStatus;
+	private UserAccountStatus userAccountStatus;
 
 	@ManyToMany
 	@JoinTable(name="USERALARMTYPEXREF"	,

@@ -3,6 +3,9 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.ModelType;
+import pea_entities_2025.event.EventStatus;
+import pea_entities_2025.event.EventType;
 import pea_entities_2025.service.auth.UserAccount;
 
 import java.util.List;
@@ -25,7 +28,7 @@ public class EventCondition implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, precision=10)
 	private long associationinterval;

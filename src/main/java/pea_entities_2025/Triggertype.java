@@ -22,7 +22,7 @@ public class Triggertype implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=250)
 	private String description;

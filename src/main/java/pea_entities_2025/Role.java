@@ -3,6 +3,7 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.reporting.ReportDefinition;
 import pea_entities_2025.service.auth.UserAccount;
 
 import java.util.List;

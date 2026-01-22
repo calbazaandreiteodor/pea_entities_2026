@@ -23,7 +23,7 @@ public class Specialneed implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, length=80)
 	private String description;
@@ -39,7 +39,7 @@ public class Specialneed implements Serializable {
 
 	//bi-directional many-to-one association to Specialneedmodeltype
 	@OneToMany(mappedBy="specialneed")
-	private List<Specialneedmodeltype> specialneedmodeltypes;
+	private List<SpecialNeedModelType> specialneedmodeltypes;
 
 	public Specialneed() {
 	}
@@ -92,22 +92,22 @@ public class Specialneed implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Specialneedmodeltype> getSpecialneedmodeltypes() {
+	public List<SpecialNeedModelType> getSpecialneedmodeltypes() {
 		return this.specialneedmodeltypes;
 	}
 
-	public void setSpecialneedmodeltypes(List<Specialneedmodeltype> specialneedmodeltypes) {
+	public void setSpecialneedmodeltypes(List<SpecialNeedModelType> specialneedmodeltypes) {
 		this.specialneedmodeltypes = specialneedmodeltypes;
 	}
 
-	public Specialneedmodeltype addSpecialneedmodeltype(Specialneedmodeltype specialneedmodeltype) {
+	public SpecialNeedModelType addSpecialneedmodeltype(SpecialNeedModelType specialneedmodeltype) {
 		getSpecialneedmodeltypes().add(specialneedmodeltype);
 		specialneedmodeltype.setSpecialneed(this);
 
 		return specialneedmodeltype;
 	}
 
-	public Specialneedmodeltype removeSpecialneedmodeltype(Specialneedmodeltype specialneedmodeltype) {
+	public SpecialNeedModelType removeSpecialneedmodeltype(SpecialNeedModelType specialneedmodeltype) {
 		getSpecialneedmodeltypes().remove(specialneedmodeltype);
 		specialneedmodeltype.setSpecialneed(null);
 

@@ -22,7 +22,7 @@ public class Streamdispatcherconfig implements Serializable {
 	private long id;
 
 	@Column(nullable=false, precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(nullable=false, precision=2)
 	private long direction;

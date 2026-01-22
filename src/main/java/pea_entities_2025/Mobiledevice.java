@@ -22,7 +22,7 @@ public class Mobiledevice implements Serializable {
 	private long id;
 
 	@Column(precision=1)
-	private long active;
+	private boolean active;
 
 	@Column(length=320)
 	private String description;

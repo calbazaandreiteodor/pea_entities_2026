@@ -3,15 +3,10 @@ package pea_entities_2025.event;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import pea_entities_2025.Address;
-import pea_entities_2025.Device;
 import pea_entities_2025.EventCloseReason;
-import pea_entities_2025.EventStatus;
-import pea_entities_2025.EventType;
 import pea_entities_2025.Eventlevel;
 import pea_entities_2025.Eventreason;
 import pea_entities_2025.Milestone;
-import pea_entities_2025.ModelType;
 import pea_entities_2025.Operationmode;
 import pea_entities_2025.OrganisationalUnit;
 import pea_entities_2025.OutageStepDetail;
@@ -21,7 +16,10 @@ import pea_entities_2025.Severity;
 import pea_entities_2025.Site;
 import pea_entities_2025.Standard;
 import pea_entities_2025.Standardband;
+import pea_entities_2025.common.Address;
 import pea_entities_2025.common.AreaCode;
+import pea_entities_2025.common.ModelType;
+import pea_entities_2025.network.Device;
 
 import java.time.LocalDateTime;
 import java.util.List;

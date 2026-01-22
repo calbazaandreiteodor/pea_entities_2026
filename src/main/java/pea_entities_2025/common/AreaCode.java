@@ -3,8 +3,6 @@ package pea_entities_2025.common;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import pea_entities_2025.ModelType;
-
 import java.util.List;
 
 
