@@ -82,7 +82,7 @@ public class Eventcondition implements Serializable {
 	//bi-directional many-to-one association to Eventstatus
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="DEFAULTEVENTSTATUSID", nullable=false)
-	private Eventstatus eventstatus;
+	private EventStatus eventstatus;
 
 	//bi-directional many-to-one association to Priority
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -290,11 +290,11 @@ public class Eventcondition implements Serializable {
 		this.workordertypeid = workordertypeid;
 	}
 
-	public Eventstatus getEventstatus() {
+	public EventStatus getEventstatus() {
 		return this.eventstatus;
 	}
 
-	public void setEventstatus(Eventstatus eventstatus) {
+	public void setEventstatus(EventStatus eventstatus) {
 		this.eventstatus = eventstatus;
 	}
 

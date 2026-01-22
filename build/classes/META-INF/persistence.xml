@@ -37,9 +37,8 @@
 		<class>pea_entities_2025.Auditfield</class>
 		<class>pea_entities_2025.Audittype</class>
 		<class>pea_entities_2025.Authoritytype</class>
-		<class>pea_entities_2025.Boundarytype</class>
-		<class>pea_entities_2025.Boundarytypemodeltypexref</class>
-		<class>pea_entities_2025.Businessstream</class>
+		<class>pea_entities_2025.BoundaryType</class>
+		<class>pea_entities_2025.BusinessStream</class>
 		<class>pea_entities_2025.Call</class>
 		<class>pea_entities_2025.Callback</class>
 		<class>pea_entities_2025.Callbackoutcome</class>
@@ -145,7 +144,7 @@
 		<class>pea_entities_2025.Eventpolygonxref</class>
 		<class>pea_entities_2025.Eventreason</class>
 		<class>pea_entities_2025.Eventresponsibility</class>
-		<class>pea_entities_2025.Eventstatus</class>
+		<class>pea_entities_2025.EventStatus</class>
 		<class>pea_entities_2025.EventType</class>
 		<class>pea_entities_2025.Eventtypeeventclosereasonxref</class>
 		<class>pea_entities_2025.Externalcontact</class>

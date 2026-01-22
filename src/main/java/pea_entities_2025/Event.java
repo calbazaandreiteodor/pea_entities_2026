@@ -180,7 +180,7 @@ public class Event implements Serializable {
 	//bi-directional many-to-one association to Eventstatus
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTSTATUSID", nullable=false)
-	private Eventstatus eventStatus;
+	private EventStatus eventStatus;
 
 	//bi-directional many-to-one association to Eventtype
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -620,11 +620,11 @@ public class Event implements Serializable {
 		this.eventReason = eventreason;
 	}
 
-	public Eventstatus getEventstatus() {
+	public EventStatus getEventstatus() {
 		return this.eventStatus;
 	}
 
-	public void setEventstatus(Eventstatus eventstatus) {
+	public void setEventstatus(EventStatus eventstatus) {
 		this.eventStatus = eventstatus;
 	}
 

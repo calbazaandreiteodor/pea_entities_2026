@@ -30,248 +30,132 @@ public class EventType implements Serializable {
 	private String description;
 
 	@Version
-	private long revision;
+	private short revision;
 
-	@Column(nullable=false, precision=1)
-	private long searchable;
+	@Column(nullable=false)
+	private boolean searchable;
 
 	@Column(nullable=false, length=2)
-	private String shortcode;
+	private String shortCode;
 
-	//bi-directional many-to-one association to Event
-	@OneToMany(mappedBy="eventtype")
-	private List<Event> events;
 
-	//bi-directional many-to-many association to Eventcondition
 	@ManyToMany
-	@JoinTable(
-		name="EVENTCONDITIONTYPEXREF"
-		, joinColumns={
-@JoinColumn(name="EVENTTYPEID", nullable=false)
-			}
-		, inverseJoinColumns={
-@JoinColumn(name="EVENTCONDITIONID", nullable=false)
+	@JoinTable(name="EVENTTYPEGROUPXREF", 
+			   joinColumns={@JoinColumn(name="TOEVENTTYPEID", referencedColumnName="ID")}
+			  ,inverseJoinColumns={@JoinColumn(name="FROMEVENTTYPEID", referencedColumnName="ID")}
+		)
+	private List<EventType> groupableTypes;
+    
+
+
+	@ManyToMany
+	@JoinTable(name="EVENTTYPEMODELTYPEXREF", 
+			   joinColumns={@JoinColumn(name="EVENTTYPEID", referencedColumnName="ID")}
+			  ,inverseJoinColumns={@JoinColumn(name="MODELTYPEID", referencedColumnName="ID")}
+		)
+	private List<ModelType> modelTypes;
+
+	@ManyToMany
+	@JoinTable(	name="EVENTTYPESTATUSXREF"
+				, joinColumns={@JoinColumn(name="EVENTTYPEID", referencedColumnName="ID")}
+				, inverseJoinColumns={@JoinColumn(name="EVENTSTATUSID", referencedColumnName="ID")
 			}
 		)
-	private List<Eventcondition> eventconditions;
+	private List<EventStatus> eventStatuses;
 
-	//bi-directional many-to-many association to Eventtype
-	@ManyToMany
-	@JoinTable(
-		name="EVENTTYPEGROUPXREF"
-		, joinColumns={
-@JoinColumn(name="TOEVENTTYPEID", nullable=false)
-			}
-		, inverseJoinColumns={
-@JoinColumn(name="FROMEVENTTYPEID", nullable=false)
-			}
-		)
-	private List<EventType> eventtypes1;
-
-	//bi-directional many-to-many association to Eventtype
-	@ManyToMany(mappedBy="eventtypes1")
-	private List<EventType> eventtypes2;
-
-	//bi-directional many-to-many association to Modeltype
-	@ManyToMany(mappedBy="eventtypes")
-	private List<ModelType> modeltypes;
-
-	//bi-directional many-to-many association to Eventstatus
-	@ManyToMany
-	@JoinTable(
-		name="EVENTTYPESTATUSXREF"
-		, joinColumns={
-@JoinColumn(name="EVENTTYPEID", nullable=false)
-			}
-		, inverseJoinColumns={
-@JoinColumn(name="EVENTSTATUSID", nullable=false)
-			}
-		)
-	private List<Eventstatus> eventstatuses;
-
-	//bi-directional many-to-many association to Outagecausecategory
-	@ManyToMany(mappedBy="eventtypes")
-	private List<Outagecausecategory> outagecausecategories;
-
-	//bi-directional many-to-one association to Outagestepdetail
-	@OneToMany(mappedBy="eventtypeBean")
-	private List<OutageStepDetail> outagestepdetails;
-
-	//bi-directional many-to-one association to Workordertype
-	@OneToMany(mappedBy="eventtype")
-	private List<Workordertype> workordertypes;
-
+	
 	public EventType() {
 	}
 
-	public long getId() {
-		return this.id;
+
+	public short getId() {
+		return id;
 	}
 
-	public void setId(long id) {
+
+	public void setId(short id) {
 		this.id = id;
 	}
 
-	public long getActive() {
-		return this.active;
+
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setActive(long active) {
+
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 
-	public long getDefaultsearch() {
-		return this.defaultsearch;
+
+	public boolean isDefaultsearch() {
+		return defaultsearch;
 	}
 
-	public void setDefaultsearch(long defaultsearch) {
+
+	public void setDefaultsearch(boolean defaultsearch) {
 		this.defaultsearch = defaultsearch;
 	}
 
+
 	public String getDescription() {
-		return this.description;
+		return description;
 	}
+
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
 
-	public long getRevision() {
-		return this.revision;
+
+	public boolean isSearchable() {
+		return searchable;
 	}
 
-	public void setRevision(long revision) {
-		this.revision = revision;
-	}
 
-	public long getSearchable() {
-		return this.searchable;
-	}
-
-	public void setSearchable(long searchable) {
+	public void setSearchable(boolean searchable) {
 		this.searchable = searchable;
 	}
 
-	public String getShortcode() {
-		return this.shortcode;
+
+	public String getShortCode() {
+		return shortCode;
 	}
 
-	public void setShortcode(String shortcode) {
-		this.shortcode = shortcode;
+
+	public void setShortCode(String shortCode) {
+		this.shortCode = shortCode;
 	}
 
-	public List<Event> getEvents() {
-		return this.events;
+
+	public List<EventType> getGroupableTypes() {
+		return groupableTypes;
 	}
 
-	public void setEvents(List<Event> events) {
-		this.events = events;
+
+	public void setGroupableTypes(List<EventType> groupableTypes) {
+		this.groupableTypes = groupableTypes;
 	}
 
-	public Event addEvent(Event event) {
-		getEvents().add(event);
-		event.setEventtype(this);
 
-		return event;
+	public List<ModelType> getModelTypes() {
+		return modelTypes;
 	}
 
-	public Event removeEvent(Event event) {
-		getEvents().remove(event);
-		event.setEventtype(null);
 
-		return event;
+	public void setModelTypes(List<ModelType> modelTypes) {
+		this.modelTypes = modelTypes;
 	}
 
-	public List<Eventcondition> getEventconditions() {
-		return this.eventconditions;
+
+	public List<EventStatus> getEventStatuses() {
+		return eventStatuses;
 	}
 
-	public void setEventconditions(List<Eventcondition> eventconditions) {
-		this.eventconditions = eventconditions;
+
+	public void setEventStatuses(List<EventStatus> eventStatuses) {
+		this.eventStatuses = eventStatuses;
 	}
 
-	public List<EventType> getEventtypes1() {
-		return this.eventtypes1;
-	}
-
-	public void setEventtypes1(List<EventType> eventtypes1) {
-		this.eventtypes1 = eventtypes1;
-	}
-
-	public List<EventType> getEventtypes2() {
-		return this.eventtypes2;
-	}
-
-	public void setEventtypes2(List<EventType> eventtypes2) {
-		this.eventtypes2 = eventtypes2;
-	}
-
-	public List<ModelType> getModeltypes() {
-		return this.modeltypes;
-	}
-
-	public void setModeltypes(List<ModelType> modeltypes) {
-		this.modeltypes = modeltypes;
-	}
-
-	public List<Eventstatus> getEventstatuses() {
-		return this.eventstatuses;
-	}
-
-	public void setEventstatuses(List<Eventstatus> eventstatuses) {
-		this.eventstatuses = eventstatuses;
-	}
-
-	public List<Outagecausecategory> getOutagecausecategories() {
-		return this.outagecausecategories;
-	}
-
-	public void setOutagecausecategories(List<Outagecausecategory> outagecausecategories) {
-		this.outagecausecategories = outagecausecategories;
-	}
-
-	public List<OutageStepDetail> getOutagestepdetails() {
-		return this.outagestepdetails;
-	}
-
-	public void setOutagestepdetails(List<OutageStepDetail> outagestepdetails) {
-		this.outagestepdetails = outagestepdetails;
-	}
-
-	public OutageStepDetail addOutagestepdetail(OutageStepDetail outagestepdetail) {
-		getOutagestepdetails().add(outagestepdetail);
-		outagestepdetail.setEventtypeBean(this);
-
-		return outagestepdetail;
-	}
-
-	public OutageStepDetail removeOutagestepdetail(OutageStepDetail outagestepdetail) {
-		getOutagestepdetails().remove(outagestepdetail);
-		outagestepdetail.setEventtypeBean(null);
-
-		return outagestepdetail;
-	}
-
-	public List<Workordertype> getWorkordertypes() {
-		return this.workordertypes;
-	}
-
-	public void setWorkordertypes(List<Workordertype> workordertypes) {
-		this.workordertypes = workordertypes;
-	}
-
-	public Workordertype addWorkordertype(Workordertype workordertype) {
-		getWorkordertypes().add(workordertype);
-		workordertype.setEventtype(this);
-
-		return workordertype;
-	}
-
-	public Workordertype removeWorkordertype(Workordertype workordertype) {
-		getWorkordertypes().remove(workordertype);
-		workordertype.setEventtype(null);
-
-		return workordertype;
-	}
 
 }

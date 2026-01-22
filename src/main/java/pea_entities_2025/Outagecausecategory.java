@@ -49,7 +49,7 @@ public class Outagecausecategory implements Serializable {
 @JoinColumn(name="BUSINESSSTREAMID", nullable=false)
 			}
 		)
-	private List<Businessstream> businessstreams;
+	private List<BusinessStream> businessstreams;
 
 	//bi-directional many-to-many association to Eventtype
 	@ManyToMany
@@ -133,11 +133,11 @@ public class Outagecausecategory implements Serializable {
 		return outagecaus;
 	}
 
-	public List<Businessstream> getBusinessstreams() {
+	public List<BusinessStream> getBusinessstreams() {
 		return this.businessstreams;
 	}
 
-	public void setBusinessstreams(List<Businessstream> businessstreams) {
+	public void setBusinessstreams(List<BusinessStream> businessstreams) {
 		this.businessstreams = businessstreams;
 	}
 

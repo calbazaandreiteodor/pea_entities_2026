@@ -17,7 +17,7 @@ public class Outage extends Event implements Serializable {
 	//bi-directional many-to-one association to Businessstream
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="BUSINESSSTREAMID")
-	private Businessstream businessStream;
+	private BusinessStream businessStream;
 
 	//bi-directional many-to-one association to Topologytype
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -29,11 +29,11 @@ public class Outage extends Event implements Serializable {
 	}
 
 
-	public Businessstream getBusinessstream() {
+	public BusinessStream getBusinessstream() {
 		return this.businessStream;
 	}
 
-	public void setBusinessstream(Businessstream businessstream) {
+	public void setBusinessstream(BusinessStream businessstream) {
 		this.businessStream = businessstream;
 	}
 
