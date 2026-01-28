@@ -36,7 +36,7 @@ public class Meitype implements Serializable {
 
 	//bi-directional many-to-one association to Associatedmei
 	@OneToMany(mappedBy="meitype")
-	private List<Associatedmei> associatedmeis;
+	private List<AssociatedMEI> associatedmeis;
 
 	public Meitype() {
 	}
@@ -81,22 +81,22 @@ public class Meitype implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Associatedmei> getAssociatedmeis() {
+	public List<AssociatedMEI> getAssociatedmeis() {
 		return this.associatedmeis;
 	}
 
-	public void setAssociatedmeis(List<Associatedmei> associatedmeis) {
+	public void setAssociatedmeis(List<AssociatedMEI> associatedmeis) {
 		this.associatedmeis = associatedmeis;
 	}
 
-	public Associatedmei addAssociatedmei(Associatedmei associatedmei) {
+	public AssociatedMEI addAssociatedmei(AssociatedMEI associatedmei) {
 		getAssociatedmeis().add(associatedmei);
 		associatedmei.setMeitype(this);
 
 		return associatedmei;
 	}
 
-	public Associatedmei removeAssociatedmei(Associatedmei associatedmei) {
+	public AssociatedMEI removeAssociatedmei(AssociatedMEI associatedmei) {
 		getAssociatedmeis().remove(associatedmei);
 		associatedmei.setMeitype(null);
 

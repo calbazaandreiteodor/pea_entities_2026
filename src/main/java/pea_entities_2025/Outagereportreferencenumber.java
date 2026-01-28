@@ -35,7 +35,7 @@ public class Outagereportreferencenumber implements Serializable {
 	//bi-directional many-to-one association to Reportingyear
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="REPORTINGYEARID", nullable=false)
-	private Reportingyear reportingyear;
+	private ReportingYear reportingyear;
 
 	public Outagereportreferencenumber() {
 	}
@@ -72,11 +72,11 @@ public class Outagereportreferencenumber implements Serializable {
 		this.organisationalunit = organisationalunit;
 	}
 
-	public Reportingyear getReportingyear() {
+	public ReportingYear getReportingyear() {
 		return this.reportingyear;
 	}
 
-	public void setReportingyear(Reportingyear reportingyear) {
+	public void setReportingyear(ReportingYear reportingyear) {
 		this.reportingyear = reportingyear;
 	}
 

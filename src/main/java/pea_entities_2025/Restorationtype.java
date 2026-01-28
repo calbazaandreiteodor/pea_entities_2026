@@ -38,7 +38,7 @@ public class Restorationtype implements Serializable {
 
 	//bi-directional many-to-one association to Outagestep
 	@OneToMany(mappedBy="restorationtype")
-	private List<Outagestep> outagesteps;
+	private List<OutageStage> outagesteps;
 
 	//bi-directional many-to-many association to Modeltype
 	@ManyToMany
@@ -96,22 +96,22 @@ public class Restorationtype implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Outagestep> getOutagesteps() {
+	public List<OutageStage> getOutagesteps() {
 		return this.outagesteps;
 	}
 
-	public void setOutagesteps(List<Outagestep> outagesteps) {
+	public void setOutagesteps(List<OutageStage> outagesteps) {
 		this.outagesteps = outagesteps;
 	}
 
-	public Outagestep addOutagestep(Outagestep outagestep) {
+	public OutageStage addOutagestep(OutageStage outagestep) {
 		getOutagesteps().add(outagestep);
 		outagestep.setRestorationtype(this);
 
 		return outagestep;
 	}
 
-	public Outagestep removeOutagestep(Outagestep outagestep) {
+	public OutageStage removeOutagestep(OutageStage outagestep) {
 		getOutagesteps().remove(outagestep);
 		outagestep.setRestorationtype(null);
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.event.AffectedPremise;
+import pea_entities_2025.event.outagereporting.OutageReport;
 
 import java.util.List;
 
@@ -57,19 +58,19 @@ public class Effect implements Serializable {
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="effect1")
-	private List<Outagereport> outagereports1;
+	private List<OutageReport> outagereports1;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="effect2")
-	private List<Outagereport> outagereports2;
+	private List<OutageReport> outagereports2;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="effect3")
-	private List<Outagereport> outagereports3;
+	private List<OutageReport> outagereports3;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="effect4")
-	private List<Outagereport> outagereports4;
+	private List<OutageReport> outagereports4;
 
 	public Effect() {
 	}
@@ -210,88 +211,88 @@ public class Effect implements Serializable {
 		return affectedpremises4;
 	}
 
-	public List<Outagereport> getOutagereports1() {
+	public List<OutageReport> getOutagereports1() {
 		return this.outagereports1;
 	}
 
-	public void setOutagereports1(List<Outagereport> outagereports1) {
+	public void setOutagereports1(List<OutageReport> outagereports1) {
 		this.outagereports1 = outagereports1;
 	}
 
-	public Outagereport addOutagereports1(Outagereport outagereports1) {
+	public OutageReport addOutagereports1(OutageReport outagereports1) {
 		getOutagereports1().add(outagereports1);
 		outagereports1.setEffect1(this);
 
 		return outagereports1;
 	}
 
-	public Outagereport removeOutagereports1(Outagereport outagereports1) {
+	public OutageReport removeOutagereports1(OutageReport outagereports1) {
 		getOutagereports1().remove(outagereports1);
 		outagereports1.setEffect1(null);
 
 		return outagereports1;
 	}
 
-	public List<Outagereport> getOutagereports2() {
+	public List<OutageReport> getOutagereports2() {
 		return this.outagereports2;
 	}
 
-	public void setOutagereports2(List<Outagereport> outagereports2) {
+	public void setOutagereports2(List<OutageReport> outagereports2) {
 		this.outagereports2 = outagereports2;
 	}
 
-	public Outagereport addOutagereports2(Outagereport outagereports2) {
+	public OutageReport addOutagereports2(OutageReport outagereports2) {
 		getOutagereports2().add(outagereports2);
 		outagereports2.setEffect2(this);
 
 		return outagereports2;
 	}
 
-	public Outagereport removeOutagereports2(Outagereport outagereports2) {
+	public OutageReport removeOutagereports2(OutageReport outagereports2) {
 		getOutagereports2().remove(outagereports2);
 		outagereports2.setEffect2(null);
 
 		return outagereports2;
 	}
 
-	public List<Outagereport> getOutagereports3() {
+	public List<OutageReport> getOutagereports3() {
 		return this.outagereports3;
 	}
 
-	public void setOutagereports3(List<Outagereport> outagereports3) {
+	public void setOutagereports3(List<OutageReport> outagereports3) {
 		this.outagereports3 = outagereports3;
 	}
 
-	public Outagereport addOutagereports3(Outagereport outagereports3) {
+	public OutageReport addOutagereports3(OutageReport outagereports3) {
 		getOutagereports3().add(outagereports3);
 		outagereports3.setEffect3(this);
 
 		return outagereports3;
 	}
 
-	public Outagereport removeOutagereports3(Outagereport outagereports3) {
+	public OutageReport removeOutagereports3(OutageReport outagereports3) {
 		getOutagereports3().remove(outagereports3);
 		outagereports3.setEffect3(null);
 
 		return outagereports3;
 	}
 
-	public List<Outagereport> getOutagereports4() {
+	public List<OutageReport> getOutagereports4() {
 		return this.outagereports4;
 	}
 
-	public void setOutagereports4(List<Outagereport> outagereports4) {
+	public void setOutagereports4(List<OutageReport> outagereports4) {
 		this.outagereports4 = outagereports4;
 	}
 
-	public Outagereport addOutagereports4(Outagereport outagereports4) {
+	public OutageReport addOutagereports4(OutageReport outagereports4) {
 		getOutagereports4().add(outagereports4);
 		outagereports4.setEffect4(this);
 
 		return outagereports4;
 	}
 
-	public Outagereport removeOutagereports4(Outagereport outagereports4) {
+	public OutageReport removeOutagereports4(OutageReport outagereports4) {
 		getOutagereports4().remove(outagereports4);
 		outagereports4.setEffect4(null);
 

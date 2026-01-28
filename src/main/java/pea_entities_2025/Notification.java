@@ -23,7 +23,7 @@ public class Notification extends Event implements Serializable {
 	@Column
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ACKNOWLEDGEDBY")
-	private UserAccount useraccount;
+	private UserAccount userAccount;
 
 	@Column(length=256)
 	private String alarmedObjectId;

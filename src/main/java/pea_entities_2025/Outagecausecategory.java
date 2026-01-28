@@ -38,7 +38,7 @@ public class Outagecausecategory implements Serializable {
 
 	//bi-directional many-to-one association to Outagecause
 	@OneToMany(mappedBy="outagecausecategory")
-	private List<Outagecause> outagecauses;
+	private List<OutageCause> outagecauses;
 
 	//bi-directional many-to-many association to Businessstream
 	@ManyToMany
@@ -68,7 +68,7 @@ public class Outagecausecategory implements Serializable {
 
 	//bi-directional many-to-many association to Outagelevel
 	@ManyToMany(mappedBy="outagecausecategories")
-	private List<Outagelevel> outagelevels;
+	private List<OutageLevel> outagelevels;
 
 	public Outagecausecategory() {
 	}
@@ -113,22 +113,22 @@ public class Outagecausecategory implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Outagecause> getOutagecauses() {
+	public List<OutageCause> getOutagecauses() {
 		return this.outagecauses;
 	}
 
-	public void setOutagecauses(List<Outagecause> outagecauses) {
+	public void setOutagecauses(List<OutageCause> outagecauses) {
 		this.outagecauses = outagecauses;
 	}
 
-	public Outagecause addOutagecaus(Outagecause outagecaus) {
+	public OutageCause addOutagecaus(OutageCause outagecaus) {
 		getOutagecauses().add(outagecaus);
 		outagecaus.setOutagecausecategory(this);
 
 		return outagecaus;
 	}
 
-	public Outagecause removeOutagecaus(Outagecause outagecaus) {
+	public OutageCause removeOutagecaus(OutageCause outagecaus) {
 		getOutagecauses().remove(outagecaus);
 		outagecaus.setOutagecausecategory(null);
 
@@ -151,11 +151,11 @@ public class Outagecausecategory implements Serializable {
 		this.eventtypes = eventtypes;
 	}
 
-	public List<Outagelevel> getOutagelevels() {
+	public List<OutageLevel> getOutagelevels() {
 		return this.outagelevels;
 	}
 
-	public void setOutagelevels(List<Outagelevel> outagelevels) {
+	public void setOutagelevels(List<OutageLevel> outagelevels) {
 		this.outagelevels = outagelevels;
 	}
 

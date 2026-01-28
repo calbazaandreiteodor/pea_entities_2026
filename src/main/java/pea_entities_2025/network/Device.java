@@ -9,7 +9,6 @@ import pea_entities_2025.DeviceSubType;
 import pea_entities_2025.DeviceTerminal;
 import pea_entities_2025.DeviceType;
 import pea_entities_2025.OrganisationalUnit;
-import pea_entities_2025.Site;
 import pea_entities_2025.common.ModelType;
 import pea_entities_2025.event.Event;
 import pea_entities_2025.service.auth.LockToken;

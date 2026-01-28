@@ -56,7 +56,7 @@ public class Eventlevel implements Serializable {
 
 	//bi-directional many-to-one association to Maloperationreason
 	@OneToMany(mappedBy="eventlevel")
-	private List<Maloperationreason> maloperationreasons;
+	private List<MalOperationReason> maloperationreasons;
 
 	//bi-directional many-to-one association to Outagestepdetail
 	@OneToMany(mappedBy="eventlevelBean")
@@ -64,7 +64,7 @@ public class Eventlevel implements Serializable {
 
 	//bi-directional many-to-one association to Protectionoperated
 	@OneToMany(mappedBy="eventlevel")
-	private List<Protectionoperated> protectionoperateds;
+	private List<ProtectionOperated> protectionoperateds;
 
 	public Eventlevel() {
 	}
@@ -183,22 +183,22 @@ public class Eventlevel implements Serializable {
 		this.modeltype = modeltype;
 	}
 
-	public List<Maloperationreason> getMaloperationreasons() {
+	public List<MalOperationReason> getMaloperationreasons() {
 		return this.maloperationreasons;
 	}
 
-	public void setMaloperationreasons(List<Maloperationreason> maloperationreasons) {
+	public void setMaloperationreasons(List<MalOperationReason> maloperationreasons) {
 		this.maloperationreasons = maloperationreasons;
 	}
 
-	public Maloperationreason addMaloperationreason(Maloperationreason maloperationreason) {
+	public MalOperationReason addMaloperationreason(MalOperationReason maloperationreason) {
 		getMaloperationreasons().add(maloperationreason);
 		maloperationreason.setEventlevel(this);
 
 		return maloperationreason;
 	}
 
-	public Maloperationreason removeMaloperationreason(Maloperationreason maloperationreason) {
+	public MalOperationReason removeMaloperationreason(MalOperationReason maloperationreason) {
 		getMaloperationreasons().remove(maloperationreason);
 		maloperationreason.setEventlevel(null);
 
@@ -227,22 +227,22 @@ public class Eventlevel implements Serializable {
 		return outagestepdetail;
 	}
 
-	public List<Protectionoperated> getProtectionoperateds() {
+	public List<ProtectionOperated> getProtectionoperateds() {
 		return this.protectionoperateds;
 	}
 
-	public void setProtectionoperateds(List<Protectionoperated> protectionoperateds) {
+	public void setProtectionoperateds(List<ProtectionOperated> protectionoperateds) {
 		this.protectionoperateds = protectionoperateds;
 	}
 
-	public Protectionoperated addProtectionoperated(Protectionoperated protectionoperated) {
+	public ProtectionOperated addProtectionoperated(ProtectionOperated protectionoperated) {
 		getProtectionoperateds().add(protectionoperated);
 		protectionoperated.setEventlevel(this);
 
 		return protectionoperated;
 	}
 
-	public Protectionoperated removeProtectionoperated(Protectionoperated protectionoperated) {
+	public ProtectionOperated removeProtectionoperated(ProtectionOperated protectionoperated) {
 		getProtectionoperateds().remove(protectionoperated);
 		protectionoperated.setEventlevel(null);
 

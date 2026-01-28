@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import pea_entities_2025.CellarUsage;
 import pea_entities_2025.Effect;
-import pea_entities_2025.Site;
+import pea_entities_2025.network.Site;
 
 import java.util.List;
 

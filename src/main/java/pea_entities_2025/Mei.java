@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.outagereporting.OutageReport;
+
 import java.util.List;
 
 
@@ -36,7 +38,7 @@ public class Mei implements Serializable {
 
 	//bi-directional many-to-one association to Associatedmei
 	@OneToMany(mappedBy="mei")
-	private List<Associatedmei> associatedmeis;
+	private List<AssociatedMEI> associatedmeis;
 
 	//bi-directional many-to-one association to Electricaldevicetype
 	@OneToMany(mappedBy="mei")
@@ -57,7 +59,7 @@ public class Mei implements Serializable {
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="mei")
-	private List<Outagereport> outagereports;
+	private List<OutageReport> outagereports;
 
 	public Mei() {
 	}
@@ -102,22 +104,22 @@ public class Mei implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Associatedmei> getAssociatedmeis() {
+	public List<AssociatedMEI> getAssociatedmeis() {
 		return this.associatedmeis;
 	}
 
-	public void setAssociatedmeis(List<Associatedmei> associatedmeis) {
+	public void setAssociatedmeis(List<AssociatedMEI> associatedmeis) {
 		this.associatedmeis = associatedmeis;
 	}
 
-	public Associatedmei addAssociatedmei(Associatedmei associatedmei) {
+	public AssociatedMEI addAssociatedmei(AssociatedMEI associatedmei) {
 		getAssociatedmeis().add(associatedmei);
 		associatedmei.setMei(this);
 
 		return associatedmei;
 	}
 
-	public Associatedmei removeAssociatedmei(Associatedmei associatedmei) {
+	public AssociatedMEI removeAssociatedmei(AssociatedMEI associatedmei) {
 		getAssociatedmeis().remove(associatedmei);
 		associatedmei.setMei(null);
 
@@ -154,22 +156,22 @@ public class Mei implements Serializable {
 		this.components = components;
 	}
 
-	public List<Outagereport> getOutagereports() {
+	public List<OutageReport> getOutagereports() {
 		return this.outagereports;
 	}
 
-	public void setOutagereports(List<Outagereport> outagereports) {
+	public void setOutagereports(List<OutageReport> outagereports) {
 		this.outagereports = outagereports;
 	}
 
-	public Outagereport addOutagereport(Outagereport outagereport) {
+	public OutageReport addOutagereport(OutageReport outagereport) {
 		getOutagereports().add(outagereport);
 		outagereport.setMei(this);
 
 		return outagereport;
 	}
 
-	public Outagereport removeOutagereport(Outagereport outagereport) {
+	public OutageReport removeOutagereport(OutageReport outagereport) {
 		getOutagereports().remove(outagereport);
 		outagereport.setMei(null);
 

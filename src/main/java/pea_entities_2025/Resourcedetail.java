@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.outagereporting.OutageReport;
+
 import java.util.List;
 
 
@@ -57,7 +59,7 @@ public class Resourcedetail implements Serializable {
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="resourcedetail")
-	private List<Outagereport> outagereports;
+	private List<OutageReport> outagereports;
 
 	public Resourcedetail() {
 	}
@@ -158,22 +160,22 @@ public class Resourcedetail implements Serializable {
 		this.vehicleid = vehicleid;
 	}
 
-	public List<Outagereport> getOutagereports() {
+	public List<OutageReport> getOutagereports() {
 		return this.outagereports;
 	}
 
-	public void setOutagereports(List<Outagereport> outagereports) {
+	public void setOutagereports(List<OutageReport> outagereports) {
 		this.outagereports = outagereports;
 	}
 
-	public Outagereport addOutagereport(Outagereport outagereport) {
+	public OutageReport addOutagereport(OutageReport outagereport) {
 		getOutagereports().add(outagereport);
 		outagereport.setResourcedetail(this);
 
 		return outagereport;
 	}
 
-	public Outagereport removeOutagereport(Outagereport outagereport) {
+	public OutageReport removeOutagereport(OutageReport outagereport) {
 		getOutagereports().remove(outagereport);
 		outagereport.setResourcedetail(null);
 

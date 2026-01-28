@@ -108,7 +108,7 @@ public class OutageStepDetail implements Serializable {
 	//bi-directional many-to-one association to Outagestep
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="OUTAGESTEPID")
-	private Outagestep outagestep;
+	private OutageStage outagestep;
 
 	//bi-directional many-to-one association to Useraccount
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -310,11 +310,11 @@ public class OutageStepDetail implements Serializable {
 		this.eventtypeBean = eventtypeBean;
 	}
 
-	public Outagestep getOutagestep() {
+	public OutageStage getOutagestep() {
 		return this.outagestep;
 	}
 
-	public void setOutagestep(Outagestep outagestep) {
+	public void setOutagestep(OutageStage outagestep) {
 		this.outagestep = outagestep;
 	}
 

@@ -5,10 +5,10 @@ import javax.persistence.*;
 
 import pea_entities_2025.Connectiontype;
 import pea_entities_2025.Industrytype;
-import pea_entities_2025.Site;
 import pea_entities_2025.SpecialNeedModelType;
 import pea_entities_2025.Tarifftype;
 import pea_entities_2025.common.AreaCode;
+import pea_entities_2025.network.Site;
 import pea_entities_2025.resourcemanagement.Crew;
 
 import java.time.LocalDateTime;

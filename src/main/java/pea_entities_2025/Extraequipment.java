@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.outagereporting.OutageReport;
+
 import java.time.LocalDateTime;
 
 
@@ -48,7 +50,7 @@ public class Extraequipment implements Serializable {
 	//bi-directional many-to-one association to Outagereport
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="OUTAGEREPORTID", nullable=false)
-	private Outagereport outagereport;
+	private OutageReport outagereport;
 
 	//bi-directional many-to-one association to Surgedivertortype
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -129,11 +131,11 @@ public class Extraequipment implements Serializable {
 		this.miscellaneoustype = miscellaneoustype;
 	}
 
-	public Outagereport getOutagereport() {
+	public OutageReport getOutagereport() {
 		return this.outagereport;
 	}
 
-	public void setOutagereport(Outagereport outagereport) {
+	public void setOutagereport(OutageReport outagereport) {
 		this.outagereport = outagereport;
 	}
 

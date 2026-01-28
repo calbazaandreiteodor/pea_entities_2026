@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import pea_entities_2025.common.ModelType;
 import pea_entities_2025.event.Event;
+import pea_entities_2025.event.outagereporting.OutageReport;
 import pea_entities_2025.network.Device;
 import pea_entities_2025.service.auth.LockToken;
 import pea_entities_2025.service.auth.UserAccount;
@@ -128,11 +129,11 @@ public class OrganisationalUnit implements Serializable {
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="organisationalunit1")
-	private List<Outagereport> outagereports1;
+	private List<OutageReport> outagereports1;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="organisationalunit2")
-	private List<Outagereport> outagereports2;
+	private List<OutageReport> outagereports2;
 
 	//bi-directional many-to-one association to Outagereportreferencenumber
 	@OneToMany(mappedBy="organisationalunit")
@@ -481,44 +482,44 @@ public class OrganisationalUnit implements Serializable {
 		return organisationalunitparameter;
 	}
 
-	public List<Outagereport> getOutagereports1() {
+	public List<OutageReport> getOutagereports1() {
 		return this.outagereports1;
 	}
 
-	public void setOutagereports1(List<Outagereport> outagereports1) {
+	public void setOutagereports1(List<OutageReport> outagereports1) {
 		this.outagereports1 = outagereports1;
 	}
 
-	public Outagereport addOutagereports1(Outagereport outagereports1) {
+	public OutageReport addOutagereports1(OutageReport outagereports1) {
 		getOutagereports1().add(outagereports1);
 		outagereports1.setOrganisationalunit1(this);
 
 		return outagereports1;
 	}
 
-	public Outagereport removeOutagereports1(Outagereport outagereports1) {
+	public OutageReport removeOutagereports1(OutageReport outagereports1) {
 		getOutagereports1().remove(outagereports1);
 		outagereports1.setOrganisationalunit1(null);
 
 		return outagereports1;
 	}
 
-	public List<Outagereport> getOutagereports2() {
+	public List<OutageReport> getOutagereports2() {
 		return this.outagereports2;
 	}
 
-	public void setOutagereports2(List<Outagereport> outagereports2) {
+	public void setOutagereports2(List<OutageReport> outagereports2) {
 		this.outagereports2 = outagereports2;
 	}
 
-	public Outagereport addOutagereports2(Outagereport outagereports2) {
+	public OutageReport addOutagereports2(OutageReport outagereports2) {
 		getOutagereports2().add(outagereports2);
 		outagereports2.setOrganisationalunit2(this);
 
 		return outagereports2;
 	}
 
-	public Outagereport removeOutagereports2(Outagereport outagereports2) {
+	public OutageReport removeOutagereports2(OutageReport outagereports2) {
 		getOutagereports2().remove(outagereports2);
 		outagereports2.setOrganisationalunit2(null);
 

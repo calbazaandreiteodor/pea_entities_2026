@@ -3,25 +3,28 @@ package pea_entities_2025.event;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import pea_entities_2025.EventCloseReason;
 import pea_entities_2025.Eventlevel;
 import pea_entities_2025.Eventreason;
 import pea_entities_2025.Milestone;
-import pea_entities_2025.Operationmode;
+import pea_entities_2025.OperationMode;
 import pea_entities_2025.OrganisationalUnit;
 import pea_entities_2025.OutageStepDetail;
 import pea_entities_2025.Priority;
 import pea_entities_2025.Rule;
 import pea_entities_2025.Severity;
-import pea_entities_2025.Site;
 import pea_entities_2025.Standard;
 import pea_entities_2025.Standardband;
 import pea_entities_2025.common.Address;
 import pea_entities_2025.common.AreaCode;
 import pea_entities_2025.common.ModelType;
 import pea_entities_2025.network.Device;
+import pea_entities_2025.network.Site;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -36,12 +39,11 @@ import java.util.Set;
 @DiscriminatorColumn(name = "id")
 @NamedQuery(name="Event.findAll", query="SELECT e FROM Event e")
 public class Event implements Serializable {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 14L;
 
 	@Id
 	@SequenceGenerator(name="EVENT_ID_GENERATOR", sequenceName="SEQ_GLOBAL")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="EVENT_ID_GENERATOR")
-	@Column(unique=true, nullable=false)
 	private long id;
 
 	@Column
@@ -62,9 +64,11 @@ public class Event implements Serializable {
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="electricaleventid")
 	private Event electricalEvent;
-
+	
+	@Column
 	private LocalDateTime endTime;
-
+	
+	@Column
 	private LocalDateTime etr;
 
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -110,15 +114,16 @@ public class Event implements Serializable {
 	private String receivingWaterCourse;
 
 	@Version
-	@Column
 	private short revision;
 
 	@ManyToOne(fetch=FetchType.LAZY) 
 	@JoinColumn(name="ruleid")
 	private Rule rule;
-
+	
+	@Column
 	private LocalDateTime startTime;
-
+	
+	@Column
 	private LocalDateTime timeOfNextEscalation;
 
 	@Column
@@ -136,7 +141,6 @@ public class Event implements Serializable {
 	@Column(length=120)
 	private String userDefinable3;
 
-	
 	@ManyToOne(fetch=FetchType.LAZY) 
 	@JoinColumn(name="WORKORDERID")
 	private long workOrderId;
@@ -150,591 +154,456 @@ public class Event implements Serializable {
 	@Column(name="WORKPROGRESSFROMFIELD" , length=50)
 	private String workOrderProgressFromField;
 
-
-	//bi-directional many-to-one association to Address
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ADDRESSID")
 	private Address address;
 
-	//bi-directional many-to-one association to Areacode
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="AREACODEID")
 	private AreaCode areaCode;
 
-	//bi-directional many-to-one association to Device
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="DEVICEID")
 	private Device device;
 
-	//bi-directional many-to-one association to Event
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="PARENTEVENTID")
 	private Event parentEvent;
 
-	//bi-directional many-to-one association to Event
-	@OneToMany(mappedBy="parentEvent")
-	private List<Event> parentEvents;
-
-	//bi-directional many-to-one association to Eventcause
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ROOTCAUSEID")
 	private EventCause eventCause;
 
-	//bi-directional many-to-one association to Eventcertainty
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTCERTAINTYID", nullable=false)
 	private EventCertainty eventCertainty;
 
-	//bi-directional many-to-one association to Eventlevel
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTLEVELID")
 	private Eventlevel eventLevel;
 
-	//bi-directional many-to-one association to Eventreason
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTREASONID")
 	private Eventreason eventReason;
 
-	//bi-directional many-to-one association to Eventstatus
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTSTATUSID", nullable=false)
 	private EventStatus eventStatus;
 
-	//bi-directional many-to-one association to Eventtype
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTTYPEID", nullable=false)
 	private EventType eventType;
 
-	//bi-directional many-to-one association to Modeltype
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="MODELTYPEID", nullable=false)
 	private ModelType modelType;
 
-	//bi-directional many-to-one association to Operationmode
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="OPERATIONMODEID", nullable=false)
-	private Operationmode operationMode;
+	private OperationMode operationMode;
 
-	//bi-directional many-to-one association to Organisationalunit
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ORGANISATIONALUNITID", nullable=false)
 	private OrganisationalUnit organisationalUnit;
 
-	//bi-directional many-to-one association to Priority
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="PRIORITYID", nullable=false)
 	private Priority priority;
 
-	//bi-directional many-to-one association to Severity
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="SEVERITYID")
 	private Severity severity;
 
-	//bi-directional many-to-one association to Site
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="SITEID")
 	private Site site;
 
-	//bi-directional many-to-one association to Standard
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="STANDARDID")
 	private Standard standard;
 
-	//bi-directional many-to-one association to Standardband
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="STANDARDBANDID")
 	private Standardband standardBand;
 
-	//bi-directional many-to-many association to Affectedpremise
 	@ManyToMany
-	@JoinTable(
-		name="EVENTAFFECTEDPREMISEXREF"
-		, joinColumns={
-				@JoinColumn(name="EVENTID", nullable=false)
-			}
-		, inverseJoinColumns={
-				@JoinColumn(name="AFFECTEDPREMISEID", nullable=false)
-			}
+	@JoinTable(	name="EVENTAREACODEXREF"	
+				, joinColumns={@JoinColumn(name="EVENTID", nullable=false)}
+				, inverseJoinColumns={@JoinColumn(name="AREACODEID", nullable=false)}
 		)
-	private List<AffectedPremise> affectedPremises;
+	private List<AreaCode> currentlyAffectedAreas;
 
-	//bi-directional many-to-many association to Areacode
+	
+	@JsonIgnore
 	@ManyToMany
-	@JoinTable(
-		name="EVENTAREACODEXREF"
-		, joinColumns={
-				@JoinColumn(name="EVENTID", nullable=false)
-			}
-		, inverseJoinColumns={
-				@JoinColumn(name="AREACODEID", nullable=false)
-			}
+	@JoinTable(name="EVENTXREF"
+			, joinColumns={	@JoinColumn(name="CHILDEVENTID", nullable=false)}
+			, inverseJoinColumns={@JoinColumn(name="PARENTEVENTID", nullable=false)	}
 		)
-	private List<AreaCode> areacodes;
-
-	//bi-directional many-to-many association to Event
-	@ManyToMany
-	@JoinTable(
-		name="EVENTXREF"
-		, joinColumns={
-				@JoinColumn(name="CHILDEVENTID", nullable=false)
-			}
-		, inverseJoinColumns={
-				@JoinColumn(name="PARENTEVENTID", nullable=false)
-			}
-		)
-	private List<Event> parentEventsFromXref;
+	private List<Event> previousParents;
 
 
-	//bi-directional many-to-one association to Milestone
 	@OneToMany(mappedBy="event")
 	private Set<Milestone> milestones;
 
 
-	//bi-directional many-to-one association to Outagestepdetail
 	@OneToMany(mappedBy="currentEvent")
 	private List<OutageStepDetail> outageSteps;
 
+	
+	@JsonIgnore
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="EVENTCONDITIONXREF", 
+			joinColumns=@JoinColumn(name="EVENTID", referencedColumnName="ID"),
+			inverseJoinColumns=@JoinColumn(name="EVENTCONDITIONID", referencedColumnName="ID")
+			)
+	@OrderColumn(name = "ORDERBY")
+	protected List<EventCondition> relatedConditions = new ArrayList();
+	
 
 
 	public Event() {
 	}
 
+
+
 	public long getId() {
-		return this.id;
+		return id;
 	}
+
+
 
 	public void setId(long id) {
 		this.id = id;
 	}
-
-	public boolean getActive() {
-		return this.active;
+	public boolean isActive() {
+		return active;
 	}
-
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
-	public LocalDateTime getCreationtime() {
-		return this.creationTime;
+	public LocalDateTime getCreationTime() {
+		return creationTime;
 	}
-
-	public void setCreationtime(LocalDateTime creationtime) {
-		this.creationTime = creationtime;
+	public void setCreationTime(LocalDateTime creationTime) {
+		this.creationTime = creationTime;
 	}
-
-	public long getCustomersaffected() {
-		return this.customersAffected;
+	public long getCustomersAffected() {
+		return customersAffected;
 	}
-
-	public void setCustomersaffected(long customersaffected) {
-		this.customersAffected = customersaffected;
+	public void setCustomersAffected(long customersAffected) {
+		this.customersAffected = customersAffected;
 	}
-
-	public boolean getDatainputconsent() {
-		return this.dataInputConsent;
-	}
-
-	public void setDatainputconsent(boolean datainputconsent) {
-		this.dataInputConsent = datainputconsent;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
 	public boolean isDataInputConsent() {
 		return dataInputConsent;
 	}
-
 	public void setDataInputConsent(boolean dataInputConsent) {
 		this.dataInputConsent = dataInputConsent;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public Event getElectricalEvent() {
+		return electricalEvent;
+	}
+
+
+
+	public void setElectricalEvent(Event electricalEvent) {
+		this.electricalEvent = electricalEvent;
+	}
+
+
 
 	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
+
+
 	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
 
-	public LocalDateTime getEndtime() {
-		return this.endTime;
-	}
 
-	public void setEndtime(LocalDateTime endtime) {
-		this.endTime = endtime;
-	}
 
 	public LocalDateTime getEtr() {
-		return this.etr;
+		return etr;
 	}
+
+
 
 	public void setEtr(LocalDateTime etr) {
 		this.etr = etr;
 	}
 
+
+
 	public EventCloseReason getEventCloseReason() {
-		return this.eventCloseReason;
+		return eventCloseReason;
 	}
 
-	public void setEventCloseReason(EventCloseReason eventclosereasonid) {
-		this.eventCloseReason = eventclosereasonid;
+
+
+	public void setEventCloseReason(EventCloseReason eventCloseReason) {
+		this.eventCloseReason = eventCloseReason;
 	}
 
-	public String getExternalid() {
-		return this.externalId;
+
+
+	public String getExternalId() {
+		return externalId;
 	}
 
-	public void setExternalid(String externalid) {
-		this.externalId = externalid;
+
+
+	public void setExternalId(String externalId) {
+		this.externalId = externalId;
 	}
 
-	public LocalDateTime getFirsttimeonsite() {
-		return this.firstTimeOnSite;
+
+
+	public LocalDateTime getFirstTimeOnSite() {
+		return firstTimeOnSite;
 	}
 
-	public void setFirsttimeonsite(LocalDateTime firsttimeonsite) {
-		this.firstTimeOnSite = firsttimeonsite;
+
+
+	public void setFirstTimeOnSite(LocalDateTime firstTimeOnSite) {
+		this.firstTimeOnSite = firstTimeOnSite;
 	}
 
-	public String getIntermittentdischarge() {
-		return this.intermittentDischarge;
+
+
+	public String getIntermittentDischarge() {
+		return intermittentDischarge;
 	}
 
-	public void setIntermittentdischarge(String intermittentdischarge) {
-		this.intermittentDischarge = intermittentdischarge;
+
+
+	public void setIntermittentDischarge(String intermittentDischarge) {
+		this.intermittentDischarge = intermittentDischarge;
 	}
 
-	public long getKeyacccustomersaffected() {
-		return this.keyAcccustomersAffected;
+
+
+	public long getKeyAcccustomersAffected() {
+		return keyAcccustomersAffected;
 	}
 
-	public void setKeyacccustomersaffected(long keyacccustomersaffected) {
-		this.keyAcccustomersAffected = keyacccustomersaffected;
+
+
+	public void setKeyAcccustomersAffected(long keyAcccustomersAffected) {
+		this.keyAcccustomersAffected = keyAcccustomersAffected;
 	}
 
-	public long getNumberofcallers() {
-		return this.numberOfCallers;
+
+
+	public long getNumberOfCallers() {
+		return numberOfCallers;
 	}
 
-	public void setNumberofcallers(long numberofcallers) {
-		this.numberOfCallers = numberofcallers;
+
+
+	public void setNumberOfCallers(long numberOfCallers) {
+		this.numberOfCallers = numberOfCallers;
 	}
 
-	public long getOrgkeyacccustomersaffected() {
-		return this.orgKeyAcccustomersAffected;
+
+
+	public long getOrgKeyAcccustomersAffected() {
+		return orgKeyAcccustomersAffected;
 	}
 
-	public void setOrgkeyacccustomersaffected(long orgkeyacccustomersaffected) {
-		this.orgKeyAcccustomersAffected = orgkeyacccustomersaffected;
+
+
+	public void setOrgKeyAcccustomersAffected(long orgKeyAcccustomersAffected) {
+		this.orgKeyAcccustomersAffected = orgKeyAcccustomersAffected;
 	}
 
-	public long getOrgprioritycustomersaffected() {
-		return this.orgPriorityCustomersAffected;
+
+
+	public long getOrgPriorityCustomersAffected() {
+		return orgPriorityCustomersAffected;
 	}
 
-	public void setOrgprioritycustomersaffected(long orgprioritycustomersaffected) {
-		this.orgPriorityCustomersAffected = orgprioritycustomersaffected;
+
+
+	public void setOrgPriorityCustomersAffected(long orgPriorityCustomersAffected) {
+		this.orgPriorityCustomersAffected = orgPriorityCustomersAffected;
 	}
 
-	public long getOriginalcustomersaffected() {
-		return this.originalCustomersAffected;
+
+
+	public long getOriginalCustomersAffected() {
+		return originalCustomersAffected;
 	}
 
-	public void setOriginalcustomersaffected(long originalcustomersaffected) {
-		this.originalCustomersAffected = originalcustomersaffected;
+
+
+	public void setOriginalCustomersAffected(long originalCustomersAffected) {
+		this.originalCustomersAffected = originalCustomersAffected;
 	}
 
-	public String getOriginatedby() {
-		return this.originatedBy;
+
+
+	public String getOriginatedBy() {
+		return originatedBy;
 	}
 
-	public void setOriginatedby(String originatedby) {
-		this.originatedBy = originatedby;
+
+
+	public void setOriginatedBy(String originatedBy) {
+		this.originatedBy = originatedBy;
 	}
+
+
 
 	public long getPhase() {
-		return this.phase;
+		return phase;
 	}
+
+
 
 	public void setPhase(long phase) {
 		this.phase = phase;
 	}
 
-	public long getPostrestorationlatencyperiod() {
-		return this.postRestorationLatencyPeriod;
+
+
+	public long getPostRestorationLatencyPeriod() {
+		return postRestorationLatencyPeriod;
 	}
 
-	public void setPostrestorationlatencyperiod(long postrestorationlatencyperiod) {
-		this.postRestorationLatencyPeriod = postrestorationlatencyperiod;
+
+
+	public void setPostRestorationLatencyPeriod(long postRestorationLatencyPeriod) {
+		this.postRestorationLatencyPeriod = postRestorationLatencyPeriod;
 	}
 
-	public long getPrioritycustomersaffected() {
-		return this.priorityCustomersAffected;
+
+
+	public long getPriorityCustomersAffected() {
+		return priorityCustomersAffected;
 	}
 
-	public void setPrioritycustomersaffected(long prioritycustomersaffected) {
-		this.priorityCustomersAffected = prioritycustomersaffected;
+
+
+	public void setPriorityCustomersAffected(long priorityCustomersAffected) {
+		this.priorityCustomersAffected = priorityCustomersAffected;
 	}
 
-	public String getReceivingwatercourse() {
-		return this.receivingWaterCourse;
+
+
+	public String getReceivingWaterCourse() {
+		return receivingWaterCourse;
 	}
 
-	public void setReceivingwatercourse(String receivingwatercourse) {
-		this.receivingWaterCourse = receivingwatercourse;
+
+
+	public void setReceivingWaterCourse(String receivingWaterCourse) {
+		this.receivingWaterCourse = receivingWaterCourse;
 	}
+
 
 
 	public Rule getRule() {
-		return this.rule;
+		return rule;
 	}
 
-	public void setRuleid(Rule rule) {
+
+
+	public void setRule(Rule rule) {
 		this.rule = rule;
 	}
 
-	public LocalDateTime getStarttime() {
-		return this.startTime;
+
+
+	public LocalDateTime getStartTime() {
+		return startTime;
 	}
 
-	public void setStarttime(LocalDateTime starttime) {
-		this.startTime = starttime;
+
+
+	public void setStartTime(LocalDateTime startTime) {
+		this.startTime = startTime;
 	}
 
-	public LocalDateTime getTimeofnextescalation() {
-		return this.timeOfNextEscalation;
+
+
+	public LocalDateTime getTimeOfNextEscalation() {
+		return timeOfNextEscalation;
 	}
 
-	public void setTimeofnextescalation(LocalDateTime timeofnextescalation) {
-		this.timeOfNextEscalation = timeofnextescalation;
+
+
+	public void setTimeOfNextEscalation(LocalDateTime timeOfNextEscalation) {
+		this.timeOfNextEscalation = timeOfNextEscalation;
 	}
 
-	public double getTotalloadkw() {
-		return this.totalLoadKW;
+
+
+	public double getTotalLoadKW() {
+		return totalLoadKW;
 	}
 
-	public void setTotalloadkw(double totalloadkw) {
-		this.totalLoadKW = totalloadkw;
+
+
+	public void setTotalLoadKW(double totalLoadKW) {
+		this.totalLoadKW = totalLoadKW;
 	}
 
-	public boolean getTransientevent() {
-		return this.transientEvent;
+
+
+	public boolean isTransientEvent() {
+		return transientEvent;
 	}
 
-	public void setTransientevent(boolean transientEvent) {
+
+
+	public void setTransientEvent(boolean transientEvent) {
 		this.transientEvent = transientEvent;
 	}
 
-	public String getUserdefinable1() {
-		return this.userDefinable1;
-	}
 
-	public void setUserdefinable1(String userdefinable1) {
-		this.userDefinable1 = userdefinable1;
-	}
 
-	public String getUserdefinable2() {
-		return this.userDefinable2;
-	}
-
-	public void setUserdefinable2(String userdefinable2) {
-		this.userDefinable2 = userdefinable2;
-	}
-
-	public String getUserdefinable3() {
-		return this.userDefinable3;
-	}
-
-	public void setUserdefinable3(String userdefinable3) {
-		this.userDefinable3 = userdefinable3;
+	public String getUserDefinable1() {
+		return userDefinable1;
 	}
 
 
-	public String getWorkorderresourceonsite() {
-		return this.workOrderResourceOnSite;
-	}
 
-	public void setWorkorderresourceonsite(String workorderresourceonsite) {
-		this.workOrderResourceOnSite = workorderresourceonsite;
-	}
-
-	public String getWorkorderstatusdescription() {
-		return this.workOrderStatusDescription;
-	}
-
-	public void setWorkorderstatusdescription(String workorderstatusdescription) {
-		this.workOrderStatusDescription = workorderstatusdescription;
-	}
-
-	public String getWorkprogressfromfield() {
-		return this.workOrderProgressFromField;
-	}
-
-	public void setWorkprogressfromfield(String workprogressfromfield) {
-		this.workOrderProgressFromField = workprogressfromfield;
+	public void setUserDefinable1(String userDefinable1) {
+		this.userDefinable1 = userDefinable1;
 	}
 
 
-	public Address getAddress() {
-		return this.address;
-	}
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public AreaCode getAreacode() {
-		return this.areaCode;
-	}
-
-	public void setAreacode(AreaCode areacode) {
-		this.areaCode = areacode;
-	}
-
-	public Device getDevice() {
-		return this.device;
-	}
-
-	public void setDevice(Device device) {
-		this.device = device;
-	}
-	public EventCause getEventcause() {
-		return this.eventCause;
-	}
-
-	public void setEventcause(EventCause eventcause) {
-		this.eventCause = eventcause;
-	}
-
-	public EventCertainty getEventcertainty() {
-		return this.eventCertainty;
-	}
-
-	public void setEventcertainty(EventCertainty eventcertainty) {
-		this.eventCertainty = eventcertainty;
-	}
-
-	public Eventlevel getEventlevel() {
-		return this.eventLevel;
-	}
-
-	public void setEventlevel(Eventlevel eventlevel) {
-		this.eventLevel = eventlevel;
-	}
-
-	public Eventreason getEventreason() {
-		return this.eventReason;
-	}
-
-	public void setEventreason(Eventreason eventreason) {
-		this.eventReason = eventreason;
-	}
-
-	public EventStatus getEventstatus() {
-		return this.eventStatus;
-	}
-
-	public void setEventstatus(EventStatus eventstatus) {
-		this.eventStatus = eventstatus;
-	}
-
-	public EventType getEventtype() {
-		return this.eventType;
-	}
-
-	public void setEventtype(EventType eventtype) {
-		this.eventType = eventtype;
-	}
-
-	public ModelType getModeltype() {
-		return this.modelType;
-	}
-
-	public void setModeltype(ModelType modeltype) {
-		this.modelType = modeltype;
-	}
-
-	public Operationmode getOperationmode() {
-		return this.operationMode;
-	}
-
-	public void setOperationmode(Operationmode operationmode) {
-		this.operationMode = operationmode;
-	}
-
-	public OrganisationalUnit getOrganisationalunit() {
-		return this.organisationalUnit;
-	}
-
-	public void setOrganisationalunit(OrganisationalUnit organisationalunit) {
-		this.organisationalUnit = organisationalunit;
-	}
-
-	public Priority getPriority() {
-		return this.priority;
-	}
-
-	public void setPriority(Priority priority) {
-		this.priority = priority;
-	}
-
-	public Severity getSeverity() {
-		return this.severity;
-	}
-
-	public void setSeverity(Severity severity) {
-		this.severity = severity;
-	}
-
-	public Site getSite() {
-		return this.site;
-	}
-
-	public void setSite(Site site) {
-		this.site = site;
-	}
-
-	public Standard getStandard() {
-		return this.standard;
-	}
-
-	public void setStandard(Standard standard) {
-		this.standard = standard;
-	}
-
-	public Standardband getStandardband() {
-		return this.standardBand;
-	}
-
-	public void setStandardband(Standardband standardband) {
-		this.standardBand = standardband;
-	}
-
-	public List<AffectedPremise> getAffectedpremises() {
-		return this.affectedPremises;
-	}
-
-	public void setAffectedpremises(List<AffectedPremise> affectedpremises) {
-		this.affectedPremises = affectedpremises;
-	}
-
-	public List<AreaCode> getAreacodes() {
-		return this.areacodes;
-	}
-
-	public void setAreacodes(List<AreaCode> areacodes) {
-		this.areacodes = areacodes;
+	public String getUserDefinable2() {
+		return userDefinable2;
 	}
 
 
+
+	public void setUserDefinable2(String userDefinable2) {
+		this.userDefinable2 = userDefinable2;
+	}
+
+
+
+	public String getUserDefinable3() {
+		return userDefinable3;
+	}
+
+
+
+	public void setUserDefinable3(String userDefinable3) {
+		this.userDefinable3 = userDefinable3;
+	}
 
 
 
@@ -742,24 +611,244 @@ public class Event implements Serializable {
 		return workOrderId;
 	}
 
+
+
 	public void setWorkOrderId(long workOrderId) {
 		this.workOrderId = workOrderId;
 	}
 
-	public List<Event> getParentEvents() {
-		return parentEvents;
+
+
+	public String getWorkOrderResourceOnSite() {
+		return workOrderResourceOnSite;
 	}
 
-	public void setParentEvents(List<Event> parentEvents) {
-		this.parentEvents = parentEvents;
+
+
+	public void setWorkOrderResourceOnSite(String workOrderResourceOnSite) {
+		this.workOrderResourceOnSite = workOrderResourceOnSite;
 	}
 
+
+
+	public String getWorkOrderStatusDescription() {
+		return workOrderStatusDescription;
+	}
+
+
+
+	public void setWorkOrderStatusDescription(String workOrderStatusDescription) {
+		this.workOrderStatusDescription = workOrderStatusDescription;
+	}
+
+
+
+	public String getWorkOrderProgressFromField() {
+		return workOrderProgressFromField;
+	}
+
+
+
+	public void setWorkOrderProgressFromField(String workOrderProgressFromField) {
+		this.workOrderProgressFromField = workOrderProgressFromField;
+	}
+
+
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
+
+	public AreaCode getAreaCode() {
+		return areaCode;
+	}
+
+
+
+	public void setAreaCode(AreaCode areaCode) {
+		this.areaCode = areaCode;
+	}
+
+
+
+	public Device getDevice() {
+		return device;
+	}
+
+
+
+	public void setDevice(Device device) {
+		this.device = device;
+	}
+
+
+
+	public Event getParentEvent() {
+		return parentEvent;
+	}
+
+
+
+	public void setParentEvent(Event parentEvent) {
+		this.parentEvent = parentEvent;
+	}
+
+
+
+	public EventCause getEventCause() {
+		return eventCause;
+	}
+
+
+
+	public void setEventCause(EventCause eventCause) {
+		this.eventCause = eventCause;
+	}
+
+
+
+	public EventCertainty getEventCertainty() {
+		return eventCertainty;
+	}
+
+
+
+	public void setEventCertainty(EventCertainty eventCertainty) {
+		this.eventCertainty = eventCertainty;
+	}
+
+
+
+	public Eventlevel getEventLevel() {
+		return eventLevel;
+	}
+
+
+
+	public void setEventLevel(Eventlevel eventLevel) {
+		this.eventLevel = eventLevel;
+	}
+
+
+
+	public Eventreason getEventReason() {
+		return eventReason;
+	}
+
+
+
+	public void setEventReason(Eventreason eventReason) {
+		this.eventReason = eventReason;
+	}
+
+
+
+	public EventStatus getEventStatus() {
+		return eventStatus;
+	}
+
+
+
+	public void setEventStatus(EventStatus eventStatus) {
+		this.eventStatus = eventStatus;
+	}
+
+
+
+	public EventType getEventType() {
+		return eventType;
+	}
+
+
+
+	public void setEventType(EventType eventType) {
+		this.eventType = eventType;
+	}
+	public ModelType getModelType() {
+		return modelType;
+	}
+	public void setModelType(ModelType modelType) {
+		this.modelType = modelType;
+	}
+	public OperationMode getOperationMode() {
+		return operationMode;
+	}
+	public void setOperationMode(OperationMode operationMode) {
+		this.operationMode = operationMode;
+	}
+	public OrganisationalUnit getOrganisationalUnit() {
+		return organisationalUnit;
+	}
+	public void setOrganisationalUnit(OrganisationalUnit organisationalUnit) {
+		this.organisationalUnit = organisationalUnit;
+	}
+	public Priority getPriority() {
+		return priority;
+	}
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+	public Severity getSeverity() {
+		return severity;
+	}
+	public void setSeverity(Severity severity) {
+		this.severity = severity;
+	}
+	public Site getSite() {
+		return site;
+	}
+	public void setSite(Site site) {
+		this.site = site;
+	}
+	public Standard getStandard() {
+		return standard;
+	}
+	public void setStandard(Standard standard) {
+		this.standard = standard;
+	}
+	public Standardband getStandardBand() {
+		return standardBand;
+	}
+	public void setStandardBand(Standardband standardBand) {
+		this.standardBand = standardBand;
+	}
+	public List<AreaCode> getCurrentlyAffectedAreas() {
+		return currentlyAffectedAreas;
+	}
+	public void setCurrentlyAffectedAreas(List<AreaCode> currentlyAffectedAreas) {
+		this.currentlyAffectedAreas = currentlyAffectedAreas;
+	}
+	public List<Event> getPreviousParents() {
+		return previousParents;
+	}
+	public void setPreviousParents(List<Event> previousParents) {
+		this.previousParents = previousParents;
+	}
 	public Set<Milestone> getMilestones() {
 		return milestones;
 	}
-
 	public void setMilestones(Set<Milestone> milestones) {
 		this.milestones = milestones;
+	}
+	public List<OutageStepDetail> getOutageSteps() {
+		return outageSteps;
+	}
+	public void setOutageSteps(List<OutageStepDetail> outageSteps) {
+		this.outageSteps = outageSteps;
+	}
+	public List<EventCondition> getRelatedConditions() {
+		return relatedConditions;
+	}
+	public void setRelatedConditions(List<EventCondition> relatedConditions) {
+		this.relatedConditions = relatedConditions;
 	}
 
 }

@@ -36,7 +36,7 @@ public class Restorationmethod implements Serializable {
 
 	//bi-directional many-to-one association to Outagestep
 	@OneToMany(mappedBy="restorationmethod")
-	private List<Outagestep> outagesteps;
+	private List<OutageStage> outagesteps;
 
 	public Restorationmethod() {
 	}
@@ -81,22 +81,22 @@ public class Restorationmethod implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Outagestep> getOutagesteps() {
+	public List<OutageStage> getOutagesteps() {
 		return this.outagesteps;
 	}
 
-	public void setOutagesteps(List<Outagestep> outagesteps) {
+	public void setOutagesteps(List<OutageStage> outagesteps) {
 		this.outagesteps = outagesteps;
 	}
 
-	public Outagestep addOutagestep(Outagestep outagestep) {
+	public OutageStage addOutagestep(OutageStage outagestep) {
 		getOutagesteps().add(outagestep);
 		outagestep.setRestorationmethod(this);
 
 		return outagestep;
 	}
 
-	public Outagestep removeOutagestep(Outagestep outagestep) {
+	public OutageStage removeOutagestep(OutageStage outagestep) {
 		getOutagesteps().remove(outagestep);
 		outagestep.setRestorationmethod(null);
 
