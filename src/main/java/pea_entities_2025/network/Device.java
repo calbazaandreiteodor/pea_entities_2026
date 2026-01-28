@@ -3,9 +3,9 @@ package pea_entities_2025.network;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import pea_entities_2025.Circuit;
-import pea_entities_2025.DeviceStatus;
-import pea_entities_2025.DeviceSubType;
 import pea_entities_2025.DeviceTerminal;
 import pea_entities_2025.DeviceType;
 import pea_entities_2025.OrganisationalUnit;
@@ -14,7 +14,9 @@ import pea_entities_2025.event.Event;
 import pea_entities_2025.service.auth.LockToken;
 import pea_entities_2025.workmanagement.WorkOrder;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -135,6 +137,19 @@ public class Device implements Serializable {
 
 	@OneToMany(mappedBy="device")
 	private List<DeviceTerminal> deviceTerminals;
+
+	
+	
+	@JsonIgnore
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="DEVICEDEVICEXREF", 
+			joinColumns=@JoinColumn(name="DEVICEID", referencedColumnName="ID"),
+			inverseJoinColumns=@JoinColumn(name="EFFECTEDDEVICEID", referencedColumnName="ID")
+			)
+    @OrderColumn(name = "SEQUENCE")
+    protected List<Device> poweredDevices;
+
 
 	public Device() {
 	}
@@ -379,5 +394,11 @@ public class Device implements Serializable {
 	public void setDeviceTerminals(List<DeviceTerminal> deviceTerminals) {
 		this.deviceTerminals = deviceTerminals;
 	}
-
+	
+	public List<Device> getPoweredDevices() {
+		return poweredDevices;
+	}
+	public void setPoweredDevices(List<Device> poweredDevices) {
+		this.poweredDevices = poweredDevices;
+	}
 }

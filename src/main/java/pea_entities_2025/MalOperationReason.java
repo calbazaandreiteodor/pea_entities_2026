@@ -39,7 +39,7 @@ public class MalOperationReason implements Serializable {
 	//bi-directional many-to-one association to Eventlevel
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="EVENTLEVELID", nullable=false)
-	private Eventlevel eventlevel;
+	private EventLevel eventlevel;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="maloperationreason")
@@ -88,11 +88,11 @@ public class MalOperationReason implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public Eventlevel getEventlevel() {
+	public EventLevel getEventlevel() {
 		return this.eventlevel;
 	}
 
-	public void setEventlevel(Eventlevel eventlevel) {
+	public void setEventlevel(EventLevel eventlevel) {
 		this.eventlevel = eventlevel;
 	}
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import pea_entities_2025.EventCloseReason;
-import pea_entities_2025.Eventlevel;
+import pea_entities_2025.EventLevel;
 import pea_entities_2025.Eventreason;
 import pea_entities_2025.Milestone;
 import pea_entities_2025.OperationMode;
@@ -180,7 +180,7 @@ public class Event implements Serializable {
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTLEVELID")
-	private Eventlevel eventLevel;
+	private EventLevel eventLevel;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="EVENTREASONID")
@@ -727,13 +727,13 @@ public class Event implements Serializable {
 
 
 
-	public Eventlevel getEventLevel() {
+	public EventLevel getEventLevel() {
 		return eventLevel;
 	}
 
 
 
-	public void setEventLevel(Eventlevel eventLevel) {
+	public void setEventLevel(EventLevel eventLevel) {
 		this.eventLevel = eventLevel;
 	}
 

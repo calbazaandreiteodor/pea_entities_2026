@@ -39,7 +39,7 @@ public class Component implements Serializable {
 	//bi-directional many-to-one association to Eventlevel
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="EVENTLEVELID")
-	private Eventlevel eventlevel;
+	private EventLevel eventlevel;
 
 	//bi-directional many-to-many association to Outagecause
 	@ManyToMany(mappedBy="components")
@@ -112,11 +112,11 @@ public class Component implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public Eventlevel getEventlevel() {
+	public EventLevel getEventlevel() {
 		return this.eventlevel;
 	}
 
-	public void setEventlevel(Eventlevel eventlevel) {
+	public void setEventlevel(EventLevel eventlevel) {
 		this.eventlevel = eventlevel;
 	}
 

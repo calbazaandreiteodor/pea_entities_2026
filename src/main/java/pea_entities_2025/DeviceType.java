@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.common.ModelType;
+import pea_entities_2025.network.DeviceSubType;
 
 import java.util.List;
 

@@ -78,10 +78,8 @@
 		<class>pea_entities_2025.Deployment</class>
 		<class>pea_entities_2025.Deploymentdisplayitem</class>
 		<class>pea_entities_2025.network.Device</class>
-		<class>pea_entities_2025.Devicedevicexref</class>
-		<class>pea_entities_2025.DevicedevicexrefPK</class>
-		<class>pea_entities_2025.DeviceStatus</class>
-		<class>pea_entities_2025.DeviceSubType</class>
+		<class>pea_entities_2025.network.DeviceStatus</class>
+		<class>pea_entities_2025.network.DeviceSubType</class>
 		<class>pea_entities_2025.Devicesubtypeparameter</class>
 		<class>pea_entities_2025.DeviceTerminal</class>
 		<class>pea_entities_2025.DeviceType</class>
@@ -111,7 +109,7 @@
 		<class>pea_entities_2025.Eventcustomerschange</class>
 		<class>pea_entities_2025.Eventeventnotexref</class>
 		<class>pea_entities_2025.EventeventnotexrefPK</class>
-		<class>pea_entities_2025.Eventlevel</class>
+		<class>pea_entities_2025.EventLevel</class>
 		<class>pea_entities_2025.Eventlevelrootdevice</class>
 		<class>pea_entities_2025.Eventmessagetemplate</class>
 		<class>pea_entities_2025.Eventnote</class>
@@ -162,7 +160,7 @@
 		<class>pea_entities_2025.Modeltable</class>
 		<class>pea_entities_2025.common.ModelType</class>
 		<class>pea_entities_2025.Moduletype</class>
-		<class>pea_entities_2025.Mostcommonfault</class>
+		<class>pea_entities_2025.MostCommonFault</class>
 		<class>pea_entities_2025.Mpan</class>
 		<class>pea_entities_2025.Networkmodelaudit</class>
 		<class>pea_entities_2025.NoContactReason</class>

@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.network.DeviceSubType;
+
 import java.util.List;
 
 
@@ -13,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="MOSTCOMMONFAULT")
 @NamedQuery(name="Mostcommonfault.findAll", query="SELECT m FROM Mostcommonfault m")
-public class Mostcommonfault implements Serializable {
+public class MostCommonFault implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -38,7 +40,7 @@ public class Mostcommonfault implements Serializable {
 	@OneToMany(mappedBy="mostcommonfault")
 	private List<DeviceSubType> devicesubtypes;
 
-	public Mostcommonfault() {
+	public MostCommonFault() {
 	}
 
 	public long getId() {

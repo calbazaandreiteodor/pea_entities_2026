@@ -98,7 +98,7 @@ public class OutageStepDetail implements Serializable {
 	//bi-directional many-to-one association to Eventlevel
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="EVENTLEVEL", nullable=false)
-	private Eventlevel eventlevelBean;
+	private EventLevel eventlevelBean;
 
 	//bi-directional many-to-one association to Eventtype
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -294,11 +294,11 @@ public class OutageStepDetail implements Serializable {
 		this.originalEvent = event3;
 	}
 
-	public Eventlevel getEventlevelBean() {
+	public EventLevel getEventlevelBean() {
 		return this.eventlevelBean;
 	}
 
-	public void setEventlevelBean(Eventlevel eventlevelBean) {
+	public void setEventlevelBean(EventLevel eventlevelBean) {
 		this.eventlevelBean = eventlevelBean;
 	}
 

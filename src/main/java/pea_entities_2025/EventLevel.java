@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import pea_entities_2025.common.ModelType;
 import pea_entities_2025.event.Event;
+import pea_entities_2025.network.DeviceSubType;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name="EVENTLEVEL")
 @NamedQuery(name="Eventlevel.findAll", query="SELECT e FROM Eventlevel e")
-public class Eventlevel implements Serializable {
+public class EventLevel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -66,7 +67,7 @@ public class Eventlevel implements Serializable {
 	@OneToMany(mappedBy="eventlevel")
 	private List<ProtectionOperated> protectionoperateds;
 
-	public Eventlevel() {
+	public EventLevel() {
 	}
 
 	public long getId() {
