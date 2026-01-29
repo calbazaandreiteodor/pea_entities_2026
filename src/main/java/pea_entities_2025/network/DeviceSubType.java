@@ -4,9 +4,9 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.DeviceType;
-import pea_entities_2025.EventLevel;
 import pea_entities_2025.MostCommonFault;
 import pea_entities_2025.common.ModelType;
+import pea_entities_2025.event.EventLevel;
 
 import java.util.List;
 

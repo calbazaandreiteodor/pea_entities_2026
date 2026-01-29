@@ -36,7 +36,7 @@ public class Parametertype implements Serializable {
 
 	//bi-directional many-to-one association to Parametername
 	@OneToMany(mappedBy="parametertype")
-	private List<Parametername> parameternames;
+	private List<ParameterName> parameternames;
 
 	public Parametertype() {
 	}
@@ -81,22 +81,22 @@ public class Parametertype implements Serializable {
 		this.revision = revision;
 	}
 
-	public List<Parametername> getParameternames() {
+	public List<ParameterName> getParameternames() {
 		return this.parameternames;
 	}
 
-	public void setParameternames(List<Parametername> parameternames) {
+	public void setParameternames(List<ParameterName> parameternames) {
 		this.parameternames = parameternames;
 	}
 
-	public Parametername addParametername(Parametername parametername) {
+	public ParameterName addParametername(ParameterName parametername) {
 		getParameternames().add(parametername);
 		parametername.setParametertype(this);
 
 		return parametername;
 	}
 
-	public Parametername removeParametername(Parametername parametername) {
+	public ParameterName removeParametername(ParameterName parametername) {
 		getParameternames().remove(parametername);
 		parametername.setParametertype(null);
 

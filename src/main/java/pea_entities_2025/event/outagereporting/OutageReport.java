@@ -15,11 +15,9 @@ import pea_entities_2025.MalOperationReason;
 import pea_entities_2025.Manufacturer;
 import pea_entities_2025.Mcf;
 import pea_entities_2025.Mei;
-import pea_entities_2025.OrganisationalUnit;
 import pea_entities_2025.OutageCause;
 import pea_entities_2025.OutageLevel;
 import pea_entities_2025.OutageReportClassification;
-import pea_entities_2025.OutageStage;
 import pea_entities_2025.OutageWeather;
 import pea_entities_2025.OverheadLineProximity;
 import pea_entities_2025.ProtectionOperated;
@@ -32,6 +30,7 @@ import pea_entities_2025.TpdReportedCode;
 import pea_entities_2025.Voltage;
 import pea_entities_2025.WorkCarriedOutResult;
 import pea_entities_2025.common.AreaCode;
+import pea_entities_2025.common.OrganisationalUnit;
 import pea_entities_2025.event.Activity;
 import pea_entities_2025.event.Event;
 
@@ -434,7 +433,7 @@ public class OutageReport implements Serializable {
 		)
 	private List<CatalogDamageCause> damageCauseCatalogs;
 
-	@OneToMany(mappedBy="outagereport")
+	@OneToMany(mappedBy="outageReport")
 	private List<OutageStage> outageStages;
 
 	public OutageReport() {

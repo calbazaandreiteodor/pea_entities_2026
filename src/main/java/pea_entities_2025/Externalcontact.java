@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.OrganisationalUnit;
+
 import java.util.List;
 
 

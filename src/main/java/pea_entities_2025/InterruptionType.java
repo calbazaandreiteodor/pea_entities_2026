@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.outagereporting.OutageStage;
+
 import java.util.List;
 
 
@@ -13,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name="INTERRUPTIONTYPE")
 @NamedQuery(name="Interruptiontype.findAll", query="SELECT i FROM Interruptiontype i")
-public class Interruptiontype implements Serializable {
+public class InterruptionType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -38,7 +40,7 @@ public class Interruptiontype implements Serializable {
 	@OneToMany(mappedBy="interruptiontype")
 	private List<OutageStage> outagesteps;
 
-	public Interruptiontype() {
+	public InterruptionType() {
 	}
 
 	public long getId() {

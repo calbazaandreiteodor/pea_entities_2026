@@ -6,12 +6,9 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import pea_entities_2025.EventCloseReason;
-import pea_entities_2025.EventLevel;
 import pea_entities_2025.Eventreason;
 import pea_entities_2025.Milestone;
 import pea_entities_2025.OperationMode;
-import pea_entities_2025.OrganisationalUnit;
-import pea_entities_2025.OutageStepDetail;
 import pea_entities_2025.Priority;
 import pea_entities_2025.Rule;
 import pea_entities_2025.Severity;
@@ -20,6 +17,8 @@ import pea_entities_2025.Standardband;
 import pea_entities_2025.common.Address;
 import pea_entities_2025.common.AreaCode;
 import pea_entities_2025.common.ModelType;
+import pea_entities_2025.common.OrganisationalUnit;
+import pea_entities_2025.event.outagereporting.OutageStepDevice;
 import pea_entities_2025.network.Device;
 import pea_entities_2025.network.Site;
 
@@ -248,7 +247,7 @@ public class Event implements Serializable {
 
 
 	@OneToMany(mappedBy="currentEvent")
-	private List<OutageStepDetail> outageSteps;
+	private List<OutageStepDevice> outageSteps;
 
 	
 	@JsonIgnore
@@ -260,6 +259,17 @@ public class Event implements Serializable {
 			)
 	@OrderColumn(name = "ORDERBY")
 	protected List<EventCondition> relatedConditions = new ArrayList();
+	
+
+	@JsonIgnore
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="EVENTEVENTNOTEXREF", 
+			joinColumns=@JoinColumn(name="EVENTID", referencedColumnName="ID"),
+			inverseJoinColumns=@JoinColumn(name="EVENTNOTEID", referencedColumnName="ID")
+			)
+	
+	protected List<EventNote> eventNoteCollection;
 	
 
 
@@ -838,10 +848,10 @@ public class Event implements Serializable {
 	public void setMilestones(Set<Milestone> milestones) {
 		this.milestones = milestones;
 	}
-	public List<OutageStepDetail> getOutageSteps() {
+	public List<OutageStepDevice> getOutageSteps() {
 		return outageSteps;
 	}
-	public void setOutageSteps(List<OutageStepDetail> outageSteps) {
+	public void setOutageSteps(List<OutageStepDevice> outageSteps) {
 		this.outageSteps = outageSteps;
 	}
 	public List<EventCondition> getRelatedConditions() {
@@ -851,4 +861,16 @@ public class Event implements Serializable {
 		this.relatedConditions = relatedConditions;
 	}
 
+	public List<EventNote> getEventNoteCollection() {
+		return eventNoteCollection;
+	}
+
+
+
+	public void setEventNoteCollection(List<EventNote> eventNoteCollection) {
+		this.eventNoteCollection = eventNoteCollection;
+	}
+
+
+	
 }

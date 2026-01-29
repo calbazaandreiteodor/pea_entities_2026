@@ -19,7 +19,7 @@
 		<class>pea_entities_2025.common.AddressType</class>
 		
 		<class>pea_entities_2025.event.AffectedPremise</class>
-		<class>pea_entities_2025.Alternativesupply</class>
+		<class>pea_entities_2025.AlternativeSupply</class>
 		<class>pea_entities_2025.Appointment</class>
 		<class>pea_entities_2025.Appservicetext</class>
 		<class>pea_entities_2025.common.AreaCode</class>
@@ -49,7 +49,7 @@
 		<class>pea_entities_2025.Company</class>
 		<class>pea_entities_2025.Companycontactxref</class>
 		<class>pea_entities_2025.CompanycontactxrefPK</class>
-		<class>pea_entities_2025.Compensationtype</class>
+		<class>pea_entities_2025.CompensationType</class>
 		<class>pea_entities_2025.Component</class>
 		<class>pea_entities_2025.Conductortype</class>
 		<class>pea_entities_2025.Connectiontype</class>
@@ -86,7 +86,7 @@
 		<class>pea_entities_2025.Displayitem</class>
 		<class>pea_entities_2025.Document</class>
 		<class>pea_entities_2025.Documentation</class>
-		<class>pea_entities_2025.Durationclass</class>
+		<class>pea_entities_2025.DurationClass</class>
 		<class>pea_entities_2025.Editablereferencedata</class>
 		<class>pea_entities_2025.Editablereferencedatacache</class>
 		<class>pea_entities_2025.Effect</class>
@@ -107,12 +107,10 @@
 		<class>pea_entities_2025.Eventcontactxref</class>
 		<class>pea_entities_2025.EventcontactxrefPK</class>
 		<class>pea_entities_2025.Eventcustomerschange</class>
-		<class>pea_entities_2025.Eventeventnotexref</class>
-		<class>pea_entities_2025.EventeventnotexrefPK</class>
-		<class>pea_entities_2025.EventLevel</class>
+		<class>pea_entities_2025.event.EventLevel</class>
 		<class>pea_entities_2025.Eventlevelrootdevice</class>
 		<class>pea_entities_2025.Eventmessagetemplate</class>
-		<class>pea_entities_2025.Eventnote</class>
+		<class>pea_entities_2025.event.EventNote</class>
 		<class>pea_entities_2025.Eventpolygonxref</class>
 		<class>pea_entities_2025.Eventreason</class>
 		<class>pea_entities_2025.EventResponsibility</class>
@@ -128,7 +126,7 @@
 		<class>pea_entities_2025.GlobalParameter</class>
 		<class>pea_entities_2025.HistoricalPassword</class>
 		<class>pea_entities_2025.Industrytype</class>
-		<class>pea_entities_2025.Interruptiontype</class>
+		<class>pea_entities_2025.InterruptionType</class>
 		<class>pea_entities_2025.Invalidschematicgraph</class>
 		<class>pea_entities_2025.Ixerrorlog</class>
 		<class>pea_entities_2025.Localauthoritydrainageareaxref</class>
@@ -164,17 +162,15 @@
 		<class>pea_entities_2025.Mpan</class>
 		<class>pea_entities_2025.Networkmodelaudit</class>
 		<class>pea_entities_2025.NoContactReason</class>
-		<class>pea_entities_2025.Notetemplate</class>
-		<class>pea_entities_2025.Notetype</class>
-		<class>pea_entities_2025.Notetypenotetemplatexref</class>
-		<class>pea_entities_2025.NotetypenotetemplatexrefPK</class>
+		<class>pea_entities_2025.event.NoteTemplate</class>
+		<class>pea_entities_2025.common.NoteType</class>
 		<class>pea_entities_2025.Notification</class>
 		<class>pea_entities_2025.Objecttype</class>
 		<class>pea_entities_2025.OperationMode</class>
-		<class>pea_entities_2025.OrganisationalUnit</class>
-		<class>pea_entities_2025.Organisationalunitgroup</class>
-		<class>pea_entities_2025.Organisationalunitparameter</class>
-		<class>pea_entities_2025.Organisationalunittype</class>
+		<class>pea_entities_2025.common.OrganisationalUnit</class>
+		<class>pea_entities_2025.common.OrganisationalUnitGroup</class>
+		<class>pea_entities_2025.common.OrganisationalUnitParameter</class>
+		<class>pea_entities_2025.common.OrganisationalUnitType</class>
 		<class>pea_entities_2025.event.Outage</class>
 		<class>pea_entities_2025.OutageCause</class>
 		<class>pea_entities_2025.Outagecausecategory</class>
@@ -187,12 +183,12 @@
 		<class>pea_entities_2025.Outagereportstatus</class>
 		<class>pea_entities_2025.Outagereportstatusxref</class>
 		<class>pea_entities_2025.OutagereportstatusxrefPK</class>
-		<class>pea_entities_2025.OutageStage</class>
-		<class>pea_entities_2025.OutageStepDetail</class>
+		<class>pea_entities_2025.event.outagereporting.OutageStage</class>
+		<class>pea_entities_2025.event.outagereporting.OutageStepDevice</class>
 		<class>pea_entities_2025.OutageWeather</class>
 		<class>pea_entities_2025.Outgoingheldmessage</class>
 		<class>pea_entities_2025.OverheadLineProximity</class>
-		<class>pea_entities_2025.Parametername</class>
+		<class>pea_entities_2025.ParameterName</class>
 		<class>pea_entities_2025.Parametertype</class>
 		<class>pea_entities_2025.Partitionrange</class>
 		<class>pea_entities_2025.PlannedOutage</class>
@@ -217,8 +213,8 @@
 		<class>pea_entities_2025.Requiredcontrolaction</class>
 		<class>pea_entities_2025.Requiredcontrolactiontype</class>
 		<class>pea_entities_2025.Resourcedetail</class>
-		<class>pea_entities_2025.Restorationmethod</class>
-		<class>pea_entities_2025.Restorationtype</class>
+		<class>pea_entities_2025.RestorationMethod</class>
+		<class>pea_entities_2025.RestorationType</class>
 		<class>pea_entities_2025.RestoreDelayReason</class>
 		<class>pea_entities_2025.Restservice</class>
 		<class>pea_entities_2025.Role</class>

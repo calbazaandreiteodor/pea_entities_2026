@@ -3,6 +3,7 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.EventLevel;
 import pea_entities_2025.event.outagereporting.OutageReport;
 
 import java.util.List;

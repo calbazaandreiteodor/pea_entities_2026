@@ -4,8 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.HistoricalPassword;
-import pea_entities_2025.OrganisationalUnit;
 import pea_entities_2025.Role;
+import pea_entities_2025.common.OrganisationalUnit;
 import pea_entities_2025.event.EventCondition;
 import pea_entities_2025.reporting.ReportDefinition;
 import pea_entities_2025.resourcemanagement.Crew;

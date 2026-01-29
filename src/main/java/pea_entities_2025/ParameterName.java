@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.common.ModelType;
+import pea_entities_2025.common.OrganisationalUnitParameter;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
 @Entity
 @Table(name="PARAMETERNAME")
 @NamedQuery(name="Parametername.findAll", query="SELECT p FROM Parametername p")
-public class Parametername implements Serializable {
+public class ParameterName implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -42,7 +43,7 @@ public class Parametername implements Serializable {
 
 	//bi-directional many-to-one association to Organisationalunitparameter
 	@OneToMany(mappedBy="parametername")
-	private List<Organisationalunitparameter> organisationalunitparameters;
+	private List<OrganisationalUnitParameter> organisationalunitparameters;
 
 	//bi-directional many-to-one association to Parametertype
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -62,7 +63,7 @@ public class Parametername implements Serializable {
 		)
 	private List<ModelType> modeltypes;
 
-	public Parametername() {
+	public ParameterName() {
 	}
 
 	public long getId() {
@@ -127,22 +128,22 @@ public class Parametername implements Serializable {
 		return devicesubtypeparameter;
 	}
 
-	public List<Organisationalunitparameter> getOrganisationalunitparameters() {
+	public List<OrganisationalUnitParameter> getOrganisationalunitparameters() {
 		return this.organisationalunitparameters;
 	}
 
-	public void setOrganisationalunitparameters(List<Organisationalunitparameter> organisationalunitparameters) {
+	public void setOrganisationalunitparameters(List<OrganisationalUnitParameter> organisationalunitparameters) {
 		this.organisationalunitparameters = organisationalunitparameters;
 	}
 
-	public Organisationalunitparameter addOrganisationalunitparameter(Organisationalunitparameter organisationalunitparameter) {
+	public OrganisationalUnitParameter addOrganisationalunitparameter(OrganisationalUnitParameter organisationalunitparameter) {
 		getOrganisationalunitparameters().add(organisationalunitparameter);
 		organisationalunitparameter.setParametername(this);
 
 		return organisationalunitparameter;
 	}
 
-	public Organisationalunitparameter removeOrganisationalunitparameter(Organisationalunitparameter organisationalunitparameter) {
+	public OrganisationalUnitParameter removeOrganisationalunitparameter(OrganisationalUnitParameter organisationalunitparameter) {
 		getOrganisationalunitparameters().remove(organisationalunitparameter);
 		organisationalunitparameter.setParametername(null);
 

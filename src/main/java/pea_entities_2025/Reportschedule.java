@@ -3,6 +3,7 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.common.OrganisationalUnitGroup;
 import pea_entities_2025.reporting.ReportDefinition;
 
 
@@ -41,7 +42,7 @@ public class Reportschedule implements Serializable {
 	//bi-directional many-to-one association to Organisationalunitgroup
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="ORGANISATIONALUNITGROUPID", nullable=false)
-	private Organisationalunitgroup organisationalunitgroup;
+	private OrganisationalUnitGroup organisationalunitgroup;
 
 	//bi-directional many-to-one association to Reportdefinition
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -104,11 +105,11 @@ public class Reportschedule implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public Organisationalunitgroup getOrganisationalunitgroup() {
+	public OrganisationalUnitGroup getOrganisationalunitgroup() {
 		return this.organisationalunitgroup;
 	}
 
-	public void setOrganisationalunitgroup(Organisationalunitgroup organisationalunitgroup) {
+	public void setOrganisationalunitgroup(OrganisationalUnitGroup organisationalunitgroup) {
 		this.organisationalunitgroup = organisationalunitgroup;
 	}
 

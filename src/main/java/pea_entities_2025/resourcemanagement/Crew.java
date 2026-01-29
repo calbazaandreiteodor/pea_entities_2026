@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import pea_entities_2025.Contact;
 import pea_entities_2025.Department;
-import pea_entities_2025.OrganisationalUnit;
 import pea_entities_2025.Vehicle;
 import pea_entities_2025.common.Address;
+import pea_entities_2025.common.OrganisationalUnit;
 import pea_entities_2025.service.auth.UserAccount;
 import pea_entities_2025.workmanagement.WorkOrderType;
 

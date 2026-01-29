@@ -37,7 +37,7 @@ public class Devicesubtypeparameter implements Serializable {
 	//bi-directional many-to-one association to Parametername
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="PARAMETERNAMEID", nullable=false)
-	private Parametername parametername;
+	private ParameterName parametername;
 
 	public Devicesubtypeparameter() {
 	}
@@ -74,11 +74,11 @@ public class Devicesubtypeparameter implements Serializable {
 		this.devicesubtype = devicesubtype;
 	}
 
-	public Parametername getParametername() {
+	public ParameterName getParametername() {
 		return this.parametername;
 	}
 
-	public void setParametername(Parametername parametername) {
+	public void setParametername(ParameterName parametername) {
 		this.parametername = parametername;
 	}
 
