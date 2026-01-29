@@ -5,10 +5,10 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import pea_entities_2025.Contact;
 import pea_entities_2025.CustomerType;
 import pea_entities_2025.Supplier;
 import pea_entities_2025.common.Address;
+import pea_entities_2025.common.Contact;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import pea_entities_2025.Call;
 import pea_entities_2025.Callback;
 import pea_entities_2025.CallbackType;
-import pea_entities_2025.Contact;
+import pea_entities_2025.common.Contact;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -20,6 +20,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="TROUBLETICKET")
+@DiscriminatorValue("1")
 @NamedQuery(name="Troubleticket.findAll", query="SELECT t FROM TroubleTicket t")
 public class TroubleTicket extends Event implements Serializable {
 	private static final long serialVersionUID = 1L;

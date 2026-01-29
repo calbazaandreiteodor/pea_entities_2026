@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import pea_entities_2025.EventCloseReason;
 import pea_entities_2025.Eventreason;
-import pea_entities_2025.Milestone;
 import pea_entities_2025.OperationMode;
 import pea_entities_2025.Priority;
 import pea_entities_2025.Rule;
@@ -16,6 +15,7 @@ import pea_entities_2025.Standard;
 import pea_entities_2025.Standardband;
 import pea_entities_2025.common.Address;
 import pea_entities_2025.common.AreaCode;
+import pea_entities_2025.common.Contact;
 import pea_entities_2025.common.ModelType;
 import pea_entities_2025.common.OrganisationalUnit;
 import pea_entities_2025.event.outagereporting.OutageStepDevice;
@@ -35,7 +35,8 @@ import java.util.Set;
 @Entity
 @Table(name="EVENT")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "id")
+@DiscriminatorColumn(name="EVENTTYPEID", discriminatorType=DiscriminatorType.INTEGER)
+
 @NamedQuery(name="Event.findAll", query="SELECT e FROM Event e")
 public class Event implements Serializable {
 	private static final long serialVersionUID = 14L;
@@ -271,19 +272,22 @@ public class Event implements Serializable {
 	
 	protected List<EventNote> eventNoteCollection;
 	
-
+	
+	@JsonIgnore
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="EVENTCONTACTXREF", 
+			joinColumns=@JoinColumn(name="EVENTID", referencedColumnName="ID"),
+			inverseJoinColumns=@JoinColumn(name="CONTACTID", referencedColumnName="ID")
+			)
+	@OrderColumn(name = "SEQUENCE")
+  protected List<Contact> relatedContacts = new ArrayList();
 
 	public Event() {
 	}
-
-
-
 	public long getId() {
 		return id;
 	}
-
-
-
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -548,57 +552,30 @@ public class Event implements Serializable {
 	public LocalDateTime getTimeOfNextEscalation() {
 		return timeOfNextEscalation;
 	}
-
-
-
 	public void setTimeOfNextEscalation(LocalDateTime timeOfNextEscalation) {
 		this.timeOfNextEscalation = timeOfNextEscalation;
 	}
-
-
-
 	public double getTotalLoadKW() {
 		return totalLoadKW;
 	}
-
-
-
 	public void setTotalLoadKW(double totalLoadKW) {
 		this.totalLoadKW = totalLoadKW;
 	}
-
-
-
 	public boolean isTransientEvent() {
 		return transientEvent;
 	}
-
-
-
 	public void setTransientEvent(boolean transientEvent) {
 		this.transientEvent = transientEvent;
 	}
-
-
-
 	public String getUserDefinable1() {
 		return userDefinable1;
 	}
-
-
-
 	public void setUserDefinable1(String userDefinable1) {
 		this.userDefinable1 = userDefinable1;
 	}
-
-
-
 	public String getUserDefinable2() {
 		return userDefinable2;
 	}
-
-
-
 	public void setUserDefinable2(String userDefinable2) {
 		this.userDefinable2 = userDefinable2;
 	}
@@ -740,45 +717,24 @@ public class Event implements Serializable {
 	public EventLevel getEventLevel() {
 		return eventLevel;
 	}
-
-
-
 	public void setEventLevel(EventLevel eventLevel) {
 		this.eventLevel = eventLevel;
 	}
-
-
-
 	public Eventreason getEventReason() {
 		return eventReason;
 	}
-
-
-
 	public void setEventReason(Eventreason eventReason) {
 		this.eventReason = eventReason;
 	}
-
-
-
 	public EventStatus getEventStatus() {
 		return eventStatus;
 	}
-
-
-
 	public void setEventStatus(EventStatus eventStatus) {
 		this.eventStatus = eventStatus;
 	}
-
-
-
 	public EventType getEventType() {
 		return eventType;
 	}
-
-
-
 	public void setEventType(EventType eventType) {
 		this.eventType = eventType;
 	}
@@ -860,15 +816,18 @@ public class Event implements Serializable {
 	public void setRelatedConditions(List<EventCondition> relatedConditions) {
 		this.relatedConditions = relatedConditions;
 	}
-
 	public List<EventNote> getEventNoteCollection() {
 		return eventNoteCollection;
 	}
-
-
-
 	public void setEventNoteCollection(List<EventNote> eventNoteCollection) {
 		this.eventNoteCollection = eventNoteCollection;
+	}
+
+	public List<Contact> getRelatedContacts() {
+		return relatedContacts;
+	}
+	public void setRelatedContacts(List<Contact> relatedContacts) {
+		this.relatedContacts = relatedContacts;
 	}
 
 

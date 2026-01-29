@@ -14,9 +14,6 @@ import pea_entities_2025.EventResponsibility;
 import pea_entities_2025.MalOperationReason;
 import pea_entities_2025.Manufacturer;
 import pea_entities_2025.Mcf;
-import pea_entities_2025.Mei;
-import pea_entities_2025.OutageCause;
-import pea_entities_2025.OutageLevel;
 import pea_entities_2025.OutageReportClassification;
 import pea_entities_2025.OutageWeather;
 import pea_entities_2025.OverheadLineProximity;
@@ -27,10 +24,10 @@ import pea_entities_2025.ShortInterruptionSop;
 import pea_entities_2025.ShortInterruptionType;
 import pea_entities_2025.TpdDamageMethod;
 import pea_entities_2025.TpdReportedCode;
-import pea_entities_2025.Voltage;
 import pea_entities_2025.WorkCarriedOutResult;
 import pea_entities_2025.common.AreaCode;
 import pea_entities_2025.common.OrganisationalUnit;
+import pea_entities_2025.common.Voltage;
 import pea_entities_2025.event.Activity;
 import pea_entities_2025.event.Event;
 
@@ -333,7 +330,7 @@ public class OutageReport implements Serializable {
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="MEI1ID")
-	private Mei mei;
+	private MEI mei;
 
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="ASSOCIATEDORGANISATIONALUNITID")
@@ -1039,11 +1036,11 @@ public class OutageReport implements Serializable {
 		this.mcf8 = mcf8;
 	}
 
-	public Mei getMei() {
+	public MEI getMei() {
 		return mei;
 	}
 
-	public void setMei(Mei mei) {
+	public void setMei(MEI mei) {
 		this.mei = mei;
 	}
 

@@ -13,6 +13,7 @@ import pea_entities_2025.common.TopologyType;
  */
 @Entity
 @Table(name="OUTAGE")
+@DiscriminatorValue("2")
 @NamedQuery(name="Outage.findAll", query="SELECT o FROM Outage o")
 public class Outage extends Event implements Serializable {
 	private static final long serialVersionUID = 1L;

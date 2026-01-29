@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.event.EventLevel;
+import pea_entities_2025.event.outagereporting.MEI;
+import pea_entities_2025.event.outagereporting.OutageCause;
 import pea_entities_2025.event.outagereporting.OutageReport;
 
 import java.util.List;
@@ -52,7 +54,7 @@ public class Component implements Serializable {
 
 	//bi-directional many-to-many association to Mei
 	@ManyToMany(mappedBy="components")
-	private List<Mei> meis;
+	private List<MEI> meis;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="component1")
@@ -137,11 +139,11 @@ public class Component implements Serializable {
 		this.equipments = equipments;
 	}
 
-	public List<Mei> getMeis() {
+	public List<MEI> getMeis() {
 		return this.meis;
 	}
 
-	public void setMeis(List<Mei> meis) {
+	public void setMeis(List<MEI> meis) {
 		this.meis = meis;
 	}
 

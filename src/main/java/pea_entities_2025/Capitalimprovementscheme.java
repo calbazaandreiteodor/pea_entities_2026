@@ -3,6 +3,7 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.customer.SchemeType;
 import pea_entities_2025.network.Site;
 
 import java.time.LocalDateTime;
@@ -43,7 +44,7 @@ public class Capitalimprovementscheme implements Serializable {
 	//bi-directional many-to-one association to Schemetype
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="SCHEMETYPEID", nullable=false)
-	private Schemetype schemetype;
+	private SchemeType schemetype;
 
 	//bi-directional many-to-many association to Site
 	@ManyToMany(mappedBy="capitalimprovementschemes")
@@ -100,11 +101,11 @@ public class Capitalimprovementscheme implements Serializable {
 		this.revision = revision;
 	}
 
-	public Schemetype getSchemetype() {
+	public SchemeType getSchemetype() {
 		return this.schemetype;
 	}
 
-	public void setSchemetype(Schemetype schemetype) {
+	public void setSchemetype(SchemeType schemetype) {
 		this.schemetype = schemetype;
 	}
 

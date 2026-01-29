@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.event.outagereporting.MEI;
+import pea_entities_2025.event.outagereporting.MEIType;
 import pea_entities_2025.event.outagereporting.OutageReport;
 
 import java.util.List;
@@ -39,12 +41,12 @@ public class AssociatedMEI implements Serializable {
 	//bi-directional many-to-one association to Mei
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="MEIID")
-	private Mei mei;
+	private MEI mei;
 
 	//bi-directional many-to-one association to Meitype
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="MEITYPEID")
-	private Meitype meitype;
+	private MEIType meitype;
 
 	//bi-directional many-to-one association to Outagereport
 	@OneToMany(mappedBy="associatedmei1")
@@ -109,19 +111,19 @@ public class AssociatedMEI implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public Mei getMei() {
+	public MEI getMei() {
 		return this.mei;
 	}
 
-	public void setMei(Mei mei) {
+	public void setMei(MEI mei) {
 		this.mei = mei;
 	}
 
-	public Meitype getMeitype() {
+	public MEIType getMeitype() {
 		return this.meitype;
 	}
 
-	public void setMeitype(Meitype meitype) {
+	public void setMeitype(MEIType meitype) {
 		this.meitype = meitype;
 	}
 

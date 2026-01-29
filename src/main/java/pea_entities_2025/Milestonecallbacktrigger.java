@@ -41,11 +41,11 @@ public class Milestonecallbacktrigger implements Serializable {
 
 	//bi-directional many-to-one association to Milestonetype
 	@OneToMany(mappedBy="milestonecallbacktrigger1")
-	private List<Milestonetype> milestonetypes1;
+	private List<MilestoneType> milestonetypes1;
 
 	//bi-directional many-to-one association to Milestonetype
 	@OneToMany(mappedBy="milestonecallbacktrigger2")
-	private List<Milestonetype> milestonetypes2;
+	private List<MilestoneType> milestonetypes2;
 
 	public Milestonecallbacktrigger() {
 	}
@@ -98,44 +98,44 @@ public class Milestonecallbacktrigger implements Serializable {
 		this.callbacktype = callbacktype;
 	}
 
-	public List<Milestonetype> getMilestonetypes1() {
+	public List<MilestoneType> getMilestonetypes1() {
 		return this.milestonetypes1;
 	}
 
-	public void setMilestonetypes1(List<Milestonetype> milestonetypes1) {
+	public void setMilestonetypes1(List<MilestoneType> milestonetypes1) {
 		this.milestonetypes1 = milestonetypes1;
 	}
 
-	public Milestonetype addMilestonetypes1(Milestonetype milestonetypes1) {
+	public MilestoneType addMilestonetypes1(MilestoneType milestonetypes1) {
 		getMilestonetypes1().add(milestonetypes1);
 		milestonetypes1.setMilestonecallbacktrigger1(this);
 
 		return milestonetypes1;
 	}
 
-	public Milestonetype removeMilestonetypes1(Milestonetype milestonetypes1) {
+	public MilestoneType removeMilestonetypes1(MilestoneType milestonetypes1) {
 		getMilestonetypes1().remove(milestonetypes1);
 		milestonetypes1.setMilestonecallbacktrigger1(null);
 
 		return milestonetypes1;
 	}
 
-	public List<Milestonetype> getMilestonetypes2() {
+	public List<MilestoneType> getMilestonetypes2() {
 		return this.milestonetypes2;
 	}
 
-	public void setMilestonetypes2(List<Milestonetype> milestonetypes2) {
+	public void setMilestonetypes2(List<MilestoneType> milestonetypes2) {
 		this.milestonetypes2 = milestonetypes2;
 	}
 
-	public Milestonetype addMilestonetypes2(Milestonetype milestonetypes2) {
+	public MilestoneType addMilestonetypes2(MilestoneType milestonetypes2) {
 		getMilestonetypes2().add(milestonetypes2);
 		milestonetypes2.setMilestonecallbacktrigger2(this);
 
 		return milestonetypes2;
 	}
 
-	public Milestonetype removeMilestonetypes2(Milestonetype milestonetypes2) {
+	public MilestoneType removeMilestonetypes2(MilestoneType milestonetypes2) {
 		getMilestonetypes2().remove(milestonetypes2);
 		milestonetypes2.setMilestonecallbacktrigger2(null);
 

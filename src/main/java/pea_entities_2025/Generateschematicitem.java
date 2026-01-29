@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.network.SchematicGraph;
+
 import java.time.LocalDateTime;
 
 
@@ -46,7 +48,7 @@ public class Generateschematicitem implements Serializable {
 	//bi-directional many-to-one association to Schematicgraph
 	@ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="SCHEMATICGRAPHID")
-	private Schematicgraph schematicgraph;
+	private SchematicGraph schematicgraph;
 
 	public Generateschematicitem() {
 	}
@@ -115,11 +117,11 @@ public class Generateschematicitem implements Serializable {
 		this.generateschematic = generateschematic;
 	}
 
-	public Schematicgraph getSchematicgraph() {
+	public SchematicGraph getSchematicgraph() {
 		return this.schematicgraph;
 	}
 
-	public void setSchematicgraph(Schematicgraph schematicgraph) {
+	public void setSchematicgraph(SchematicGraph schematicgraph) {
 		this.schematicgraph = schematicgraph;
 	}
 
