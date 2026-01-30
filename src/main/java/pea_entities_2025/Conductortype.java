@@ -3,6 +3,8 @@ package pea_entities_2025;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import pea_entities_2025.network.ConnectivityAttribute;
+
 import java.util.List;
 
 
@@ -39,7 +41,7 @@ public class Conductortype implements Serializable {
 
 	//bi-directional many-to-one association to Connectivityattribute
 	@OneToMany(mappedBy="conductortype")
-	private List<Connectivityattribute> connectivityattributes;
+	private List<ConnectivityAttribute> connectivityattributes;
 
 	public Conductortype() {
 	}
@@ -92,22 +94,22 @@ public class Conductortype implements Serializable {
 		this.shortcode = shortcode;
 	}
 
-	public List<Connectivityattribute> getConnectivityattributes() {
+	public List<ConnectivityAttribute> getConnectivityattributes() {
 		return this.connectivityattributes;
 	}
 
-	public void setConnectivityattributes(List<Connectivityattribute> connectivityattributes) {
+	public void setConnectivityattributes(List<ConnectivityAttribute> connectivityattributes) {
 		this.connectivityattributes = connectivityattributes;
 	}
 
-	public Connectivityattribute addConnectivityattribute(Connectivityattribute connectivityattribute) {
+	public ConnectivityAttribute addConnectivityattribute(ConnectivityAttribute connectivityattribute) {
 		getConnectivityattributes().add(connectivityattribute);
 		connectivityattribute.setConductortype(this);
 
 		return connectivityattribute;
 	}
 
-	public Connectivityattribute removeConnectivityattribute(Connectivityattribute connectivityattribute) {
+	public ConnectivityAttribute removeConnectivityattribute(ConnectivityAttribute connectivityattribute) {
 		getConnectivityattributes().remove(connectivityattribute);
 		connectivityattribute.setConductortype(null);
 

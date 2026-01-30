@@ -23,11 +23,11 @@
 		<class>pea_entities_2025.Appointment</class>
 		<class>pea_entities_2025.Appservicetext</class>
 		<class>pea_entities_2025.common.AreaCode</class>
-		<class>pea_entities_2025.AreaDensity</class>
+		<class>pea_entities_2025.common.AreaDensity</class>
 		<class>pea_entities_2025.Assetdescription</class>
 		<class>pea_entities_2025.Assetresponsibility</class>
 		<class>pea_entities_2025.Assettype</class>
-		<class>pea_entities_2025.AssociatedMEI</class>
+		<class>pea_entities_2025.event.outagereporting.AssociatedMEI</class>
 		<class>pea_entities_2025.Auditfield</class>
 		<class>pea_entities_2025.Audittype</class>
 		<class>pea_entities_2025.Authoritytype</class>
@@ -43,17 +43,17 @@
 		<class>pea_entities_2025.CatalogActivity</class>
 		<class>pea_entities_2025.CatalogDamageCause</class>
 		<class>pea_entities_2025.CellarUsage</class>
-		<class>pea_entities_2025.Circuit</class>
-		<class>pea_entities_2025.Circuittype</class>
+		<class>pea_entities_2025.network.Circuit</class>
+		<class>pea_entities_2025.network.CircuitType</class>
 		<class>pea_entities_2025.Columntype</class>
 		<class>pea_entities_2025.common.Company</class>
 		<class>pea_entities_2025.CompensationType</class>
 		<class>pea_entities_2025.Component</class>
 		<class>pea_entities_2025.Conductortype</class>
 		<class>pea_entities_2025.Connectiontype</class>
-		<class>pea_entities_2025.Connectivity</class>
-		<class>pea_entities_2025.Connectivityattribute</class>
-		<class>pea_entities_2025.ConnectivityattributePK</class>
+		<class>pea_entities_2025.network.Connectivity</class>
+		<class>pea_entities_2025.network.ConnectivityAttribute</class>
+		<class>pea_entities_2025.network.ConnectivityAttributePK</class>
 		<class>pea_entities_2025.Connectivitycut</class>
 		<class>pea_entities_2025.Connectivityjumper</class>
 		<class>pea_entities_2025.common.Contact</class>
@@ -79,8 +79,8 @@
 		<class>pea_entities_2025.network.DeviceStatus</class>
 		<class>pea_entities_2025.network.DeviceSubType</class>
 		<class>pea_entities_2025.Devicesubtypeparameter</class>
-		<class>pea_entities_2025.DeviceTerminal</class>
-		<class>pea_entities_2025.DeviceType</class>
+		<class>pea_entities_2025.network.DeviceTerminal</class>
+		<class>pea_entities_2025.network.DeviceType</class>
 		<class>pea_entities_2025.Displayitem</class>
 		<class>pea_entities_2025.Document</class>
 		<class>pea_entities_2025.Documentation</class>
@@ -127,9 +127,9 @@
 		<class>pea_entities_2025.Ixerrorlog</class>
 		<class>pea_entities_2025.Localauthoritydrainageareaxref</class>
 		<class>pea_entities_2025.LocalauthoritydrainageareaxrefPK</class>
-		<class>pea_entities_2025.Location</class>
+		<class>pea_entities_2025.common.Location</class>
 		<class>pea_entities_2025.Locationofflooding</class>
-		<class>pea_entities_2025.Locationtype</class>
+		<class>pea_entities_2025.common.LocationType</class>
 		<class>pea_entities_2025.service.auth.LockToken</class>
 		<class>pea_entities_2025.LockTokenStatus</class>
 		<class>pea_entities_2025.MalOperationReason</class>
@@ -277,8 +277,8 @@
 		<class>pea_entities_2025.service.auth.UserAccount</class>
 		<class>pea_entities_2025.service.auth.UserAccountStatus</class>
 		<class>pea_entities_2025.service.auth.UserSession</class>
-		<class>pea_entities_2025.Vehicle</class>
-		<class>pea_entities_2025.Vehicletype</class>
+		<class>pea_entities_2025.common.Vehicle</class>
+		<class>pea_entities_2025.common.VehicleType</class>
 		<class>pea_entities_2025.Viewrefreshschedule</class>
 		<class>pea_entities_2025.common.Voltage</class>
 		<class>pea_entities_2025.WorkCarriedOutResult</class>

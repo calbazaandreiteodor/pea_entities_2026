@@ -5,9 +5,9 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import pea_entities_2025.AreaDensity;
 import pea_entities_2025.common.Address;
 import pea_entities_2025.common.AreaCode;
+import pea_entities_2025.common.AreaDensity;
 import pea_entities_2025.common.TerrainType;
 import pea_entities_2025.customer.Premise;
 import pea_entities_2025.event.AffectedPremise;

@@ -5,9 +5,6 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import pea_entities_2025.Circuit;
-import pea_entities_2025.DeviceTerminal;
-import pea_entities_2025.DeviceType;
 import pea_entities_2025.common.ModelType;
 import pea_entities_2025.common.OrganisationalUnit;
 import pea_entities_2025.event.Event;

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import pea_entities_2025.Assettype;
-import pea_entities_2025.AssociatedMEI;
 import pea_entities_2025.CatalogActivity;
 import pea_entities_2025.CatalogDamageCause;
 import pea_entities_2025.Component;

@@ -3,7 +3,6 @@ package pea_entities_2025.common;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import pea_entities_2025.Location;
 import pea_entities_2025.event.Event;
 import pea_entities_2025.resourcemanagement.Crew;
 import pea_entities_2025.workmanagement.WorkOrder;

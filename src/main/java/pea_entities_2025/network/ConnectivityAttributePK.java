@@ -1,4 +1,4 @@
-package pea_entities_2025;
+package pea_entities_2025.network;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -8,17 +8,16 @@ import javax.persistence.*;
  * 
  */
 @Embeddable
-public class ConnectivityattributePK implements Serializable {
-	//default serial version id, required for serializable classes.
+public class ConnectivityAttributePK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(unique=true, nullable=false, precision=10)
+	@Column(unique=true, nullable=false)
 	private long fromterminalid;
 
-	@Column(unique=true, nullable=false, precision=10)
+	@Column(unique=true, nullable=false)
 	private long toterminalid;
 
-	public ConnectivityattributePK() {
+	public ConnectivityAttributePK() {
 	}
 	public long getFromterminalid() {
 		return this.fromterminalid;
@@ -37,10 +36,10 @@ public class ConnectivityattributePK implements Serializable {
 		if (this == other) {
 			return true;
 		}
-		if (!(other instanceof ConnectivityattributePK)) {
+		if (!(other instanceof ConnectivityAttributePK)) {
 			return false;
 		}
-		ConnectivityattributePK castOther = (ConnectivityattributePK)other;
+		ConnectivityAttributePK castOther = (ConnectivityAttributePK)other;
 		return 
 			(this.fromterminalid == castOther.fromterminalid)
 			&& (this.toterminalid == castOther.toterminalid);
